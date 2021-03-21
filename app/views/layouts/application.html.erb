@@ -11,6 +11,16 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'partials/menu' %>
+  
+    <main class="site-container mt-6">
+      <section class="section">
+        <div class="container">
+          <%= yield %>
+        </div>
+      </section>
+    </main>
+
+    <%= render 'partials/footer' %>
   </body>
 </html>
