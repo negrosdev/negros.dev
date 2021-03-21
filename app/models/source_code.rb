@@ -1,0 +1,2 @@
+class SourceCode < ApplicationRecord
+end
