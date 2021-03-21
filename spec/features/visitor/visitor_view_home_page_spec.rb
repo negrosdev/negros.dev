@@ -12,6 +12,23 @@ feature 'Visitor view home' do
     expect(page).to have_content('💕 De pessoas devs De negras para o mundo! 💕')
   end
 
+  scenario 'and view stars ' do
+    course = create(:course)
+
+    visit root_path
+
+    expect(page).to have_css('.fa-star', count: course.level)
+  end
+
+  scenario 'and view category ' do
+    category = Category.create(name: 'Ruby', slug: 'ruby')
+    course = create(:course, category: category)
+
+    visit root_path
+
+    expect(page).to have_css("figure[title=#{course.category.name}]")
+  end
+
   scenario 'and found course ' do
     course = create(:course)
 

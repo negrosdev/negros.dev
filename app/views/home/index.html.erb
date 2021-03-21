@@ -4,19 +4,19 @@
   De negras para o mundo! 💕
 </h1>
 <div class="columns is-multiline cards-height-match">
-  <% @courses.each do |course| %>
+  <% @courses.each do | course | %>
     <div class="column is-3-desktop is-4-tablet is-12-mobile courses">
-      <a href="/curso.html">
+      <a href="<%= course_path(course) %>">
         <div class="card">
           <div class="is-flex is-justify-content-space-between difficult">
-            <figure class="image is-32x32" title="Linguagem: Ruby">
-              <img src="assets/img/langs/ruby-i.png" alt="">
+            <figure class="image is-32x32" title="<%= course.category.name %>">
+              <img src="assets/categories/<%= course.category.name.downcase %>.png" alt="<%= course.category.name %>">
             </figure>
 
-            <span title="Dificuldade: 3">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
+            <span title="Dificuldade: <%= course.level %>">
+              <% course.level.times do %>
+                <i class="fas fa-star"></i>
+              <% end %>
             </span>
           </div>
 

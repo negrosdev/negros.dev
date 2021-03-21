@@ -8,7 +8,7 @@ FactoryBot.define do
   end
 
   factory :category do
-    name { Faker::Name.name }
+    name { Faker::ProgrammingLanguage.name }
     slug { Faker::Internet.slug }
   end
   
