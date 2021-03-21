@@ -1,0 +1,38 @@
+<h1 class="title mb-6 has-text-white has-text-centered">
+  💕 De
+  <span class="has-text-rose"> pessoas devs</span>
+  De negras para o mundo! 💕
+</h1>
+<div class="columns is-multiline cards-height-match">
+  <% @courses.each do |course| %>
+    <div class="column is-3-desktop is-4-tablet is-12-mobile courses">
+      <a href="/curso.html">
+        <div class="card">
+          <div class="is-flex is-justify-content-space-between difficult">
+            <figure class="image is-32x32" title="Linguagem: Ruby">
+              <img src="assets/img/langs/ruby-i.png" alt="">
+            </figure>
+
+            <span title="Dificuldade: 3">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </span>
+          </div>
+
+          <div class="card-content">
+            <p class="title has-text-white is-spaced">
+              “<%= course.title %>”
+            </p>
+          </div>
+          <footer class="card-footer p-3 author">
+            <figure class="image is-32x32">
+              <img src="/assets/img/marcus.jpg" class="is-rounded" alt="">
+            </figure>
+            <span class="has-text-white"><%= course.user.name %></span>
+          </footer>
+        </div>
+      </a>
+    </div>
+  <% end %>
+</div>

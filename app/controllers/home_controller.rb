@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    render plain: 'Home Controller'
+    @courses = Course.all
   end
 end
