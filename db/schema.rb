@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_21_194207) do
+ActiveRecord::Schema.define(version: 2021_03_22_024501) do
 
   create_table "albums", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "authors", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "facebook"
+    t.string "twitter"
+    t.string "youtube"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -31,15 +41,15 @@ ActiveRecord::Schema.define(version: 2021_03_21_194207) do
     t.string "description"
     t.integer "level"
     t.integer "album_id", null: false
-    t.integer "user_id", null: false
     t.integer "source_code_id", null: false
     t.integer "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "author_id", null: false
     t.index ["album_id"], name: "index_courses_on_album_id"
+    t.index ["author_id"], name: "index_courses_on_author_id"
     t.index ["category_id"], name: "index_courses_on_category_id"
     t.index ["source_code_id"], name: "index_courses_on_source_code_id"
-    t.index ["user_id"], name: "index_courses_on_user_id"
   end
 
   create_table "source_codes", force: :cascade do |t|
@@ -57,8 +67,6 @@ ActiveRecord::Schema.define(version: 2021_03_21_194207) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "first_name"
-    t.string "last_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -74,8 +82,8 @@ ActiveRecord::Schema.define(version: 2021_03_21_194207) do
   end
 
   add_foreign_key "courses", "albums"
+  add_foreign_key "courses", "authors"
   add_foreign_key "courses", "categories"
   add_foreign_key "courses", "source_codes"
-  add_foreign_key "courses", "users"
   add_foreign_key "videos", "albums"
 end
