@@ -13,27 +13,14 @@
     </div>
     <div id="navPrincipal" class="navbar-menu">
       <div class="navbar-start">
-        <a href="/" class="navbar-item">
-          Home
-        </a>
-  
-        <a href="treinamentos.html" class="navbar-item">
-          Treinamentos
-        </a>
-  
-        <a href="authors.html" class="navbar-item">
-          Instrutores
-        </a>
+        <%= link_to 'Home',   root_path,      class: 'navbar-item'  %>  
+        <%= link_to 'Cursos', courses_path,   class: 'navbar-item'  %>  
       </div>
   
       <div class="navbar-end">
-        <div class="navbar-item">
-          <div class="buttons">
-            <a href="login.html" class="button is-light">
-              Log in
-            </a>
-          </div>
-        </div>
+        <a href="authors.html" class="navbar-item">
+          Instrutores
+        </a>
       </div>
     </div>
   </div>  
