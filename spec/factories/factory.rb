@@ -1,10 +1,16 @@
 FactoryBot.define do
   
   factory :user do
-    first_name { Faker::Name.first_name }
-    last_name { Faker::Name.last_name }
     email { Faker::Internet.email }
     password { Faker::Internet.password(min_length: 8) }
+  end
+
+  factory :author do
+    name { Faker::Name.name }
+    email { Faker::Internet.email }
+    facebook { Faker::Internet.url }
+    twitter { Faker::Internet.url }
+    youtube { Faker::Internet.url }
   end
 
   factory :category do
@@ -34,7 +40,7 @@ FactoryBot.define do
     description { Faker::Lorem.paragraph }
     level { Faker::Number.within(range: 1..5)  }
     album
-    user
+    author
     category
     source_code
   end

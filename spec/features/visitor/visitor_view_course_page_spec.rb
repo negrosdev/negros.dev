@@ -7,6 +7,6 @@ feature 'Visitor view course page' do
     
     expect(current_path).to eq(course_path(course))
     expect(page).to have_content(course.title)
-    expect(page).to have_content(course.user.name)
+    expect(page).to have_content(course.author.name)
   end
 end

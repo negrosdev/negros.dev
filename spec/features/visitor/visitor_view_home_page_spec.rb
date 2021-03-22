@@ -35,7 +35,7 @@ feature 'Visitor view home' do
     visit root_path
 
     expect(page).to have_content(course.title)
-    expect(page).to have_content(course.user.name)
+    expect(page).to have_content(course.author.name)
   end
 
   scenario 'and found 04 courses' do
