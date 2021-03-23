@@ -23,23 +23,12 @@ FactoryBot.define do
     url { Faker::Internet.url }
   end
 
-  factory :album do
-    name { Faker::Name.name }
-  end
-
-  factory :video do
-    name { Faker::Name.name }
-    order { Faker::Number.digit }
-    video_id { Faker::Number.number(digits: 10) }
-    album
-  end
-
   factory :course do
     title { Faker::Name.name }
     slug { Faker::Internet.slug }
     description { Faker::Lorem.paragraph }
     level { Faker::Number.within(range: 1..5)  }
-    album
+    code { Faker::Number.within(range: 1..5)  }
     author
     category
     source_code

@@ -10,13 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_22_024501) do
-
-  create_table "albums", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
+ActiveRecord::Schema.define(version: 2021_03_23_011645) do
 
   create_table "authors", force: :cascade do |t|
     t.string "name"
@@ -40,13 +34,12 @@ ActiveRecord::Schema.define(version: 2021_03_22_024501) do
     t.string "slug"
     t.string "description"
     t.integer "level"
-    t.integer "album_id", null: false
     t.integer "source_code_id", null: false
     t.integer "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "author_id", null: false
-    t.index ["album_id"], name: "index_courses_on_album_id"
+    t.string "code"
     t.index ["author_id"], name: "index_courses_on_author_id"
     t.index ["category_id"], name: "index_courses_on_category_id"
     t.index ["source_code_id"], name: "index_courses_on_source_code_id"
@@ -71,19 +64,7 @@ ActiveRecord::Schema.define(version: 2021_03_22_024501) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "videos", force: :cascade do |t|
-    t.string "name"
-    t.integer "order"
-    t.integer "album_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "video_code"
-    t.index ["album_id"], name: "index_videos_on_album_id"
-  end
-
-  add_foreign_key "courses", "albums"
   add_foreign_key "courses", "authors"
   add_foreign_key "courses", "categories"
   add_foreign_key "courses", "source_codes"
-  add_foreign_key "videos", "albums"
 end
