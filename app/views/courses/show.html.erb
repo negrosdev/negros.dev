@@ -52,18 +52,3 @@
     </div>
   </div>
 </section>
-
-<%= content_for :css do %>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@2.4.21/dist/css/splide.min.css">
-<% end %>
-
-<%= content_for :scripts do %>
-  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@2.4.21/dist/js/splide.min.js"></script>
-  <script>
-    new Splide( '.splide', {
-      perPage: 3,
-      rewind : true,
-      gap: '1em'
-    } ).mount();
-  </script>
-<% end %>
