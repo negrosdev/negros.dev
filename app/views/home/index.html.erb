@@ -1,38 +1,42 @@
-<h1 class="title mb-6 has-text-white has-text-centered">
-  💕 De
-  <span class="has-text-rose"> pessoas devs</span>
-  De negras para o mundo! 💕
-</h1>
-<div class="columns is-multiline cards-height-match">
-  <% @courses.each do | course | %>
-    <div class="column is-3-desktop is-4-tablet is-12-mobile courses">
-      <a href="<%= course_path(course) %>">
-        <div class="card">
-          <div class="is-flex is-justify-content-space-between difficult">
-            <figure class="image is-32x32" title="<%= course.category.name %>">
-              <img src="assets/categories/<%= course.category.name.downcase %>.png" alt="<%= course.category.name %>">
-            </figure>
+<section class="section">
+  <div class="container">
+    <h1 class="title mb-6 has-text-white has-text-centered">
+      💕 De
+      <span class="has-text-rose"> pessoas devs</span>
+      De negras para o mundo! 💕
+    </h1>
+    <div class="columns is-multiline cards-height-match">
+      <% @courses.each do | course | %>
+        <div class="column is-3-desktop is-4-tablet is-12-mobile courses">
+          <a href="<%= course_path(course) %>">
+            <div class="card">
+              <div class="is-flex is-justify-content-space-between difficult">
+                <figure class="image is-32x32" title="<%= course.category.name %>">
+                  <img src="assets/categories/<%= course.category.name.downcase %>.png" alt="<%= course.category.name %>">
+                </figure>
 
-            <span title="Dificuldade: <%= course.level %>">
-              <% course.level.times do %>
-                <i class="fas fa-star"></i>
-              <% end %>
-            </span>
-          </div>
+                <span title="Dificuldade: <%= course.level %>">
+                  <% course.level.times do %>
+                    <i class="fas fa-star"></i>
+                  <% end %>
+                </span>
+              </div>
 
-          <div class="card-content">
-            <p class="title has-text-white is-spaced">
-              “<%= course.title %>”
-            </p>
-          </div>
-          <footer class="card-footer p-3 author">
-            <figure class="image is-32x32">
-              <img src="<%= course.author.avatar %>" class="is-rounded">
-            </figure>
-            <span class="has-text-white"><%= course.author.name %></span>
-          </footer>
+              <div class="card-content">
+                <p class="title has-text-white is-spaced">
+                  “<%= course.title %>”
+                </p>
+              </div>
+              <footer class="card-footer p-3 author">
+                <figure class="image is-32x32">
+                  <img src="<%= course.author.avatar %>" class="is-rounded">
+                </figure>
+                <span class="has-text-white"><%= course.author.name %></span>
+              </footer>
+            </div>
+          </a>
         </div>
-      </a>
+      <% end %>
     </div>
-  <% end %>
-</div>
+  </div>
+</section>
