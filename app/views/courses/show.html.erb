@@ -44,7 +44,7 @@
         <ul class="splide__list">
           <% @relateds_courses.each do | related | %>
             <li class="splide__slide">
-              <%= render partial: 'components/course', locals: { course: related } %>
+              <%= render partial: 'components/course', locals: { course: related, effect: false } %>
             </li>
           <% end %>
         </ul>
