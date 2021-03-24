@@ -44,33 +44,7 @@
         <ul class="splide__list">
           <% @relateds_courses.each do | related | %>
             <li class="splide__slide">
-              <a href="<%= course_path(related) %>">
-                <div class="card">
-                  <div class="is-flex is-justify-content-space-between difficult">
-                    <figure class="image is-32x32" title="<%= related.category.name %>">
-                      <img src="assets/categories/<%= related.category.name.downcase %>.png" alt="<%= related.category.name %>">
-                    </figure>
-
-                    <span title="Dificuldade: <%= related.level %>">
-                      <% related.level.times do %>
-                        <i class="fas fa-star"></i>
-                      <% end %>
-                    </span>
-                  </div>
-
-                  <div class="card-content">
-                    <p class="title has-text-white is-spaced">
-                      “<%= related.title %>”
-                    </p>
-                  </div>
-                  <footer class="card-footer p-3 author">
-                    <figure class="image is-32x32">
-                      <img src="<%= related.author.avatar %>" class="is-rounded">
-                    </figure>
-                    <span class="has-text-white"><%= related.author.name %></span>
-                  </footer>
-                </div>
-              </a>
+              <%= render partial: 'components/course', locals: { course: related } %>
             </li>
           <% end %>
         </ul>

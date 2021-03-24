@@ -8,33 +8,7 @@
     <div class="columns is-multiline cards-height-match">
       <% @courses.each do | course | %>
         <div class="column is-3-desktop is-4-tablet is-12-mobile courses">
-          <a href="<%= course_path(course) %>">
-            <div class="card">
-              <div class="is-flex is-justify-content-space-between difficult">
-                <figure class="image is-32x32" title="<%= course.category.name %>">
-                  <img src="assets/categories/<%= course.category.name.downcase %>.png" alt="<%= course.category.name %>">
-                </figure>
-
-                <span title="Dificuldade: <%= course.level %>">
-                  <% course.level.times do %>
-                    <i class="fas fa-star"></i>
-                  <% end %>
-                </span>
-              </div>
-
-              <div class="card-content">
-                <p class="title has-text-white is-spaced">
-                  “<%= course.title %>”
-                </p>
-              </div>
-              <footer class="card-footer p-3 author">
-                <figure class="image is-32x32">
-                  <img src="<%= course.author.avatar %>" class="is-rounded">
-                </figure>
-                <span class="has-text-white"><%= course.author.name %></span>
-              </footer>
-            </div>
-          </a>
+          <%= render partial: 'components/course', locals: { course: course } %>
         </div>
       <% end %>
     </div>
