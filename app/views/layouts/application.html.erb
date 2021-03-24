@@ -18,6 +18,14 @@
     <%= render 'partials/menu' %>
   
     <main class="site-container mt-6">
+      <% if flash[:notice] %>
+        <div class="container">
+          <div class="notification is-warning">
+            <p class="has-text-centered"><%= flash[:notice] %></p>
+          </div>
+        </div>
+      <% end %>
+
       <%= yield %>
     </main>
 
