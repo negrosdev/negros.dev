@@ -95,6 +95,8 @@ GEM
     faker (2.17.0)
       i18n (>= 1.6, < 2)
     ffi (1.15.0)
+    friendly_id (5.4.2)
+      activerecord (>= 4.0.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     haml (5.2.1)
@@ -279,6 +281,7 @@ DEPENDENCIES
   devise
   factory_bot
   faker (~> 2.17)
+  friendly_id (~> 5.4.0)
   jbuilder (~> 2.7)
   listen (~> 3.3)
   puma (~> 5.0)
