@@ -1,4 +1,7 @@
 class Author < ApplicationRecord
+  validates :name, :email,  presence: true
+  validates :email,         uniqueness: true
+
   def avatar
     gravatar_id = Digest::MD5::hexdigest(email.downcase)
     "http://secure.gravatar.com/avatar/#{gravatar_id}"
