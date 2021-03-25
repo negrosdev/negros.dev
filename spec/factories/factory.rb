@@ -8,7 +8,7 @@ FactoryBot.define do
   factory :author do
     name { Faker::Name.name }
     email { Faker::Internet.email }
-    facebook { Faker::Internet.url }
+    instagram { Faker::Twitter.user }
     twitter { Faker::Internet.url }
     youtube { Faker::Internet.url }
   end

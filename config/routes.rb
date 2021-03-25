@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   resources :courses, only: [:index, :show], path: :cursos do
     get 'categorias', to: 'courses#category', on: :member
   end
+
+  resources :authors, only: [:index], path: :instrutores
 end

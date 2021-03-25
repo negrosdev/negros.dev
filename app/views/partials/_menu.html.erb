@@ -13,14 +13,12 @@
     </div>
     <div id="navPrincipal" class="navbar-menu">
       <div class="navbar-start">
-        <%= link_to 'Home',   root_path,      class: 'navbar-item'  %>  
+        <%= link_to 'Início',   root_path,      class: 'navbar-item'  %>  
         <%= link_to 'Cursos', courses_path,   class: 'navbar-item'  %>  
       </div>
   
       <div class="navbar-end">
-        <a href="authors.html" class="navbar-item">
-          Instrutores
-        </a>
+        <%= link_to 'Instrutores', authors_path,   class: 'navbar-item'  %>
       </div>
     </div>
   </div>  
