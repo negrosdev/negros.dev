@@ -9,7 +9,7 @@ feature 'Visitor view home' do
     
     visit root_path
 
-    expect(page).to have_content('💕 De pessoas devs De negras para o mundo! 💕')
+    expect(page).to have_content('💕 De pessoas negras devs para o mundo! 💕')
   end
 
   scenario 'and view stars ' do
