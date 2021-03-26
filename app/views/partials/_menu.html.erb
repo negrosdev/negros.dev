@@ -10,15 +10,22 @@
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
       </a>
-    </div>
+  </div>
     <div id="navPrincipal" class="navbar-menu">
       <div class="navbar-start">
         <%= link_to 'Início',   root_path,      class: 'navbar-item'  %>  
-        <%= link_to 'Cursos', courses_path,   class: 'navbar-item'  %>  
+        <%= link_to 'Cursos',   courses_path,   class: 'navbar-item'  %>  
       </div>
   
       <div class="navbar-end">
-        <%= link_to 'Instrutores', authors_path,   class: 'navbar-item'  %>
+        <div class="navbar-item">
+          <div class="buttons">
+            <a href="<%= authors_path %>" class="navbar-item button is-rose is-outlined">
+              <ion-icon name="people-outline"></ion-icon>
+              <span class="ml-2">Instrutores</span>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>  
