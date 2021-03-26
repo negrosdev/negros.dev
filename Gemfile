@@ -33,6 +33,7 @@ gem 'friendly_id', '~> 5.4.0'
 gem 'devise'
 gem 'rails_admin', '~> 2.0'
 
+gem 'rubocop-rails', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -53,8 +54,10 @@ group :development do
   gem 'spring'
 end
 
+
 group :test do 
   gem 'capybara'
+  gem 'shoulda-matchers', '~> 4.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
