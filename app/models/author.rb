@@ -19,4 +19,8 @@ class Author < ApplicationRecord
     "https://instagram.com/#{instagram}"
   end
 
+  def linkedin_url
+    "https://www.linkedin.com/in/#{linkedin}"
+  end
+
 end

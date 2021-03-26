@@ -5,15 +5,30 @@
         <div class="column is-3-desktop is-4-tablet is-12-mobile">
           <div class="card">
             <div class="has-text-right network">
-              <a href="<%= author.youtube_url %>" target="_blank" class="has-text-white-bis">
-                <i class="fab fa-youtube"></i>
-              </a>
-              <a href="<%= author.twitter_url %>" target="_blank" class="has-text-white-bis">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="<%= author.instagram_url %>" target="_blank" class="has-text-white-bis">
-                <i class="fab fa-instagram"></i>
-              </a>
+              <% if author.linkedin %>
+                <a href="<%= author.linkedin_url %>" target="_blank" class="has-text-white-bis">
+                  <i class="fab fa-linkedin"></i>
+                </a>
+              <% end %>
+
+              <% if author.youtube %>
+                <a href="<%= author.youtube_url %>" target="_blank" class="has-text-white-bis">
+                  <i class="fab fa-youtube"></i>
+                </a>
+              <% end %>
+
+              <% if author.twitter %>
+                <a href="<%= author.twitter_url %>" target="_blank" class="has-text-white-bis">
+                  <i class="fab fa-twitter"></i>
+                </a>                
+              <% end %>
+
+              <% if author.instagram %>
+                <a href="<%= author.instagram_url %>" target="_blank" class="has-text-white-bis">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              <% end %>
+              
             </div>
 
             <div class="card-content is-flex is-justify-content-center">
