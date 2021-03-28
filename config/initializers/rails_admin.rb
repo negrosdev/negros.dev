@@ -1,3 +1,6 @@
+require "nested_form/engine"
+require "nested_form/builder_mixin"
+
 RailsAdmin.config do |config|
 
   ### Popular gems integration
