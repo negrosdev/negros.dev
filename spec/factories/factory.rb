@@ -1,3 +1,5 @@
+require 'faker'
+
 FactoryBot.define do
   
   factory :user do
@@ -28,7 +30,7 @@ FactoryBot.define do
     slug { Faker::Internet.slug }
     description { Faker::Lorem.paragraph }
     level { Faker::Number.within(range: 1..5)  }
-    code { Faker::Number.within(range: 1..5)  }
+    code {  Faker::Number.hexadecimal(digits: 3)  }
     author
     category
     source_code

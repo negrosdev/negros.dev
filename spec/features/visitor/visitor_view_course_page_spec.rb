@@ -23,7 +23,7 @@ feature 'Visitor view course page' do
 
   scenario 'and count recommended courses' do
     category = create(:category, name: 'ruby')
-    courses = create_list(:course, 4, category: category)
+    courses = create_list(:course, 4, category: category )
 
     visit root_path
     click_on courses.first.title
