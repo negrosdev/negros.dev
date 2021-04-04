@@ -20,11 +20,6 @@ FactoryBot.define do
     slug { Faker::Internet.slug }
   end
   
-  factory :source_code do
-    name { Faker::Name.name }
-    url { Faker::Internet.url }
-  end
-
   factory :course do
     title { Faker::Name.name }
     slug { Faker::Internet.slug }
@@ -33,6 +28,5 @@ FactoryBot.define do
     code {  Faker::Number.hexadecimal(digits: 3)  }
     author
     category
-    source_code
   end
 end

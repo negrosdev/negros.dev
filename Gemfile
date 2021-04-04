@@ -34,6 +34,8 @@ gem "pg", "~> 1.2"
 
 gem "friendly_id", "~> 5.4"
 
+gem 'aws-sdk-s3', require: false
+
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
