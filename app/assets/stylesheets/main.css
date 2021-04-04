@@ -162,8 +162,14 @@ main.site-container {
   color: var(--color-rose) !important;
 }
 
+.button.is-rose {
+  background-color: var(--color-rose);
+  border          : 1px solid var(--color-rose);
+  color           : white;
+}
+
 .button.is-rose.is-outlined {
-  background-color: transparent;
+  background-color: transparent !important;
   border          : 1px solid var(--color-rose);
   color           : white;
 }

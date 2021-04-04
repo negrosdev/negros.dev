@@ -4,7 +4,16 @@
   <div class="container">
     <div class="columns is-multiline">
       <div class="column if-full">
-        <h1 class="title has-text-white"><%= @course.title %></h1>
+        <div class="columns">
+          <div class="column is-10">
+            <h1 class="title has-text-white has-text-center-mobile"><%= @course.title %></h1>
+          </div>
+          <div class="column has-text-right">
+            <a href="<%= @course.source_code.url %>" class="button is-rose">
+              Código Fonte
+            </a>
+          </div>
+        </div>
       </div>
       <div class="column is-full">
         <div class="card clear">
