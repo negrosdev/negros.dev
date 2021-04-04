@@ -7,7 +7,7 @@ class CoursesController < ApplicationController
 
   def show
     @course = Course.friendly.find(params[:id])
-    @relateds_courses = Course.friendly.where(category: @course.category).last(4)
+    @relateds_courses = Course.friendly.where(category: @course.category).last(3)
   end
 
   def category
