@@ -16,7 +16,6 @@ phases:
     commands:
       - bundle install --without development test
       - rake webpacker:install
-      - RAILS_ENV=production bundle exec rails db:create 
       - RAILS_ENV=production bundle exec rails db:migrate
   post_build:
     commands:
