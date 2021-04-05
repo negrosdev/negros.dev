@@ -14,8 +14,7 @@ phases:
       - apt-get install -y nodejs yarn
   build:
     commands:
-      - bundle install --without development test
-      - bundle exec rake webpacker:install
+      - bundle install
       - RAILS_ENV=production bundle exec rails db:migrate
   post_build:
     commands:
