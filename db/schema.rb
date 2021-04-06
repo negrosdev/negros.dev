@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_04_144159) do
+ActiveRecord::Schema.define(version: 2021_04_06_013733) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -40,6 +40,13 @@ ActiveRecord::Schema.define(version: 2021_04_04_144159) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "albums", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "slug"
+  end
+
   create_table "authors", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -67,7 +74,8 @@ ActiveRecord::Schema.define(version: 2021_04_04_144159) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "author_id", null: false
-    t.string "code"
+    t.integer "album_id", null: false
+    t.index ["album_id"], name: "index_courses_on_album_id"
     t.index ["author_id"], name: "index_courses_on_author_id"
     t.index ["category_id"], name: "index_courses_on_category_id"
   end
@@ -95,8 +103,21 @@ ActiveRecord::Schema.define(version: 2021_04_04_144159) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "videos", force: :cascade do |t|
+    t.string "name"
+    t.integer "order"
+    t.string "vimeo_code"
+    t.integer "album_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "slug"
+    t.index ["album_id"], name: "index_videos_on_album_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "courses", "albums"
   add_foreign_key "courses", "authors"
   add_foreign_key "courses", "categories"
+  add_foreign_key "videos", "albums"
 end

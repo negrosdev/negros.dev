@@ -7,6 +7,7 @@ feature 'Visitor view courses page' do
   end
 
   scenario 'and no view categories' do
+    pending 'not ready'
     course = create(:course)
 
     visit root_path

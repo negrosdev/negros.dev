@@ -2,63 +2,87 @@
 
 <section class="section">
   <div class="container">
-    <div class="columns is-multiline">
-      <div class="column if-full">
-        <div class="columns">
-          <div class="column is-10">
-            <h1 class="title has-text-white has-text-center-mobile"><%= @course.title %></h1>
-          </div>
-          <div class="column has-text-right">
-            <a href="<%= @course.source_code.url %>" class="button is-rose">
-              Código Fonte
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="column is-full">
-        <div class="card clear">
-          <div class="card-content clear">
-            <div style="padding: 56.25% 0 0 0; position: relative">
-              <iframe
-                src="https://player.vimeo.com/video/<%= @course.code %>?title=0&byline=0&portrait=0"
-                style="
-                  position: absolute;
-                  top: 0;
-                  left: 0;
-                  width: 100%;
-                  height: 100%;
-                "
-                frameborder="0"
-                allow="autoplay; fullscreen; picture-in-picture"
-                allowfullscreen
-              ></iframe>
-            </div>
-            <script src="https://player.vimeo.com/api/player.js"></script>
-          </div>
-          <footer class="card-footer p-3 author">
-            <figure class="image is-32x32">
-              <img src="<%= @course.author.avatar %>" class="is-rounded">
-            </figure>
-            <span class="has-text-white"><%= @course.author.name %></span>
-          </footer>
+  <div class="columns">
+    <div class="column">
+      <div class="card clear">
+        <div class="card-content">
+          <aside class="menu">
+            <p class="menu-label">
+              Aulas
+            </p>
+            <ul class="menu-list">
+              <% @course.album.videos.each do |video| %>
+                <li>
+                  <a href="<%= video_course_path(video) %>">
+                    <%= video.order %>. <%= video.name %>
+                  </a>
+                </li>
+              <% end %>
+            </ul>
+          </aside>
         </div>
       </div>
     </div>
-  </div>
-</section>
+    <div class="column is-8-desktop is-full-mobile">
+      <div class="columns is-multiline">
+        <div class="column is-full">
+          <div class="card clear">
+            <div class="card-content clear">
+              <div style="padding: 56.25% 0 0 0; position: relative">
+                <iframe
+                  src="https://player.vimeo.com/video/<%= @video.vimeo_code %>?title=0&byline=0&portrait=0"
+                  style="
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                  "
+                  frameborder="0"
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <script src="https://player.vimeo.com/api/player.js"></script>
+            </div>
+            <footer class="card-footer p-3 author">
+              <figure class="image is-32x32">
+                <img src="<%= @course.author.avatar %>" class="is-rounded">
+              </figure>
+              <span class="has-text-white"><%= @course.author.name %></span>
+            </footer>
+          </div>
 
-<section class="section">
-  <div class="container">
-    <h2 class="subtitle mb-7 has-text-white">Recomendados</h2>
-    <div class="splide">
-      <div class="splide__track">
-        <ul class="splide__list">
-          <% @relateds_courses.each do | related | %>
-            <li class="splide__slide">
-              <%= render partial: 'components/course', locals: { course: related, effect: false } %>
-            </li>
-          <% end %>
-        </ul>
+          <div class="has-text-right mt-5">
+            <a href="<%= @course.source_code.url %>" class="button is-dark">
+              <span class="icon">
+                <i class="fas fa-code"></i>
+              </span>
+              <span>código fonte</span>
+            </a>
+            <a href="<%= @course.course_download.url %>" class="button is-rose ml-3">
+              <span class="icon">
+                <i class="fas fa-download"></i>
+              </span>
+              <span>aula</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="column">
+          <h2 class="subtitle mb-7 has-text-white">Recomendados</h2>
+          <div class="splide">
+            <div class="splide__track">
+              <ul class="splide__list">
+                <% @relateds_courses.each do | related | %>
+                  <li class="splide__slide">
+                    <%= render partial: 'components/course', locals: { course: related, effect: false } %>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

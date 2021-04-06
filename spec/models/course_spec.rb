@@ -4,6 +4,7 @@ RSpec.describe Course, type: :model do
   describe 'associations' do
     it { should belong_to(:author).class_name('Author') }
     it { should belong_to(:category).class_name('Category') }
+    it { should belong_to(:album).class_name('Album') }
   end
 
   describe 'validations' do
@@ -11,6 +12,5 @@ RSpec.describe Course, type: :model do
     it { should validate_presence_of(:slug) }
     it { should validate_presence_of(:description) }
     it { should validate_presence_of(:level) }
-    it { should validate_presence_of(:code) }
   end
 end

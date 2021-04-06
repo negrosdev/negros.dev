@@ -19,14 +19,24 @@ FactoryBot.define do
     name { Faker::ProgrammingLanguage.name }
     slug { Faker::Internet.slug }
   end
+
+  factory :album do
+    name { Faker::Name.name }
+  end
+
+  factory :video do
+    name       { Faker::Name.name }
+    order      { Faker::Number.within(range: 1..100)  }
+    vimeo_code { Faker::Internet.uuid }
+  end
   
   factory :course do
     title { Faker::Name.name }
     slug { Faker::Internet.slug }
     description { Faker::Lorem.paragraph }
     level { Faker::Number.within(range: 1..5)  }
-    code {  Faker::Number.hexadecimal(digits: 3)  }
     author
+    album
     category
   end
 end

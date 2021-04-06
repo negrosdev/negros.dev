@@ -1,33 +1,62 @@
 feature 'Visitor view course page' do
   scenario 'and informations of course' do
-    course = create(:course)
+    album = create(:album)
+    create(:video, album: album)
+    course = create(:course, album: album)
 
     visit root_path
     click_on course.title
-    
+
     expect(current_path).to eq(course_path(course))
     expect(page).to have_content(course.title)
     expect(page).to have_content(course.author.name)
   end
-  scenario 'and view recommended courses' do
-    category = create(:category, name: 'ruby')
-    courses = create_list(:course, 4, category: category)
-
-    visit root_path
-    click_on courses.first.title
-
-    expect(page).to have_content('Recomendados')
-    expect(page).to have_content(courses.first.title)
-    expect(page).to have_content(courses.last.title)
-  end
-
   scenario 'and count recommended courses' do
     category = create(:category, name: 'ruby')
-    courses = create_list(:course, 4, category: category )
+    album = create(:album)
+    
+    create(:video, album: album)
+    courses = create_list(:course, 4, category: category, album: album )
 
     visit root_path
     click_on courses.first.title
+    
+    expect(page).to have_content('Recomendados')
+    expect(page).to have_css('.splide__slide', count: 3)
+  end
+  scenario 'and view download source code' do
+    album = create(:album)
+    create(:video, album: album)
+    course = create(:course, album: album)
 
-    expect(page).to have_css('.splide__slide', count: 4)
+
+    visit root_path
+    click_on course.title
+
+    expect(page).to have_link('código fonte')
+  end
+  scenario 'and view download course' do
+    album = create(:album)
+    create(:video, album: album)
+    course = create(:course, album: album)
+
+
+    visit root_path
+    click_on course.title
+
+    expect(page).to have_link('aula')
+  end
+  scenario 'and view playlist' do
+    album =  create(:album)
+    video =  create(:video, name: 'Introdução', order: 1, album: album)
+    video2 = create(:video, name: 'Criando Componentes', order: 2, album: album)
+    course = create(:course, album: album)
+
+    visit root_path
+    click_on course.title
+
+    expect(page).to have_content('Aulas')
+    expect(page).to have_content(course.album.videos.first.name)
+    expect(page).to have_content(course.album.videos.second.name)
   end
 end
