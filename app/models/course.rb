@@ -8,7 +8,7 @@ class Course < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: :slugged
 
-  belongs_to :author,         optional: false
-  belongs_to :category,       optional: false
-  belongs_to :album
+  belongs_to :author
+  belongs_to :category
+  belongs_to :album,          optional: true
 end
