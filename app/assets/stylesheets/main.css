@@ -1,4 +1,5 @@
 :root {
+  --color-rose-light: #ff3c60;
   --color-rose: #fe1843;
 }
 
@@ -179,6 +180,22 @@ main.site-container {
 .button.is-rose.is-outlined:hover {
   background-color: var(--color-rose);
   color           : white;
+}
+
+/* links, imgs configuration
+=============================================*/
+a.link-border{
+  border-bottom: 1px solid var(--color-rose);
+}
+
+a.link-border:hover{
+  border-bottom: 1px solid var(--color-rose-light);
+}
+
+
+.error-img {
+  width: 400px;
+  height: 400px;
 }
 
 
