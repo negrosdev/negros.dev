@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/negrosdev/negros.dev" }
 
-ruby '2.7.2'
+ruby '2.7.3'
 
 gem 'rails', '~> 6.1.3'
 gem 'puma', '~> 5.0'
@@ -14,8 +14,7 @@ gem 'devise'
 gem 'rails_admin', '~> 2.0'
 gem "pg", "~> 1.2"
 gem "friendly_id", "~> 5.4"
-gem 'aws-sdk-s3', require: false
-
+gem "google-cloud-storage", "~> 1.11", require: false
 
 group :development, :test do
   gem 'sqlite3', '~> 1.4'

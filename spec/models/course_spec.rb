@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Course, type: :model do
   describe 'associations' do
-    it { should belong_to(:author).class_name('Author') }
-    it { should belong_to(:category).class_name('Category') }
-    it { should belong_to(:album).class_name('Album') }
+    it { should belong_to(:author)}
+    it { should belong_to(:category)}
+    it { should belong_to(:album).optional }
   end
 
   describe 'validations' do

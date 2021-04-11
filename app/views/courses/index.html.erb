@@ -13,10 +13,12 @@
               <% @categories.each do |category| %>
                 <li>
                   <a class="is-flex" href="<%= categorias_course_path(category) %>">
-                    <img src="/assets/categories/<%= category.name.downcase %>.svg">
+                    <% if category.icon.url %>
+                      <%= image_tag category.icon.url %>
+                    <% end %>
                     <span><%= category.name %></span>
                   </a>
-                <li>              
+                <li>
               <% end %>
             </ul>
           </aside>

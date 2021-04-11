@@ -24,28 +24,6 @@ feature 'Visitor view course page' do
     expect(page).to have_content('Recomendados')
     expect(page).to have_css('.splide__slide', count: 3)
   end
-  scenario 'and view download source code' do
-    album = create(:album)
-    create(:video, album: album)
-    course = create(:course, album: album)
-
-
-    visit root_path
-    click_on course.title
-
-    expect(page).to have_link('código fonte')
-  end
-  scenario 'and view download course' do
-    album = create(:album)
-    create(:video, album: album)
-    course = create(:course, album: album)
-
-
-    visit root_path
-    click_on course.title
-
-    expect(page).to have_link('aula')
-  end
   scenario 'and view playlist' do
     album =  create(:album)
     video =  create(:video, name: 'Introdução', order: 1, album: album)

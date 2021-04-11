@@ -1,6 +1,5 @@
 class Course < ApplicationRecord
   has_one_attached :source_code
-  has_one_attached :course_download
 
   validates :title, :description, :level, :slug,   presence: true
   validates :title, :slug,                         uniqueness: true
