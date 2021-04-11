@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  resources :courses, only: [:index, :show], path: :cursos do
+  resources :courses, only: [:index, :show], path: :treinamentos do
     get 'categorias', to: 'courses#category', on: :member
     member do
       get 'video'

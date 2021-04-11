@@ -1,11 +1,8 @@
 class Author < ApplicationRecord
+  has_one_attached :photo
+
   validates :name, :email,  presence: true
   validates :email,         uniqueness: true
-
-  def avatar
-    gravatar_id = Digest::MD5::hexdigest(email.downcase)
-    "https://secure.gravatar.com/avatar/#{gravatar_id}"
-  end
 
   def twitter_url
     "https://twitter.com/#{twitter}"

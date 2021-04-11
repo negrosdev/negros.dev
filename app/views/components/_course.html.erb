@@ -19,7 +19,7 @@
     </div>
     <footer class="card-footer p-3 author">
       <figure class="image is-32x32">
-        <img src="<%= course.author.avatar %>" class="is-rounded">
+        <%= image_tag  course.author.photo, class: 'is-rounded' %>
       </figure>
       <span class="has-text-white"><%= course.author.name %></span>
     </footer>

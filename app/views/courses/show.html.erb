@@ -8,12 +8,12 @@
         <div class="card-content">
           <aside class="menu">
             <p class="menu-label">
-              Aulas
+              lista de aulas
             </p>
             <ul class="menu-list">
               <% @course.album.videos.each do |video| %>
                 <li>
-                  <a href="<%= video_course_path(video) %>">
+                  <a href="<%= video_course_path(video) %>" class="is-active">
                     <%= video.order %>. <%= video.name %>
                   </a>
                 </li>
@@ -45,12 +45,6 @@
               </div>
               <script src="https://player.vimeo.com/api/player.js"></script>
             </div>
-            <footer class="card-footer p-3 author">
-              <figure class="image is-32x32">
-                <img src="<%= @course.author.avatar %>" class="is-rounded">
-              </figure>
-              <span class="has-text-white"><%= @course.author.name %></span>
-            </footer>
           </div>
 
           <div class="has-text-right mt-5">
