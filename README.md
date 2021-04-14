@@ -51,7 +51,7 @@ $ git clone git@github.com:negrosdev/negros.dev.git
 
 
 
-Com o repositório baixado, é necessário entrar no repositório baixado e instalar as dependências contidas no `Gemfile`. Precisamos configurar todas as `migrações` no `banco de dados`, compilar todos os `assets` da nossa aplicação. Pensando nisso, seria podemos executar um único comando:
+Com o repositório baixado, é necessário acessar e instalar as dependências contidas no `Gemfile`. Precisamos configurar todas as `migrações` no `banco de dados`, compilar todos os `assets` da nossa aplicação. Pensando nisso, seria podemos executar um único comando:
 
 
 
