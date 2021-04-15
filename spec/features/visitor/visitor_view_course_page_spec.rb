@@ -26,11 +26,35 @@ feature 'Visitor view course page' do
     expect(page).to have_content('Recomendados')
     expect(page).to have_css('.splide__slide', count: 3)
   end
+  scenario 'and view source code' do
+    author = create(:author, :with_photo)
+    album =  create(:album)
+    create(:video, name: 'Introdução', order: 1, album: album)
+    course = create(:course, album: album, author: author)
+
+    visit root_path
+    click_on course.title
+
+    expect(page).to have_content('código fonte')
+  end
+
+  scenario 'and view active video' do
+    author = create(:author, :with_photo)
+    album =  create(:album)
+    create_list(:video, 2, album: album)
+    course = create(:course, album: album, author: author)
+
+    visit root_path
+    click_on course.title
+
+    expect(page).to have_css('.is-active', count: 1)
+  end
+
   scenario 'and view playlist' do
     author = create(:author, :with_photo)
     album =  create(:album)
-    video =  create(:video, name: 'Introdução', order: 1, album: album)
-    video2 = create(:video, name: 'Criando Componentes', order: 2, album: album)
+    create(:video, name: 'Introdução', order: 1, album: album)
+    create(:video, name: 'Criando Componentes', order: 2, album: album)
     course = create(:course, album: album, author: author)
 
     visit root_path

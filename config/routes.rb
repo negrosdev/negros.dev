@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get 'como-contribuir', to: 'pages#contribute'
 
-  mount RailsAdmin::Engine => '/supervisor', as: 'rails_admin'
+  mount RailsAdmin::Engine => "/#{ENV['RAILS_ADMIN_ROUTE']}", as: 'rails_admin'
 
   devise_for :users, only: :sessions
 
