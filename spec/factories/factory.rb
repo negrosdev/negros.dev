@@ -13,6 +13,11 @@ FactoryBot.define do
     instagram { Faker::Twitter.user }
     twitter { Faker::Internet.url }
     youtube { Faker::Internet.url }
+    
+    trait :with_photo do
+      file = Rails.root.join('spec', 'support', 'assets', 'marcus.jpg')
+      photo { ActiveStorage::Blob.create_and_upload!( io: File.open(file, 'rb'), filename: 'marcus.jpg' ).signed_id}
+    end
   end
 
   factory :category do

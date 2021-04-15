@@ -13,7 +13,8 @@ feature 'Visitor view home' do
   end
 
   scenario 'and view stars ' do
-    course = create(:course)
+    author = create(:author, :with_photo)
+    course = create(:course, author: author)
 
     visit root_path
 
@@ -21,8 +22,9 @@ feature 'Visitor view home' do
   end
 
   scenario 'and view category ' do
+    author = create(:author, :with_photo)
     category = Category.create(name: 'Ruby', slug: 'ruby')
-    course = create(:course, category: category)
+    course = create(:course, category: category, author: author)
 
     visit root_path
 
@@ -30,7 +32,8 @@ feature 'Visitor view home' do
   end
 
   scenario 'and found course ' do
-    course = create(:course)
+    author = create(:author, :with_photo)
+    course = create(:course, author: author)
 
     visit root_path
 
@@ -39,7 +42,8 @@ feature 'Visitor view home' do
   end
 
   scenario 'and found 04 courses' do
-    create_list(:course, 4)
+    author = create(:author, :with_photo)
+    create_list(:course, 4, author: author)
 
     visit root_path
     

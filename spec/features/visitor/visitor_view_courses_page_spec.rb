@@ -1,18 +1,21 @@
 feature 'Visitor view courses page' do
   scenario 'and returns status code 200' do
     visit root_path
-    click_on 'Cursos'
+    click_on 'Treinamentos'
 
     expect(status_code).to eq(200)
   end
 
   scenario 'and no view categories' do
-    pending 'not ready'
-    course = create(:course)
+    pending
+    
+    author = create(:author, :with_photo)
+    course = create(:course, author: author)
 
     visit root_path
-    visit '/cursos/golang/categorias'
+    visit '/treinamentos/golang/categorias'
     
+    expect(status_code).to eq(:not_found)
     expect(page).to have_content('A categoria que você procura não foi encontrada 😢')
   end
 
@@ -24,20 +27,22 @@ feature 'Visitor view courses page' do
   end
 
   scenario 'view 05 courses' do
-    courses = create_list(:course, 5)
+    author = create(:author, :with_photo)
+    courses = create_list(:course, 5, author: author)
 
     visit root_path
-    click_on 'Cursos'
+    click_on 'Treinamentos'
     
     expect(page).to have_css('.courses', count: 5)
   end
 
   scenario 'view courses from category' do
+    author = create(:author, :with_photo)
     category = create(:category, name: 'Ruby', slug: 'ruby')
-    course = create(:course, category: category)
+    course = create(:course, category: category, author: author)
 
     visit root_path
-    click_on 'Cursos'
+    click_on 'Treinamentos'
     
     within '.category' do
       click_on 'Ruby'
