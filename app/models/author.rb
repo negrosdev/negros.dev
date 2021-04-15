@@ -9,7 +9,7 @@ class Author < ApplicationRecord
   end
 
   def youtube_url
-    "https://instagram.com/channel/#{youtube}"
+    "https://youtube.com/channel/#{youtube}"
   end
 
   def instagram_url
@@ -19,5 +19,4 @@ class Author < ApplicationRecord
   def linkedin_url
     "https://www.linkedin.com/in/#{linkedin}"
   end
-
 end

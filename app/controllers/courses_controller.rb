@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
-  before_action :set_categories, only: [:index, :category]
-  
+  before_action :set_categories, only: %i[index category]
+
   def index
     @courses = Course.friendly.limit(8)
   end
@@ -14,7 +14,7 @@ class CoursesController < ApplicationController
   def category
     @category = Category.friendly.find(params[:id])
     @courses = Course.friendly.where(category: @category).all
-    
+
     render :index
   end
 
@@ -22,7 +22,7 @@ class CoursesController < ApplicationController
     @video = Video.friendly.find(params[:id])
     @course = Course.find(@video.album.course.id)
     @relateds_courses = Course.friendly.where(category: @course.category).last(3)
-    
+
     render :show
   end
 

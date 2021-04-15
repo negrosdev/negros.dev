@@ -1,18 +1,17 @@
-feature 'Visitor view home' do
-  scenario 'and returns status code 200' do
+describe 'Visitor view home' do
+  it 'and returns status code 200' do
     visit root_path
 
     expect(status_code).to eq(200)
   end
 
-  scenario 'and find text' do
-    
+  it 'and find text' do
     visit root_path
 
     expect(page).to have_content('💕 De pessoas negras devs para o mundo! 💕')
   end
 
-  scenario 'and view stars ' do
+  it 'and view stars ' do
     author = create(:author, :with_photo)
     course = create(:course, author: author)
 
@@ -21,7 +20,7 @@ feature 'Visitor view home' do
     expect(page).to have_css('.fa-star', count: course.level)
   end
 
-  scenario 'and view category ' do
+  it 'and view category ' do
     author = create(:author, :with_photo)
     category = Category.create(name: 'Ruby', slug: 'ruby')
     course = create(:course, category: category, author: author)
@@ -31,7 +30,7 @@ feature 'Visitor view home' do
     expect(page).to have_css("figure[title=#{course.category.name}]")
   end
 
-  scenario 'and found course ' do
+  it 'and found course ' do
     author = create(:author, :with_photo)
     course = create(:course, author: author)
 
@@ -41,12 +40,12 @@ feature 'Visitor view home' do
     expect(page).to have_content(course.author.name)
   end
 
-  scenario 'and found 04 courses' do
+  it 'and found 04 courses' do
     author = create(:author, :with_photo)
     create_list(:course, 4, author: author)
 
     visit root_path
-    
+
     expect(page).to have_css('.courses', count: 4)
   end
 end

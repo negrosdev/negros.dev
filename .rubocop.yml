@@ -1,1 +1,25 @@
-require: rubocop-rails
+require:
+  - rubocop-rails
+
+Documentation:
+  Enabled: false
+Layout/MultilineOperationIndentation:
+  EnforcedStyle: indented
+Rails:
+  Enabled: true
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+AllCops:
+  TargetRubyVersion: 2.7
+  TargetRailsVersion: 6.1
+  Exclude:
+    - 'spec/rails_helper.rb'
+    - 'bin/**/*'
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'vendor/**/*'
+    - 'node_modules/**/*'
+    - !ruby/regexp /old_and_unused\.rb$/

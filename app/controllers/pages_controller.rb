@@ -1,7 +1,5 @@
 class PagesController < ApplicationController
-  def contribute
-  end
+  def contribute; end
 
-  def about
-  end
+  def about; end
 end

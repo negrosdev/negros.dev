@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(version: 2021_04_06_013733) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "slug"
   end
 
   create_table "authors", force: :cascade do |t|
@@ -56,6 +55,7 @@ ActiveRecord::Schema.define(version: 2021_04_06_013733) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "instagram"
     t.string "linkedin"
+    t.index ["email"], name: "index_authors_on_email", unique: true
   end
 
   create_table "categories", force: :cascade do |t|
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 2021_04_06_013733) do
     t.string "slug"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["slug"], name: "index_categories_on_slug", unique: true
   end
 
   create_table "courses", force: :cascade do |t|
@@ -78,6 +79,8 @@ ActiveRecord::Schema.define(version: 2021_04_06_013733) do
     t.index ["album_id"], name: "index_courses_on_album_id"
     t.index ["author_id"], name: "index_courses_on_author_id"
     t.index ["category_id"], name: "index_courses_on_category_id"
+    t.index ["slug"], name: "index_courses_on_slug", unique: true
+    t.index ["title"], name: "index_courses_on_title", unique: true
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|

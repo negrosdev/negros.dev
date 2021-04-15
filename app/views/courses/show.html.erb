@@ -13,7 +13,7 @@
             <ul class="menu-list">
               <% @course.album.videos.each do |video| %>
                 <li>
-                  <a href="<%= video_course_path(video) %>" class="is-active">
+                  <a href="<%= video_course_path(video) %>" class="<%= 'is-active' if request.path_info.include? video.slug %>">
                     <%= video.order %>. <%= video.name %>
                   </a>
                 </li>

@@ -9,5 +9,5 @@ class Course < ApplicationRecord
 
   belongs_to :author
   belongs_to :category
-  belongs_to :album,          optional: true
+  belongs_to :album, optional: true
 end
