@@ -37,3 +37,6 @@ jobs:
     
     - name: Check Quality Code
       run: bundle exec rubocop
+    
+    env:
+      RAILS_ADMIN_ROUTE: admin
