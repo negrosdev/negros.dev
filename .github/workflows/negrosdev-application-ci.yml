@@ -32,12 +32,14 @@ jobs:
         ruby-version: ${{ matrix.ruby-version }}
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
 
+    - name: Install Webpacker
+      run: bundle exec rake webpacker:install
+
     - name: Run tests
       run: bundle exec rspec
-
       env:
         RAILS_ADMIN_ROUTE: 'admin'
-    
+  
     - name: Check Quality Code
       run: bundle exec rubocop
     
