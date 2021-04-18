@@ -9,7 +9,7 @@
     </h1>
     <div class="columns is-multiline cards-height-match mt-6">
       <% @courses.each do | course | %>
-        <div class="column is-3-desktop is-4-tablet is-12-mobile mb-6">
+        <div class="column is-3-desktop is-6-tablet is-12-mobile mb-6">
           <%= render partial: 'components/course', locals: { course: course, effect: true } %>
         </div>
       <% end %>

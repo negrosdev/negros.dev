@@ -1,4 +1,4 @@
-User.create(email: 'user@negros.dev', password: '123456')
+User.create(email: 'user@negros.dev', password: '123456', role: 6)
 
 author = FactoryBot.create(:author, :with_photo)
 
