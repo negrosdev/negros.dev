@@ -1,4 +1,4 @@
-![GitHub top language](https://img.shields.io/github/languages/top/negrosdev/negros.dev) ![GitHub](https://img.shields.io/github/license/negrosdev/negros.dev) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/negrosdev/negros.dev/Ruby) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/negrosdev/negros.dev)
+![GitHub top language](https://img.shields.io/github/languages/top/negrosdev/negros.dev) ![GitHub](https://img.shields.io/github/license/negrosdev/negros.dev) ![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/negrosdev/negros.dev/Negros.dev%20Application%20CI/main) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/negrosdev/negros.dev)
 
 💕 Este é o repositório oficial do negros.dev. 💕
 
