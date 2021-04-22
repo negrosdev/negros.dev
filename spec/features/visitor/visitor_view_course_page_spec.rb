@@ -5,7 +5,6 @@ describe 'Visitor view course page' do
     author = create(:author, :with_photo)
     course = create(:course, album: album, author: author)
 
-
     visit root_path
     click_on course.title
 
