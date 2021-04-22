@@ -2,72 +2,76 @@
 
 <section class="section">
   <div class="container">
-  <div class="columns">
-    <div class="column">
-      <div class="card clear">
-        <div class="card-content">
-          <aside class="menu">
-            <p class="menu-label">
-              lista de aulas
-            </p>
-            <ul class="menu-list">
-              <% @course.album.videos.each do |video| %>
-                <li>
-                  <a href="<%= video_course_path(video) %>" class="<%= 'is-active' if request.path_info.include? video.slug %>">
-                    <%= video.order %>. <%= video.name %>
-                  </a>
-                </li>
-              <% end %>
-            </ul>
-          </aside>
-        </div>
-      </div>
-    </div>
-    <div class="column is-8-desktop is-full-mobile">
-      <div class="columns is-multiline">
-        <div class="column is-full">
-          <div class="card clear">
-            <div class="card-content clear">
-              <div style="padding: 56.25% 0 0 0; position: relative">
-                <iframe
-                  src="https://player.vimeo.com/video/<%= @video.vimeo_code %>?title=0&byline=0&portrait=0"
-                  style="
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                  "
-                  frameborder="0"
-                  allow="autoplay; fullscreen; picture-in-picture"
-                  allowfullscreen
-                ></iframe>
-              </div>
-              <script src="https://player.vimeo.com/api/player.js"></script>
-            </div>
-          </div>
-
-          <div class="has-text-right mt-5">
-            <a href="<%= @course.source_code.url %>" class="button is-dark">
-              <span class="icon">
-                <i class="fas fa-code"></i>
-              </span>
-              <span>código fonte</span>
-            </a>
-          </div>
-        </div>
-
-        <div class="column">
-          <h2 class="subtitle mb-7 has-text-white">Recomendados</h2>
-          <div class="splide">
-            <div class="splide__track">
-              <ul class="splide__list">
-                <% @relateds_courses.each do | related | %>
-                  <li class="splide__slide">
-                    <%= render partial: 'components/course', locals: { course: related, effect: false } %>
+    <h1 class="title has-text-white mb-6">
+      <%= @course.title %>
+    </h1>
+    <div class="columns">
+      <div class="column">
+        <div class="card clear">
+          <div class="card-content">
+            <aside class="menu">
+              <p class="menu-label">
+                lista de aulas
+              </p>
+              <ul class="menu-list">
+                <% @course.album.videos.each do |video| %>
+                  <li>
+                    <a href="<%= video_course_path(video) %>" class="<%= 'is-active' if request.path_info.include? video.slug %>">
+                      <%= video.order %>. <%= video.name %>
+                    </a>
                   </li>
                 <% end %>
               </ul>
+            </aside>
+          </div>
+        </div>
+      </div>
+      <div class="column is-8-desktop is-full-mobile">
+        <div class="columns is-multiline">
+          <div class="column is-full">
+            <div class="card clear">
+              <div class="card-content clear">
+                <div style="padding: 56.25% 0 0 0; position: relative">
+                  <iframe
+                    src="https://player.vimeo.com/video/<%= @course.album.videos.first.vimeo_code %>?title=0&byline=0&portrait=0"
+                    style="
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      width: 100%;
+                      height: 100%;
+                    "
+                    frameborder="0"
+                    allow="autoplay; fullscreen; picture-in-picture"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+                <script src="https://player.vimeo.com/api/player.js"></script>
+              </div>
+            </div>
+
+            <div class="has-text-right mt-5">
+              <a href="<%= @course.source_code.url %>" class="button is-dark">
+                <span class="icon">
+                  <i class="fas fa-code"></i>
+                </span>
+                <span>código fonte</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="column is-full">
+            <h2 class="subtitle mb-7 has-text-white">Recomendados</h2>
+            <div class="splide">
+              <div class="splide__track">
+                <ul class="splide__list">
+                  <% @recommended.each do |recommended| %>
+                    <li class="splide__slide">
+                      <%= render partial: 'components/course', locals: { course: recommended, effect: false } %>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
             </div>
           </div>
         </div>

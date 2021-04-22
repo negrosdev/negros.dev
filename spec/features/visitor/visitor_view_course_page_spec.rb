@@ -5,12 +5,25 @@ describe 'Visitor view course page' do
     author = create(:author, :with_photo)
     course = create(:course, album: album, author: author)
 
+
     visit root_path
     click_on course.title
 
-    expect(page).to have_current_path(course_path(course), ignore_query: true)
+    expect(current_path).to eq(course_path(course))
     expect(page).to have_content(course.title)
     expect(page).to have_content(course.author.name)
+  end
+
+  it 'checks if the course is among the recommended ones' do
+    album = create(:album)
+    create(:video, album: album)
+    author = create(:author, :with_photo)
+    courses = create_list(:course, 3, album: album, author: author)
+
+    visit root_path
+    click_on courses.last.title
+
+    expect(page).to have_content(courses.first.title)
   end
 
   it 'and count recommended courses' do

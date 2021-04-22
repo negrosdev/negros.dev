@@ -5,6 +5,14 @@ describe 'Visitor view home' do
     expect(status_code).to eq(200)
   end
 
+  it 'and click in +treinamentos' do
+    visit root_path
+
+    click_on '+treinamentos'
+
+    expect(current_path).to eq(courses_path)
+  end
+
   it 'and find text' do
     visit root_path
 
