@@ -74,7 +74,7 @@ describe 'Visitor view course page' do
 
     visit root_path
     click_on course.title
-    
+
     expect(page).to have_content(author.name)
     expect(page).to have_link(id: 'twitter', href: author.twitter_url)
     expect(page).to have_link(id: 'instagram', href: author.instagram_url)
