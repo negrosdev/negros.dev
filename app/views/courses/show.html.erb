@@ -2,7 +2,7 @@
 
 <section class="section">
   <div class="container">
-    <h1 class="title has-text-white mb-6">
+    <h1 class="title has-text-white mb-6 is-lowercase">
       <%= @course.title %>
     </h1>
     <div class="columns">
@@ -11,7 +11,7 @@
           <div class="card-content">
             <aside class="menu">
               <p class="menu-label">
-                lista de aulas
+                aulas
               </p>
               <ul class="menu-list">
                 <% @course.album.videos.each do |video| %>
@@ -57,6 +57,48 @@
                 </span>
                 <span>código fonte</span>
               </a>
+            </div>
+          </div>
+
+          <div class="column is-full">
+            <div class="card">
+              <div class="has-text-right network">
+                <% if @course.author.linkedin %>
+                  <a href="<%= @course.author.linkedin_url %>" target="_blank" class="has-text-white-bis" id="linkedin">
+                    <i class="fab fa-linkedin"></i>
+                  </a>
+                <% end %>
+
+                <% if @course.author.youtube %>
+                  <a href="<%= @course.author.youtube_url %>" target="_blank" class="has-text-white-bis" id="youtube">
+                    <i class="fab fa-youtube"></i>
+                  </a>
+                <% end %>
+
+                <% if @course.author.twitter %>
+                  <a href="<%= @course.author.twitter_url %>" target="_blank" class="has-text-white-bis" id="twitter">
+                    <i class="fab fa-twitter"></i>
+                  </a>                
+                <% end %>
+
+                <% if @course.author.instagram %>
+                  <a href="<%= @course.author.instagram_url %>" target="_blank" class="has-text-white-bis" id="instagram">
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                <% end %>
+                
+              </div>
+
+              <div class="card-content is-flex is-justify-content-center">
+                <figure class="image is-96x96">
+                  <%= image_tag @course.author.photo, class: 'is-rounded' %>
+                </figure>
+              </div>
+              <div class="card-content">
+                <p class="title has-text-white has-text-centered">
+                  <%= @course.author.name %>
+                </p>
+              </div>
             </div>
           </div>
 

@@ -62,8 +62,23 @@ describe 'Visitor view course page' do
     visit root_path
     click_on course.title
 
-    expect(page).to have_content('lista de aulas')
+    expect(page).to have_content('aulas')
     expect(page).to have_content(course.album.videos.first.name)
     expect(page).to have_content(course.album.videos.second.name)
+  end
+  it 'and view author profile' do
+    author = create(:author, :with_photo)
+    album =  create(:album)
+    create(:video, name: 'Introdução', order: 1, album: album)
+    course = create(:course, album: album, author: author)
+
+    visit root_path
+    click_on course.title
+    
+    expect(page).to have_content(author.name)
+    expect(page).to have_link(id: 'twitter', href: author.twitter_url)
+    expect(page).to have_link(id: 'instagram', href: author.instagram_url)
+    expect(page).to have_link(id: 'youtube', href: author.youtube_url)
+    expect(page).to have_link(id: 'linkedin', href: author.linkedin_url)
   end
 end
