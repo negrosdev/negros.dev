@@ -18,6 +18,4 @@ Rails.application.routes.draw do
       get 'video'
     end
   end
-
-  resources :authors, only: [:index], path: :instrutores
 end
