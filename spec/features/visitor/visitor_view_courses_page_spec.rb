@@ -1,7 +1,7 @@
 describe 'Visitor view courses page' do
   it 'and returns status code 200' do
     visit root_path
-    click_on '+treinamentos'
+    click_on 'treinamentos'
 
     expect(status_code).to eq(200)
   end
@@ -31,7 +31,7 @@ describe 'Visitor view courses page' do
     create_list(:course, 5, author: author)
 
     visit root_path
-    click_on '+treinamentos'
+    click_on 'treinamentos'
 
     expect(page).to have_css('.courses', count: 5)
   end
@@ -42,7 +42,7 @@ describe 'Visitor view courses page' do
     course = create(:course, category: category, author: author)
 
     visit root_path
-    click_on '+treinamentos'
+    click_on 'treinamentos'
 
     within '.category' do
       click_on 'Ruby'

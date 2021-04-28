@@ -1,9 +1,10 @@
 describe 'Visitor view course page' do
   it 'and informations of course' do
-    album = create(:album)
-    create(:video, album: album)
     author = create(:author, :with_photo)
-    course = create(:course, album: album, author: author)
+    course = create(:course, author: author)
+
+    course.thumbnail.attach(io: File.open('spec/support/assets/django.jpg'),
+                            filename: 'django.jpg', content_type: 'image/jpg')
 
     visit root_path
     click_on course.title
@@ -14,10 +15,8 @@ describe 'Visitor view course page' do
   end
 
   it 'checks if the course is among the recommended ones' do
-    album = create(:album)
-    create(:video, album: album)
     author = create(:author, :with_photo)
-    courses = create_list(:course, 3, album: album, author: author)
+    courses = create_list(:course, 3, author: author)
 
     visit root_path
     click_on courses.last.title
@@ -27,24 +26,19 @@ describe 'Visitor view course page' do
 
   it 'and count recommended courses' do
     category = create(:category, name: 'ruby')
-    album = create(:album)
 
     author = create(:author, :with_photo)
-    create(:video, album: album)
-    courses = create_list(:course, 4, category: category, album: album, author: author)
+    course = create(:course, category: category, author: author)
 
     visit root_path
-    click_on courses.first.title
+    click_on course.title
 
-    expect(page).to have_content('Recomendados')
-    expect(page).to have_css('.splide__slide', count: 3)
+    expect(page).to have_content('recomendamos')
   end
 
   it 'and view source code' do
     author = create(:author, :with_photo)
-    album =  create(:album)
-    create(:video, name: 'Introdução', order: 1, album: album)
-    course = create(:course, album: album, author: author)
+    course = create(:course, author: author)
 
     visit root_path
     click_on course.title
@@ -52,25 +46,9 @@ describe 'Visitor view course page' do
     expect(page).to have_content('código fonte')
   end
 
-  it 'and view playlist' do
-    author = create(:author, :with_photo)
-    album =  create(:album)
-    create(:video, name: 'Introdução', order: 1, album: album)
-    create(:video, name: 'Criando Componentes', order: 2, album: album)
-    course = create(:course, album: album, author: author)
-
-    visit root_path
-    click_on course.title
-
-    expect(page).to have_content('aulas')
-    expect(page).to have_content(course.album.videos.first.name)
-    expect(page).to have_content(course.album.videos.second.name)
-  end
   it 'and view author profile' do
     author = create(:author, :with_photo)
-    album =  create(:album)
-    create(:video, name: 'Introdução', order: 1, album: album)
-    course = create(:course, album: album, author: author)
+    course = create(:course, author: author)
 
     visit root_path
     click_on course.title

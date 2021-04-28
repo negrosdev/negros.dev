@@ -16,12 +16,6 @@ class CoursesController < ApplicationController
     render :index
   end
 
-  def video
-    @video = Video.friendly.find(params[:id])
-    @course = Course.find(@video.album.course.id)
-    render :show
-  end
-
   private
 
   def set_categories

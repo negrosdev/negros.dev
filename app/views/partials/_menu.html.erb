@@ -14,8 +14,10 @@
 
     <div id="navPrincipal" class="navbar-menu">
       <div class="navbar-end">
-        <div class="navbar-item">
-          <%= link_to 'como contribuir',  como_contribuir_path,   class: 'navbar-item is-uppercase link-border'  %>
+        <div class="navbar-item is-uppercase">
+          <%= link_to 'início', root_path, class: 'navbar-item'  %>
+          <%= link_to 'treinamentos', courses_path, class: 'navbar-item'  %>
+          <%= link_to 'como contribuir', como_contribuir_path, class: 'navbar-item'  %>
         </div>
       </div>
     </div>

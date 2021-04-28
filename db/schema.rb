@@ -40,21 +40,15 @@ ActiveRecord::Schema.define(version: 2021_04_18_004611) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "albums", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "authors", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "twitter"
     t.string "youtube"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
     t.string "instagram"
     t.string "linkedin"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_authors_on_email", unique: true
   end
 
@@ -70,13 +64,12 @@ ActiveRecord::Schema.define(version: 2021_04_18_004611) do
     t.string "title"
     t.string "slug"
     t.string "description"
+    t.string "code"
     t.integer "level"
     t.integer "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "author_id", null: false
-    t.integer "album_id", null: false
-    t.index ["album_id"], name: "index_courses_on_album_id"
     t.index ["author_id"], name: "index_courses_on_author_id"
     t.index ["category_id"], name: "index_courses_on_category_id"
     t.index ["slug"], name: "index_courses_on_slug", unique: true
@@ -107,21 +100,8 @@ ActiveRecord::Schema.define(version: 2021_04_18_004611) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "videos", force: :cascade do |t|
-    t.string "name"
-    t.integer "order"
-    t.string "vimeo_code"
-    t.integer "album_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "slug"
-    t.index ["album_id"], name: "index_videos_on_album_id"
-  end
-
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "courses", "albums"
   add_foreign_key "courses", "authors"
   add_foreign_key "courses", "categories"
-  add_foreign_key "videos", "albums"
 end

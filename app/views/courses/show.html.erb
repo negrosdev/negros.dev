@@ -2,122 +2,107 @@
 
 <section class="section">
   <div class="container">
-    <h1 class="title has-text-white mb-6 is-lowercase">
-      <%= @course.title %>
-    </h1>
-    <div class="columns">
+    <div class="columns is-multiline">      
       <div class="column">
-        <div class="card clear">
-          <div class="card-content">
-            <aside class="menu">
-              <p class="menu-label">
-                aulas
-              </p>
-              <ul class="menu-list">
-                <% @course.album.videos.each do |video| %>
-                  <li>
-                    <a href="<%= video_course_path(video) %>" class="<%= 'is-active' if request.path_info.include? video.slug %>">
-                      <%= video.order %>. <%= video.name %>
-                    </a>
-                  </li>
-                <% end %>
-              </ul>
-            </aside>
+        <div class="column is-full">
+          <div class="has-text-right mt-5">
+            <a href="<%= @course.source_code.url %>" class="button is-medium is-dark">
+              <span class="icon">
+                <i class="fas fa-code"></i>
+              </span>
+              <span>código fonte</span>
+            </a>
           </div>
         </div>
       </div>
-      <div class="column is-8-desktop is-full-mobile">
+      <div class="column is-full">
         <div class="columns is-multiline">
-          <div class="column is-full">
-            <div class="card clear">
-              <div class="card-content clear">
-                <div style="padding: 56.25% 0 0 0; position: relative">
-                  <iframe
-                    src="https://player.vimeo.com/video/<%= @course.album.videos.first.vimeo_code %>?title=0&byline=0&portrait=0"
-                    style="
-                      position: absolute;
-                      top: 0;
-                      left: 0;
-                      width: 100%;
-                      height: 100%;
-                    "
-                    frameborder="0"
-                    allow="autoplay; fullscreen; picture-in-picture"
-                    allowfullscreen
-                  ></iframe>
-                </div>
-                <script src="https://player.vimeo.com/api/player.js"></script>
-              </div>
-            </div>
-
-            <div class="has-text-right mt-5">
-              <a href="<%= @course.source_code.url %>" class="button is-dark">
-                <span class="icon">
-                  <i class="fas fa-code"></i>
-                </span>
-                <span>código fonte</span>
-              </a>
-            </div>
-          </div>
-
-          <div class="column is-full">
-            <div class="card">
-              <div class="has-text-right network">
-                <% if @course.author.linkedin %>
-                  <a href="<%= @course.author.linkedin_url %>" target="_blank" class="has-text-white-bis" id="linkedin">
-                    <i class="fab fa-linkedin"></i>
-                  </a>
-                <% end %>
-
-                <% if @course.author.youtube %>
-                  <a href="<%= @course.author.youtube_url %>" target="_blank" class="has-text-white-bis" id="youtube">
-                    <i class="fab fa-youtube"></i>
-                  </a>
-                <% end %>
-
-                <% if @course.author.twitter %>
-                  <a href="<%= @course.author.twitter_url %>" target="_blank" class="has-text-white-bis" id="twitter">
-                    <i class="fab fa-twitter"></i>
-                  </a>                
-                <% end %>
-
-                <% if @course.author.instagram %>
-                  <a href="<%= @course.author.instagram_url %>" target="_blank" class="has-text-white-bis" id="instagram">
-                    <i class="fab fa-instagram"></i>
-                  </a>
-                <% end %>
-                
-              </div>
-
-              <div class="card-content is-flex is-justify-content-center">
-                <figure class="image is-96x96">
-                  <%= image_tag @course.author.photo, class: 'is-rounded' %>
-                </figure>
-              </div>
-              <div class="card-content">
-                <p class="title has-text-white has-text-centered">
-                  <%= @course.author.name %>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="column is-full">
-            <h2 class="subtitle mb-7 has-text-white">Recomendados</h2>
-            <div class="splide">
-              <div class="splide__track">
-                <ul class="splide__list">
-                  <% @recommended.each do |recommended| %>
-                    <li class="splide__slide">
-                      <%= render partial: 'components/course', locals: { course: recommended, effect: false } %>
-                    </li>
-                  <% end %>
-                </ul>
-              </div>
+          <div class="column">
+            <div style="padding: 56.25% 0 0 0; position: relative">
+              <iframe
+                src="https://player.vimeo.com/video/372322938?title=0&byline=0&portrait=0"
+                style="
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                "
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowfullscreen
+              ></iframe>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <div class="columns is-multiline">
+      <div class="column is-full">
+        <h1 class="has-text-white title is-lowercase mb-3 mt-6">recomendamos</h1>
+      </div>
+      <% @recommended.each do |recommended| %>
+        <div class="column is-4-desktop is-12-mobile is-6-tablet">
+          <%= render partial: 'components/course', locals: { course: recommended, effect: false } %>
+        </div>    
+      <% end %>
+
+      <div class="column is-full">
+        <h1 class="has-text-white title is-lowercase mb-3 mt-6">quem criou o conteúdo?</h1>
+      </div>
+      
+      <div class="column is-full">
+        <div class="column is-3-desktop">
+          <div class="card">
+            <div class="has-text-right network">
+              <% if @course.author.linkedin %>
+                <a href="<%= @course.author.linkedin_url %>" target="_blank" class="has-text-white-bis">
+                  <i class="fab fa-linkedin"></i>
+                </a>
+              <% end %>
+
+              <% if @course.author.youtube %>
+                <a href="<%= @course.author.youtube_url %>" target="_blank" class="has-text-white-bis">
+                  <i class="fab fa-youtube"></i>
+                </a>
+              <% end %>
+
+              <% if @course.author.twitter %>
+                <a href="<%= @course.author.twitter_url %>" target="_blank" class="has-text-white-bis">
+                  <i class="fab fa-twitter"></i>
+                </a>          
+              <% end %>
+
+              <% if @course.author.instagram %>
+                <a href="<%= @course.author.instagram_url %>" target="_blank" class="has-text-white-bis">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              <% end %>
+            </div>
+
+            <div class="card-content is-flex is-justify-content-center">
+              <figure class="image is-96x96">
+                <%= image_tag @course.author.photo, class: 'is-rounded' %>
+              </figure>
+            </div>
+            <div class="card-content">
+              <p class="title has-text-white has-text-centered">
+                <%= @course.author.name %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div> 
+    </div>
+
   </div>
 </section>
+
+<%= content_for :scripts do %>
+  <script>
+    new Splide( '.splide', {
+      type: 'fade',
+    } ).mount();
+  </script>
+<% end %>

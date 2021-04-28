@@ -8,7 +8,7 @@ describe 'Visitor view home' do
   it 'and click in +treinamentos' do
     visit root_path
 
-    click_on '+treinamentos'
+    click_on 'treinamentos'
 
     expect(current_path).to eq(courses_path)
   end

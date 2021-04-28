@@ -6,8 +6,8 @@ FactoryBot.define do
     slug { Faker::Internet.slug }
     description { Faker::Lorem.paragraph }
     level { Faker::Number.within(range: 1..5) }
+    vimeo_ref  { '372322938' }
     author
-    album
     category
   end
 end
