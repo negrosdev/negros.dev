@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
   before_action :set_categories, only: %i[index category]
-  before_action :set_recommended, only: %i[show video]
+  before_action :set_recommended, only: %i[show]
 
   def index
     @courses = Course.friendly.order('created_at DESC').limit(8)
