@@ -50,6 +50,10 @@ ActiveRecord::Schema.define(version: 2021_04_18_004611) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_authors_on_email", unique: true
+    t.index ["instagram"], name: "index_authors_on_instagram", unique: true
+    t.index ["linkedin"], name: "index_authors_on_linkedin", unique: true
+    t.index ["twitter"], name: "index_authors_on_twitter", unique: true
+    t.index ["youtube"], name: "index_authors_on_youtube", unique: true
   end
 
   create_table "categories", force: :cascade do |t|
@@ -64,7 +68,7 @@ ActiveRecord::Schema.define(version: 2021_04_18_004611) do
     t.string "title"
     t.string "slug"
     t.string "description"
-    t.string "code"
+    t.string "vimeo_ref"
     t.integer "level"
     t.integer "category_id", null: false
     t.datetime "created_at", precision: 6, null: false

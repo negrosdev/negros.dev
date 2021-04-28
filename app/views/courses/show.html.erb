@@ -20,7 +20,7 @@
           <div class="column">
             <div style="padding: 56.25% 0 0 0; position: relative">
               <iframe
-                src="https://player.vimeo.com/video/372322938?title=0&byline=0&portrait=0"
+                src="https://player.vimeo.com/video/<%= @course.vimeo_ref %>?title=0&byline=0&portrait=0"
                 style="
                   position: absolute;
                   top: 0;
@@ -57,25 +57,25 @@
           <div class="card">
             <div class="has-text-right network">
               <% if @course.author.linkedin %>
-                <a href="<%= @course.author.linkedin_url %>" target="_blank" class="has-text-white-bis">
+                <a href="<%= @course.author.linkedin_url %>" target="_blank" class="has-text-white-bis" id="linkedin">
                   <i class="fab fa-linkedin"></i>
                 </a>
               <% end %>
 
               <% if @course.author.youtube %>
-                <a href="<%= @course.author.youtube_url %>" target="_blank" class="has-text-white-bis">
+                <a href="<%= @course.author.youtube_url %>" target="_blank" class="has-text-white-bis" id="youtube">
                   <i class="fab fa-youtube"></i>
                 </a>
               <% end %>
 
               <% if @course.author.twitter %>
-                <a href="<%= @course.author.twitter_url %>" target="_blank" class="has-text-white-bis">
+                <a href="<%= @course.author.twitter_url %>" target="_blank" class="has-text-white-bis" id="twitter">
                   <i class="fab fa-twitter"></i>
                 </a>          
               <% end %>
 
               <% if @course.author.instagram %>
-                <a href="<%= @course.author.instagram_url %>" target="_blank" class="has-text-white-bis">
+                <a href="<%= @course.author.instagram_url %>" target="_blank" class="has-text-white-bis" id="instagram">
                   <i class="fab fa-instagram"></i>
                 </a>
               <% end %>
