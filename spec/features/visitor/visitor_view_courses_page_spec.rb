@@ -6,19 +6,6 @@ describe 'Visitor view courses page' do
     expect(status_code).to eq(200)
   end
 
-  it 'and no view categories' do
-    pending
-
-    author = create(:author, :with_photo)
-    create(:course, author: author)
-
-    visit root_path
-    visit '/treinamentos/golang/categorias'
-
-    expect(status_code).to eq(:not_found)
-    expect(page).to have_content('A categoria que você procura não foi encontrada 😢')
-  end
-
   it 'and no view courses' do
     visit root_path
     visit courses_path
