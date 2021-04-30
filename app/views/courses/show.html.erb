@@ -15,7 +15,13 @@
       <div class="column">
         <div class="column is-full">
           <div class="has-text-right mt-5">
-            <a href="<%= @course.source_code.url %>" class="button is-medium is-dark">
+            <a href="<%= @course.source_code.url %>" class="button is-medium is-rose is-outlined">
+              <span class="icon">
+                <i class="fas fa-download"></i>
+              </span>
+              <span>baixar treinamento</span>
+            </a>
+            <a href="<%= @course.content_download %>" class="button is-medium is-dark is-outlined has-text-white">
               <span class="icon">
                 <i class="fas fa-code"></i>
               </span>

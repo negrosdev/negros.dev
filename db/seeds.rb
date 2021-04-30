@@ -7,6 +7,8 @@ category = Category.create(name: 'Ruby', slug: 'ruby')
 category.icon.attach(io: File.open('./spec/support/assets/ruby.png'),
                      filename: 'ruby.png', content_type: 'image/png')
 
-course = FactoryBot.create(:course, author: author, category: category)
+course = FactoryBot.create(:course, author: author,
+                                    category: category,
+                                    content_download: 'https://negros.dev/video.mp4')
 course.thumbnail.attach(io: File.open('spec/support/assets/django.jpg'),
                         filename: 'django.jpg', content_type: 'image/jpg')

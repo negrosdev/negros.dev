@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 2021_04_18_004611) do
     t.string "slug"
     t.string "description"
     t.string "vimeo_ref"
+    t.string "content_download"
     t.integer "level"
     t.integer "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -78,6 +79,7 @@ ActiveRecord::Schema.define(version: 2021_04_18_004611) do
     t.index ["category_id"], name: "index_courses_on_category_id"
     t.index ["slug"], name: "index_courses_on_slug", unique: true
     t.index ["title"], name: "index_courses_on_title", unique: true
+    t.index ["content_download"], name: "index_courses_on_content_download", unique: true
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|

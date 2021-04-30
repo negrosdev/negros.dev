@@ -47,6 +47,16 @@ describe 'Visitor view course page' do
     expect(page).to have_content('código fonte')
   end
 
+  it 'and view training download' do
+    author = create(:author, :with_photo)
+    course = create(:course, author: author)
+
+    visit root_path
+    click_on course.title
+
+    expect(page).to have_content('baixar treinamento')
+  end
+
   it 'and view author profile' do
     author = create(:author, :with_photo)
     course = create(:course, author: author)

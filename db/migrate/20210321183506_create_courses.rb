@@ -5,6 +5,7 @@ class CreateCourses < ActiveRecord::Migration[6.1]
       t.string :slug, index: { unique: true }
       t.string :description
       t.string :vimeo_ref
+      t.string :content_download, index: { unique: true }
       t.integer :level
       t.references :category, null: false, foreign_key: true
 

@@ -6,9 +6,11 @@ class Course < ApplicationRecord
             :description,
             :level,
             :slug,
+            :content_download,
             :vimeo_ref, presence: true
   validates :title,
-            :slug, uniqueness: true
+            :slug,
+            :content_download, uniqueness: true
 
   extend FriendlyId
   friendly_id :title, use: :slugged
