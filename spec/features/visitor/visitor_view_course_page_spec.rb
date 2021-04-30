@@ -4,7 +4,8 @@ describe 'Visitor view course page' do
     course = create(:course, author: author)
 
     course.thumbnail.attach(io: File.open('spec/support/assets/django.jpg'),
-                            filename: 'django.jpg', content_type: 'image/jpg')
+                            filename: 'django.jpg',
+                            content_type: 'image/jpg')
 
     visit root_path
     click_on course.title
