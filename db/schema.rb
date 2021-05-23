@@ -77,9 +77,9 @@ ActiveRecord::Schema.define(version: 2021_04_18_004611) do
     t.integer "author_id", null: false
     t.index ["author_id"], name: "index_courses_on_author_id"
     t.index ["category_id"], name: "index_courses_on_category_id"
+    t.index ["content_download"], name: "index_courses_on_content_download", unique: true
     t.index ["slug"], name: "index_courses_on_slug", unique: true
     t.index ["title"], name: "index_courses_on_title", unique: true
-    t.index ["content_download"], name: "index_courses_on_content_download", unique: true
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
