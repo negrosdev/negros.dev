@@ -9,12 +9,8 @@ Rails.application.routes.draw do
 
   get 'como-contribuir', to: 'pages#contribute'
 
-  resources :courses, only: [:index, :show], path: :treinamentos do
-    member do
-      get 'categorias', to: 'courses#category'
-    end
-  end
-
+  resources :contents, only: [:index, :show], path: :conteúdos
+  
   # errors routes
   match "/404", to: "errors#not_found", via: :all
   match "/500", to: "errors#internal_server_error", via: :all

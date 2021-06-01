@@ -1,0 +1,82 @@
+<%= content_for :title do %> - <%= @content.title %> 💕 <% end %>
+<%= content_for :head do %>
+    <meta property="og:url"           content="<%= request.url %>">
+    <meta property="og:title"         content="<%= @content.title %>">
+    <meta property="og:site_name"     content="Negros.dev">
+<% end %>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline">      
+      <div class="column">
+        <div class="column is-full">
+          <div class="has-text-right mt-5">
+            <a href="<%= @content.source_code.url %>" class="button is-medium is-rose is-outlined">
+              <span class="icon">
+                <i class="fas fa-download"></i>
+              </span>
+              <span>baixar treinamento</span>
+            </a>
+            <a href="<%= @content.content_download %>" class="button is-medium is-dark is-outlined has-text-white">
+              <span class="icon">
+                <i class="fas fa-code"></i>
+              </span>
+              <span>código fonte</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="column is-full">
+        <div class="columns">
+          <div class="column is-full">
+            <%= @content.title %>
+          </div>
+          <div class="column">
+            <%= @content.content %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-multiline">
+      <div class="column is-full">
+        <h1 class="has-text-white title is-lowercase mb-3 mt-6">quem criou o conteúdo?</h1>
+      </div>
+      
+      <div class="column is-full">
+        <div class="column is-3-desktop">
+          <div class="card">
+            <div class="has-text-right network">
+              <% if @content.author.linkedin %>
+                <a href="<%= @content.author.linkedin_url %>" target="_blank" class="has-text-white-bis" id="linkedin">
+                  <i class="fab fa-linkedin"></i>
+                </a>
+              <% end %>
+            </div>
+
+            <div class="card-content is-flex is-justify-content-center">
+              <figure class="image is-96x96">
+                <%= image_tag @content.author.photo, class: 'is-rounded' %>
+              </figure>
+            </div>
+            <div class="card-content">
+              <p class="title has-text-white has-text-centered">
+                <%= @content.author.name %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div> 
+    </div>
+
+  </div>
+</section>
+
+<%= content_for :scripts do %>
+  <script>
+    new Splide( '.splide', {
+      type: 'fade',
+    } ).mount();
+  </script>
+<% end %>

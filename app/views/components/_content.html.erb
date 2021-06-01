@@ -1,0 +1,30 @@
+<a href="<%= content_path(content) %>" class="contents">
+  <div class="card <%= 'clear' unless effect %>">
+    <div class="is-flex is-justify-content-space-between difficult">
+      <% if content.tag.icon.attached? %>
+        <figure class="image is-32x32" title="<%= content.tag.name %>">
+          <%= image_tag content.tag.icon %>
+        </figure>
+      <% end %>
+
+      <span title="Dificuldade: <%= content.level %>">
+        <% content.level.times do %>
+          <i class="fas fa-star"></i>
+        <% end %>
+      </span>
+    </div>
+
+    <div class="card-content">
+      <p class="title has-text-white is-spaced">
+        “<%= content.title %>”
+      </p>
+    </div>
+    <footer class="card-footer p-3 author">
+      <figure class="image is-32x32">
+        <%= image_tag  content.author.photo, class: 'is-rounded' %>
+      </figure>
+      <span class="has-text-white"><%= content.author.name %></span>
+    </footer>
+  </div>
+</a>
+
