@@ -13,7 +13,7 @@ Nosso intuito não é dificultar o aprendizado das pessoas, por isso, queremos d
 - Utilizar o código fonte para criar seu próprio site
 - Utilizar o negros.dev dentro de sua casa ou empresa
 
-**Apesar de ser um repositório `free software`, não admitimos que os treinamentos sejam vendidos e caso isso seja identificado; poderemos tomar medidas judiciais.**
+**Apesar de ser um repositório `free software`, não admitimos que os conteúdos sejam vendidos e caso isso seja identificado; poderemos tomar medidas judiciais.**
 
 
 ### Requisito

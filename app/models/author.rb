@@ -4,16 +4,8 @@ class Author < ApplicationRecord
   validates :name, :email,  presence: true
   validates :email,         uniqueness: true
 
-  def twitter_url
-    "https://twitter.com/#{twitter}"
-  end
-
-  def youtube_url
-    "https://youtube.com/channel/#{youtube}"
-  end
-
-  def instagram_url
-    "https://instagram.com/#{instagram}"
+  def email_url
+    "mailto:#{email}"
   end
 
   def linkedin_url

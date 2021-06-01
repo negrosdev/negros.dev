@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_18_004611) do
+ActiveRecord::Schema.define(version: 2021_06_01_135447) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -43,43 +43,27 @@ ActiveRecord::Schema.define(version: 2021_04_18_004611) do
   create_table "authors", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "twitter"
-    t.string "youtube"
-    t.string "instagram"
     t.string "linkedin"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_authors_on_email", unique: true
-    t.index ["instagram"], name: "index_authors_on_instagram", unique: true
     t.index ["linkedin"], name: "index_authors_on_linkedin", unique: true
-    t.index ["twitter"], name: "index_authors_on_twitter", unique: true
-    t.index ["youtube"], name: "index_authors_on_youtube", unique: true
   end
 
-  create_table "categories", force: :cascade do |t|
-    t.string "name"
-    t.string "slug"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["slug"], name: "index_categories_on_slug", unique: true
-  end
-
-  create_table "courses", force: :cascade do |t|
+  create_table "contents", force: :cascade do |t|
     t.string "title"
     t.string "slug"
     t.string "description"
-    t.string "vimeo_ref"
-    t.string "content_download"
+    t.string "content"
     t.integer "level"
-    t.integer "category_id", null: false
+    t.integer "tag_id", null: false
+    t.integer "author_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "author_id", null: false
-    t.index ["author_id"], name: "index_courses_on_author_id"
-    t.index ["category_id"], name: "index_courses_on_category_id"
-    t.index ["slug"], name: "index_courses_on_slug", unique: true
-    t.index ["title"], name: "index_courses_on_title", unique: true
-    t.index ["content_download"], name: "index_courses_on_content_download", unique: true
+    t.index ["author_id"], name: "index_contents_on_author_id"
+    t.index ["slug"], name: "index_contents_on_slug", unique: true
+    t.index ["tag_id"], name: "index_contents_on_tag_id"
+    t.index ["title"], name: "index_contents_on_title", unique: true
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -91,6 +75,13 @@ ActiveRecord::Schema.define(version: 2021_04_18_004611) do
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -108,6 +99,6 @@ ActiveRecord::Schema.define(version: 2021_04_18_004611) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "courses", "authors"
-  add_foreign_key "courses", "categories"
+  add_foreign_key "contents", "authors"
+  add_foreign_key "contents", "tags"
 end

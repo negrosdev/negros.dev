@@ -1,0 +1,23 @@
+<%= content_for :title do %> - Cursos <% end %>
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline cards-height-match">
+      <% if @contents.empty? %>
+        <div class="column is-12">
+          <p class="has-text-centered has-text-white is-size-3-desktop is-size-5-mobile">
+            Os cursos ainda não foram cadastados no momento.
+          </p>
+        </div>
+      <% else %>
+        <div class="column is-expanded">
+          <div class="columns is-multiline">
+            <% @contents.each do |content| %>
+              <div class="column is-4-desktop is-6-tablet is-12-mobile mb-6">
+                <%= render partial: 'components/content', locals: { content: content, effect: false } %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+</section>

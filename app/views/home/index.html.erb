@@ -8,9 +8,9 @@
       para o mundo! 💕
     </h1>
     <div class="columns is-multiline cards-height-match mt-6">
-      <% @courses.each do | course | %>
+      <% @contents.each do | content | %>
         <div class="column is-3-desktop is-6-tablet is-12-mobile mb-6">
-          <%= render partial: 'components/course', locals: { course: course, effect: true } %>
+          <%= render partial: 'components/content', locals: { content: content, effect: true } %>
         </div>
       <% end %>
     </div>

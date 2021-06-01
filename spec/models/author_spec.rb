@@ -9,21 +9,8 @@ RSpec.describe Author, type: :model do
 
   describe '' do
     let!(:author) { FactoryBot.create(:author) }
-
-    it 'valid youtube profile' do
-      expect(author.youtube_url).to include(author.youtube)
-    end
-
-    it 'valid twitter profile' do
-      expect(author.twitter_url).to include(author.twitter)
-    end
-
     it 'valid linkedin profile' do
       expect(author.linkedin_url).to include(author.linkedin)
-    end
-
-    it 'valid instagram profile' do
-      expect(author.instagram_url).to include(author.instagram)
     end
   end
 end
