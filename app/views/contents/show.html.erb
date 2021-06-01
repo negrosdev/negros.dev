@@ -28,12 +28,14 @@
       </div>
       
       <div class="column is-full">
-        <div class="columns">
+        <div class="columns is-multiline">
           <div class="column is-full">
-            <%= @content.title %>
+            <h1 class="title has-text-white">
+              <%= @content.title %>
+            </h1>
           </div>
-          <div class="column">
-            <%= @content.content %>
+          <div class="column ">
+            <%= @content.content.html_safe %>
           </div>
         </div>
       </div>

@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2021_06_01_135447) do
     t.string "title"
     t.string "slug"
     t.string "description"
-    t.string "content"
+    t.text "content"
     t.integer "level"
     t.integer "tag_id", null: false
     t.integer "author_id", null: false
