@@ -11,13 +11,13 @@
       <div class="column">
         <div class="column is-full">
           <div class="has-text-right mt-5">
-            <a href="<%= @content.source_code.url %>" class="button is-medium is-rose is-outlined">
+            <a href="<%= @content.content_download_url %>" class="button is-medium is-rose is-outlined">
               <span class="icon">
                 <i class="fas fa-download"></i>
               </span>
               <span>baixar treinamento</span>
             </a>
-            <a href="<%= @content.content_download %>" class="button is-medium is-dark is-outlined has-text-white">
+            <a href="<%= @content.source_code.url %>" class="button is-medium is-dark is-outlined has-text-white">
               <span class="icon">
                 <i class="fas fa-code"></i>
               </span>
@@ -74,11 +74,3 @@
 
   </div>
 </section>
-
-<%= content_for :scripts do %>
-  <script>
-    new Splide( '.splide', {
-      type: 'fade',
-    } ).mount();
-  </script>
-<% end %>

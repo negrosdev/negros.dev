@@ -1,10 +1,10 @@
 class Author < ApplicationRecord
   has_one_attached :photo
 
-  validates :name, :email,  presence: true
+  validates :name,          presence: true
   validates :email,         uniqueness: true
 
-  def email_url
+  def mailto
     "mailto:#{email}"
   end
 

@@ -1,14 +1,15 @@
 class Content < ApplicationRecord
   has_one_attached :source_code
-  has_one_attached :content_download
 
   validates :title,
             :description,
             :level,
             :slug,
+            :content_download_url,
             :content, presence: true
   validates :title,
-            :slug,    uniqueness: true
+            :content_download_url,
+            :slug, uniqueness: true
 
   extend FriendlyId
   friendly_id :title, use: :slugged

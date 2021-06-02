@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_01_135447) do
+ActiveRecord::Schema.define(version: 2021_06_02_221036) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 2021_06_01_135447) do
     t.integer "author_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "content_download_url"
     t.index ["author_id"], name: "index_contents_on_author_id"
     t.index ["slug"], name: "index_contents_on_slug", unique: true
     t.index ["tag_id"], name: "index_contents_on_tag_id"
