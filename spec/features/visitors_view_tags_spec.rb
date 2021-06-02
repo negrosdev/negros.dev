@@ -1,4 +1,4 @@
-feature 'Visitors view tags' do 
+feature 'Visitors view tags' do
   scenario 'with successfully' do
     tags = create_list(:tag, 5)
 
@@ -13,7 +13,7 @@ feature 'Visitors view tags' do
   end
 
   scenario 'and check color' do
-    tag = create(:tag, color: :dark)
+    create(:tag, color: :dark)
 
     visit root_path
     click_on '#tags'
@@ -24,7 +24,7 @@ feature 'Visitors view tags' do
   scenario 'and check link' do
     tag = create(:tag)
     author = create(:author, :with_photo)
-    content = create(:content, tag:tag, author: author)
+    create(:content, tag: tag, author: author)
 
     visit root_path
     click_on '#tags'
@@ -32,11 +32,10 @@ feature 'Visitors view tags' do
     expect(page).to have_link(tag.name, href: tag_path(tag.name))
   end
 
-
   scenario 'and view contents relationshipped' do
     tag = create(:tag)
     author = create(:author, :with_photo)
-    content = create(:content, tag:tag, author: author)
+    content = create(:content, tag: tag, author: author)
 
     visit root_path
     click_on '#tags'
