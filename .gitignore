@@ -9,6 +9,7 @@
 vendor
 .tool-versions
 log.txt
+.env
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
