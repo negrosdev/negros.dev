@@ -6,7 +6,6 @@ ruby '3.0.0'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise'
 gem 'friendly_id', '~> 5.4'
-gem 'google-cloud-storage', '~> 1.11', require: false
 gem 'jbuilder', '~> 2.7'
 gem 'pg', '~> 1.2'
 gem 'puma', '~> 5.0'
@@ -15,6 +14,7 @@ gem 'rails_admin', '~> 2.0'
 gem 'sass-rails', '>= 6'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 5.0'
+gem "aws-sdk-s3", require: false
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
