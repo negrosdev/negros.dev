@@ -1,4 +1,4 @@
-describe 'Visitor view courses page' do
+describe 'Visitor view contents page' do
   it 'and returns status code 200' do
     visit root_path
     click_on 'conteúdos'
@@ -6,14 +6,14 @@ describe 'Visitor view courses page' do
     expect(status_code).to eq(200)
   end
 
-  it 'and no view courses' do
+  it 'and no view contents' do
     visit root_path
     visit contents_path
 
-    expect(page).to have_content('Os cursos ainda não foram cadastados no momento.')
+    expect(page).to have_content('Os conteúdos ainda não foram cadastados.')
   end
 
-  it 'view 05 courses' do
+  it 'view 05 contents' do
     author = create(:author, :with_photo)
     create_list(:content, 5, author: author)
 
@@ -23,7 +23,7 @@ describe 'Visitor view courses page' do
     expect(page).to have_css('.contents', count: 5)
   end
 
-  it 'view courses from tag' do
+  it 'view contents from tag' do
     pending
 
     author = create(:author, :with_photo)
