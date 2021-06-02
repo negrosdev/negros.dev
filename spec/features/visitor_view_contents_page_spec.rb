@@ -22,23 +22,4 @@ describe 'Visitor view contents page' do
 
     expect(page).to have_css('.contents', count: 5)
   end
-
-  it 'view contents from tag' do
-    pending
-
-    author = create(:author, :with_photo)
-    tag = create(:tag, name: 'Ruby')
-    content = create(:content, tag: tag, author: author)
-
-    visit root_path
-    click_on 'conteúdos'
-
-    within '.tag' do
-      click_on 'Ruby'
-    end
-
-    expect(page).to have_current_path(tags_content_path(tag), ignore_query: true)
-    expect(page).to have_content(content.title)
-    expect(page).to have_content(content.author.name)
-  end
 end

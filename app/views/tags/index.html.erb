@@ -1,0 +1,15 @@
+<%= content_for :title do %> - Tags <% end %>
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline cards-height-match">
+      <div class="column is-expanded">
+        <div class="columns is-multiline">
+          <div class="column">
+            <% @tags.each do | tag | %>
+              <%= link_to "#" + tag.name, tag_path(tag.name), { class: 'button is-large mr-3 is-' + tag.color } %>
+            <% end %>
+          </div> 
+        </div>
+      </div>
+    </div>
+</section>

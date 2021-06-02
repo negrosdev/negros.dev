@@ -9,12 +9,6 @@ class ContentsController < ApplicationController
     @content = Content.friendly.find(params[:id])
   end
 
-  def tag
-    @tag = Tag.find(params[:id])
-    @contents = Content.friendly.where(tag: @tag).all
-    render :index
-  end
-
   private
 
   def set_tags

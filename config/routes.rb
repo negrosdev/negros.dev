@@ -9,7 +9,8 @@ Rails.application.routes.draw do
 
   get 'como-contribuir', to: 'pages#contribute'
 
-  resources :contents, only: [:index, :show], path: :conteúdos
+  resources :contents, only: %i[index show], path: :conteudos
+  resources :tags, only: %i[index show], param: :name
   
   # errors routes
   match "/404", to: "errors#not_found", via: :all

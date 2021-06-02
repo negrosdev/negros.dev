@@ -1,12 +1,6 @@
 <a href="<%= content_path(content) %>" class="contents">
   <div class="card <%= 'clear' unless effect %>">
     <div class="is-flex is-justify-content-space-between difficult">
-      <% if content.tag.icon.attached? %>
-        <figure class="image is-32x32" title="<%= content.tag.name %>">
-          <%= image_tag content.tag.icon %>
-        </figure>
-      <% end %>
-
       <span title="Dificuldade: <%= content.level %>">
         <% content.level.times do %>
           <i class="fas fa-star"></i>
