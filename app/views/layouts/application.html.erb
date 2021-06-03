@@ -21,9 +21,9 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag asset_path('logo.png') %>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
-
-    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
     <%= yield :css %>
   </head>
 
@@ -43,7 +43,5 @@
     </main>
 
     <%= render 'partials/footer' %>
-
-    <%= yield :scripts %>
   </body>
 </html>
