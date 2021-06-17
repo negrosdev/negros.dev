@@ -104,6 +104,7 @@ main.site-container {
 }
 
 .difficult {
+  text-align: right;
   margin-right: 15px;
   margin-top  : 10px;
 }
