@@ -19,13 +19,13 @@ describe 'Visitor view home' do
     expect(page).to have_content('💕 De pessoas negras devs para o mundo! 💕')
   end
 
-  it 'and view stars ' do
+  it 'and view level' do
     author = create(:author, :with_photo)
     content = create(:content, author: author)
 
     visit root_path
 
-    expect(page).to have_css('.fa-star', count: content.level)
+    expect(page).to have_css('.fa-circle', count: content.level)
   end
 
   it 'and found content ' do
