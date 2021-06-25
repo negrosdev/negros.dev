@@ -71,3 +71,6 @@ Para rodar os teste você pode executar o comando:
 $ bundle exec rspec
 ```
 
+### Prints
+
+![Website](https://github.com/negrosdev/negros.dev/blob/main/app/assets/images/website.png)
