@@ -15,60 +15,53 @@ Nosso intuito não é dificultar o aprendizado das pessoas, por isso, queremos d
 
 **Apesar de ser um repositório `free software`, não admitimos que os conteúdos sejam vendidos e caso isso seja identificado; poderemos tomar medidas judiciais.**
 
-
 ### Requisito
 
 Antes de tentar instalar o projeto localmente, é necessário que você tenha algumas ferramentas instaladas em seu computador:
 
-- [Ruby](https://www.ruby-lang.org/en/)
-- [Bundler](https://bundler.io/)
-- [Yarn](https://yarnpkg.com/) 
+- [Docker](https://www.docker.com)
+- [Docker Compose](https://docs.docker.com/compose/install/)
 
-
-
-### Clonando Repositório
+## Clonando Repositório
 
 Para usar o **negros.dev** localmente, é necessário clonar o repositório antes e para `clonar o repositório` é necessário ter o [Git](https://git-scm.com/) instalado em seu computador. Com o Git instalado, execute em seu terminal:
-
 
 ```shell
 $ git clone git@github.com:negrosdev/negros.dev.git
 ```
 
-### Configuração
+## Rodando com Docker
 
-Com o repositório baixado, é necessário acessar e instalar as dependências contidas no `Gemfile`. Precisamos configurar todas as `migrações` no `banco de dados`, compilar todos os `assets` da nossa aplicação. Pensando nisso, seria podemos executar um único comando:
-
-
-
-```ruby
-$ bin/setup
-```
-
-**Atenção: O comando acima, requer o [Yarn](https://yarnpkg.com/) instalado.** 
-
-
-É necessário configurar uma variável de ambiente chamada `RAILS_ADMIN_ROUTE` antes de tentar rodar o projeto, com o terminal aberto; no mesmo lugar que o projeto será rodado, crie a variável:
-
+O melhor jeito de rodar a aplicação localmente é com o docker e docker-compose. E isso é muito fácil, basta rodar o comando:
 
 ```shell
-$ export RAILS_ADMIN_ROUTE=admin
+$ docker-compose run --service-ports app bash
 ```
+
+Após rodar o comando, você vai entrar no modo shell do `docker`. E agora, estará tudo certo para você executar os comandos abaixo:
 
 ### Rodando 
 
-Para rodar o servidor localmente execute o comando:
+Antes de rodar o servidor, você vai querer ver alguma na tela certo? Neste caso, suba algumas sementinhas no banco de dados.
 
 ```shell
-$ bundle exec rails server
+$ rails db:seed
 ```
+
+e para rodar o servidor localmente execute o comando:
+
+```shell
+$ rails s -b 0.0.0.0
+```
+
+e em seu navegador acesse a url: http://localhost:3001
 
 ### Testes
 
 Para rodar os teste você pode executar o comando:
 
 ```shell
-$ bundle exec rspec
+$ rspec
 ```
 
 ### Prints

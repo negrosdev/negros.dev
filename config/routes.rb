@@ -15,4 +15,7 @@ Rails.application.routes.draw do
   # errors routes
   match "/404", to: "errors#not_found", via: :all
   match "/500", to: "errors#internal_server_error", via: :all
+
+  # external links
+  get '/discord', to: redirect('https://discord.com/invite/zd3eysQWrf')
 end

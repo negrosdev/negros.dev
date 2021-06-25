@@ -10,6 +10,7 @@ vendor
 .tool-versions
 log.txt
 .env
+.DS_STORE
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
