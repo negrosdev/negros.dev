@@ -1,9 +1,16 @@
 class ContentsController < ApplicationController
-  def index
-    @contents = Content.friendly.order('created_at DESC').limit(8)
+  before_action :set_content, only: %w[show track]
+
+  def show; end
+
+  def track
+    @track = Track.friendly.find(params[:track_id])
+    render :show
   end
 
-  def show
-    @content = Content.friendly.find(params[:id])
+  private
+
+  def set_content
+    @content = Content.includes(:tracks).friendly.find(params[:id])
   end
 end

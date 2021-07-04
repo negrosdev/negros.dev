@@ -3,74 +3,116 @@
     <meta property="og:url"           content="<%= request.url %>">
     <meta property="og:title"         content="<%= @content.title %>">
     <meta property="og:site_name"     content="Negros.dev">
+    <% if @content.thumbnail.attached? %>
+      <meta property="og:image"         content="<%= url_for @content.thumbnail %>">
+    <% end %>
 <% end %>
 
-<section class="section">
-  <div class="container">
-    <div class="columns is-multiline">      
-      <div class="column">
-        <div class="column is-full">
-          <div class="has-text-right mt-5">
-            <a href="<%= @content.content_download_url %>" class="button is-medium is-rose is-outlined">
-              <span class="icon">
-                <i class="fas fa-download"></i>
-              </span>
-              <span>baixar treinamento</span>
-            </a>
-            <a href="<%= @content.source_code.url %>" class="button is-medium is-dark is-outlined has-text-white">
-              <span class="icon">
-                <i class="fas fa-code"></i>
-              </span>
-              <span>código fonte</span>
-            </a>
-          </div>
-        </div>
-      </div>
+<section class="uk-section">
+  <header class="uk-container uk-container-large">
+    <small class="uk-text-light">aula:</small>
+    <% if @track.nil? %>
+      <h2 class="uk-margin-remove-top title"><%= @content.tracks.first.name %></h2>
+    <% else %>
+      <h2 class="uk-margin-remove-top title"><%= @track.name %></h2>
+    <% end %>
+  </header>
+
+  <div class="uk-container uk-container-large">
+    <div uk-grid class="uk-child-width-1-1@m">
       
-      <div class="column is-full">
-        <div class="columns is-multiline">
-          <div class="column is-full">
-            <h1 class="title has-text-white">
-              <%= @content.title %>
-            </h1>
-          </div>
-          <div class="column ">
-            <%= @content.content.html_safe %>
-          </div>
+      <div class="content-body"> 
+      <% if @track.nil? %>
+        <h2 class="uk-margin-remove-top title"><%= markdown(@content.tracks.first.resource).html_safe %></h2>
+      <% else %>
+        <h2 class="uk-margin-remove-top title"><%= markdown(@track.resource).html_safe %></h2>
+      <% end %>
+      </div>
+
+      <div id="content-creator">
+        <div class="uk-margin-bottom">
+          <% if @content.author.photo.attached? %>
+            <%= image_tag @content.author.photo, class: "uk-image uk-border-circle avatar" %>
+          <% end %>
+          <span class="uk-text-white uk-text-size-for-avatar"> <%= @content.author.name %> </span>
+        </div>
+
+        <span class="uk-text-white">Lorem ipsum dolor, sit amet consectetur adipisicin shak scol beign vouker.</span>
+
+        <div class="social-network">
+            <a href="<%= @content.author.linkedin_url %>" class="uk-icon-link" id="linkedin" uk-icon="linkedin"></a>
+            <a href="<%= @content.author.mail_url %>" class="uk-icon-link" id="mail" uk-icon="mail"></a>
         </div>
       </div>
     </div>
-
-    <div class="columns is-multiline">
-      <div class="column is-full">
-        <h1 class="has-text-white title is-lowercase mb-3 mt-6">quem criou o conteúdo?</h1>
-      </div>
-      
-      <div class="column is-full">
-        <div class="column is-3-desktop">
-          <div class="card">
-            <div class="has-text-right network">
-              <% if @content.author.linkedin %>
-                <a href="<%= @content.author.linkedin_url %>" target="_blank" class="has-text-white-bis" id="linkedin">
-                  <i class="fab fa-linkedin"></i>
-                </a>
-              <% end %>
-            </div>
-
-            <div class="card-content is-flex is-justify-content-center">
-              <figure class="image is-96x96">
-                <%= image_tag @content.author.photo, class: 'is-rounded' %>
-              </figure>
-            </div>
-            <div class="card-content">
-              <p class="title has-text-white has-text-centered">
-                <%= @content.author.name %>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div> 
-    </div>
-
   </div>
 </section>
+
+<div class="uk-container uk-container-large">
+  <hr />
+</div>
+
+<section class="uk-section">
+  <header class="uk-text-center">
+    <h2 class="uk-text-bolder">📹 Lista de aulas </h2>
+    <p>Listamos as aulas correspodente a este conteúdo para você assistir.</p>
+  </header>
+
+  <div class="uk-container">
+    <div uk-grid class="uk-child-width-1-1@m">
+      <div class="uk-card uk-card-body uk-card-primary">
+        <ul class="uk-list uk-list-large uk-list-divider uk-margin-top uk-text-lead">
+					<% @content.tracks.each do |track| %>
+						<li class="uk-flex uk-flex-between">
+              <div>
+                <span uk-icon="icon: <%= track.set_track_type %>; ratio: 1"></span>
+                
+                <% if track.sources.attached? %>
+                  <%= link_to track.name, track.sources, class: 'uk-link-reset' %>
+                <% else %>
+                  <%= link_to track.name, tracks_content_path(@content, track), class: 'uk-link-reset' %>
+                <% end%>
+
+              </div>
+              <span> <%= track.duration %> min </span>
+						</li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<div class="uk-container uk-container-large">
+  <hr />
+</div>
+
+<section class="uk-section" id="description">
+  <header class="uk-text-center">
+    <h2 class="uk-text-bolder">🔥 Descrição</h2>
+    <p>Você pode entender melhor o que se passa neste conteúdo antes de assistir.</p>
+  </header>
+
+  <div class="uk-container uk-container-large">
+    <div uk-grid>
+      <div class="uk-width-1-1@m description-body">
+        <%= markdown(@content.description) %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="uk-container uk-container-large">
+  <hr />
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+      hljs.lineNumbersBlock(block);
+    });
+  });
+</script>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_02_221036) do
+ActiveRecord::Schema.define(version: 2021_07_04_231343) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -54,13 +54,10 @@ ActiveRecord::Schema.define(version: 2021_06_02_221036) do
     t.string "title"
     t.string "slug"
     t.string "description"
-    t.text "content"
-    t.integer "level"
     t.integer "tag_id", null: false
     t.integer "author_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "content_download_url"
     t.index ["author_id"], name: "index_contents_on_author_id"
     t.index ["slug"], name: "index_contents_on_slug", unique: true
     t.index ["tag_id"], name: "index_contents_on_tag_id"
@@ -86,6 +83,19 @@ ActiveRecord::Schema.define(version: 2021_06_02_221036) do
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
+  create_table "tracks", force: :cascade do |t|
+    t.string "name"
+    t.integer "track_type"
+    t.text "resource"
+    t.integer "duration", default: 0
+    t.string "slug"
+    t.integer "order"
+    t.integer "content_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["content_id"], name: "index_tracks_on_content_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -103,4 +113,5 @@ ActiveRecord::Schema.define(version: 2021_06_02_221036) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "contents", "authors"
   add_foreign_key "contents", "tags"
+  add_foreign_key "tracks", "contents"
 end

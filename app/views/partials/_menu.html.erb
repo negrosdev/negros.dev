@@ -1,27 +1,34 @@
-<nav class="navbar is-transparent mb-6 mt-2" role="navigation" aria-label="main navigation">
-  <div class="container">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="<%= root_path %>">
-        <img src="/assets/logo.png" >
-      </a>
-  
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navPrincipal">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
-
-    <div id="navPrincipal" class="navbar-menu">
-      <div class="navbar-end">
-        <div class="navbar-item">
-          <%= link_to 'início', root_path, class: 'navbar-item'  %>
-          <%= link_to 'conteúdos', contents_path, class: 'navbar-item'  %>
-          <%= link_to '#tags', tags_path, class: 'navbar-item'  %>
-          <%= link_to 'como contribuir', como_contribuir_path, class: 'navbar-item'  %>
-          <%= link_to 'discord', discord_path, class: 'navbar-item'  %>
+<nav>
+  <div class="uk-background-black-matte uk-margin-large-bottom">
+    <div class="uk-container uk-container-expand">
+      <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+        <div class="uk-navbar-left uk-visible@m">
+          <a href="/" class="uk-navbar-item uk-logo">
+            <img src="https://negros.dev/assets/logo.png" alt="">
+            <span class="uk-text-uppercase uk-text-middle">
+                negros.dev
+              </span>
+          </a>
         </div>
-      </div>
+        <div class="uk-navbar-right">
+          <a class="uk-navbar-toggle uk-hidden@m" uk-navbar-toggle-icon uk-toggle="target: #hamburger"></a>
+          <ul class="uk-navbar-nav uk-visible@m">
+            <li>
+              <a href="https://discord.com/invite/zd3eysQWrf">discord</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </div>
-  </div>  
+  </div>
+
+  <div id="hamburger" uk-offcanvas="mode: push; overlay: true">
+    <div class="uk-offcanvas-bar">
+      <ul class="uk-nav uk-nav-default">
+        <li>
+          <a href="https://discord.com/invite/zd3eysQWrf">discord</a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </nav>
