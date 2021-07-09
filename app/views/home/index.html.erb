@@ -27,9 +27,9 @@
                 <% end %>
               </div>
               <div class="uk-card-body uk-text-center">
-                  <div class="uk-card-badge uk-label tag"><%= content.tag.name %></div>
-                  <p class="uk-text-bold uk-card-title title"><%= content.title %></p>
-                  <p class="description"><%= truncate(content.description, length: 90) %></p>
+                <div class="uk-card-badge uk-label tag"><%= content.tag.name %></div>
+                <p class="uk-text-bold uk-card-title title"><%= content.title %></p>
+                <p class="description"><%= truncate(content.description, length: 90) %></p>
               </div>
               <div class="uk-card-footer uk-text-center">
                 <%= link_to 'Começar', content_path(content), class: 'uk-button uk-button-text uk-text-large' %>

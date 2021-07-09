@@ -98,7 +98,7 @@
   <div class="uk-container uk-container-large">
     <div uk-grid>
       <div class="uk-width-1-1@m description-body">
-        <%= markdown(@content.description) %>
+        <%= markdown(@content.description).html_safe %>
       </div>
     </div>
   </div>
