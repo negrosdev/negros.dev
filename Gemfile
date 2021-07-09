@@ -12,6 +12,7 @@ gem 'pg', '~> 1.2'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 6.1.3'
 gem 'rails_admin', '~> 2.0'
+gem 'redcarpet'
 gem 'sass-rails', '>= 6'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 5.0'
@@ -33,6 +34,7 @@ group :development do
 end
 
 group :test do
+  gem 'cuprite'
   gem 'rubocop-rails', require: false
   gem 'shoulda-matchers'
 end

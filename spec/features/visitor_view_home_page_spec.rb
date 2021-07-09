@@ -1,49 +1,33 @@
-describe 'Visitor view home' do
-  it 'and returns status code 200' do
+describe 'visitors view home' do
+  it 'and view contents' do
+    author = create(:author, :with_photo)
+    content = create(:content, title: 'Entendendo o funcionamento de uma API', author: author)
+
     visit root_path
 
     expect(status_code).to eq(200)
+    expect(page).to have_content(content.title)
   end
 
-  it 'and click in +conteúdos' do
-    visit root_path
-
-    click_on 'conteúdos'
-
-    expect(current_path).to eq(contents_path)
-  end
-
-  it 'and find text' do
-    visit root_path
-
-    expect(page).to have_content('💕 De pessoas negras devs para o mundo! 💕')
-  end
-
-  it 'and view level' do
+  it 'and count total of contents' do
     author = create(:author, :with_photo)
-    content = create(:content, author: author)
+    create_list(:content, 12, author: author)
 
     visit root_path
 
-    expect(page).to have_css('.fa-circle', count: content.level)
+    expect(page).to have_css('.content', count: 8)
+    expect(page).not_to have_css('.content', count: 12)
   end
 
-  it 'and found content ' do
+  it 'and found content ', js: true do
     author = create(:author, :with_photo)
-    content = create(:content, author: author)
+    content = create(:content, title: 'A Linguagem Go', author: author)
+    create(:content, title: 'A Linguagem Ruby', author: author)
 
     visit root_path
+
+    fill_in 'Buscar', with: content.title
 
     expect(page).to have_content(content.title)
-    expect(page).to have_content(content.author.name)
-  end
-
-  it 'and found 04 contents' do
-    author = create(:author, :with_photo)
-    create_list(:content, 4, author: author)
-
-    visit root_path
-
-    expect(page).to have_css('.contents', count: 4)
   end
 end

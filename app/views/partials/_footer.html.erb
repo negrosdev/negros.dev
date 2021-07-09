@@ -1,21 +1,19 @@
 <footer>
-  <section class="section">
-    <div class="container">
-      <p class="has-text-centered is-size-5-desktop is-size-6-mobile has-text-white">
-        &COPY; Negros.dev - Todos os direitos reservados 2021
-      </p>
-      <h1 class="title has-text-white has-text-centered mt-6">Parceiros</h1>
-      <p class="has-text-centered mt-6 footer-sponsors">
-        <a href="https://caravana.cloud" alt="Logotipo do Caravana Cloud representada por uma nuvem roxinha coloca em cima do nome da marca" target="_blank" class="ml-5">
-          <img src="/assets/sponsors/caravana.png" alt="caravana" width="100">
-        </a>
-        <a href="https://jetbrains.com" alt="Logotipo da JetBrains em cores rosa e amarela com o nome Jetbrains no meio da imagem em branco e fundo preto" target="_blank" class="ml-5">
-          <img src="/assets/sponsors/jetbrains.png" alt="caravana" width="70">
-        </a>
-      </p>
-    </div>
+  <section class="uk-section uk-container">
+    <header class="uk-text-center">
+      <h3 class="uk-text-bolder">Parceiros</h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    </header>
+    <p class="uk-text-center">
+      <a href="https://caravana.cloud/" class="uk-link-reset">
+        <%= image_tag 'sponsors/caravana.png', alt: "Logotipo do caravana cloud. Uma marca parceira do negros.dev" %>
+      </a>
+      <a href="https://jetbrains.com/" class="uk-link-reset">
+        <%= image_tag 'sponsors/jetbrains.png', alt: "Logotipo da Jetbrains. Uma marca parceira do negros.dev" %>
+      </a>
+    </p>
+  </section>
+  <section class="uk-section uk-container">
+    <p class="uk-text-center">&COPY; Negros.dev 2021. Todos os direitos reservados</p>
   </section>
 </footer>
-
-<script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
-<%= yield :scripts %>

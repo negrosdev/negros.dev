@@ -1,18 +1,50 @@
-<%= content_for :title do %> 💕 Aprenda desenvolvimento 100% Grátis  💕 <% end %>
+<%= content_for :title do %> Aprenda a desenvolver software 100 grátis <% end %>
+<div id="contents">
 
-<section class="section">
-  <div class="container">
-    <h1 class="title mb-6 has-text-white has-text-centered">
-      💕 De
-      <span class="has-text-rose"> pessoas negras devs</span>
-      para o mundo! 💕
-    </h1>
-    <div class="columns is-multiline cards-height-match mt-6">
-      <% @contents.each do | content | %>
-        <div class="column is-3-desktop is-6-tablet is-12-mobile mb-6">
-          <%= render partial: 'components/content', locals: { content: content, effect: true } %>
-        </div>
-      <% end %>
+  <div class="uk-container uk-container-large">
+    <div class="uk-margin">
+      <form class="uk-search uk-search-large uk-width-1-1@m uk-search-default">
+        <span uk-search-icon></span>
+        <label for="search-content" style="display: none">Buscar</label>
+        <input class="uk-search-input search" id="search-content" type="search" placeholder="Buscar um conteúdo">
+      </form>
     </div>
   </div>
-</section>
+
+  <section class="uk-section">
+    <div class="uk-container uk-container-expand">
+      <header class="uk-text-center">
+        <h2 class="uk-text-bolder">Conteúdos Recentes</h2>
+        <p>Os conteúdos listados abaixo, foram lançados recentemente e a ordem para e exibição dos conteúdos é decrescente.</p>
+      </header>
+      <div class="uk-child-width-1-4@m list" uk-grid >
+        <% @contents.each do |content| %>
+          <div class="content" id="<%= content.slug %>">
+            <div class="uk-card uk-card-secondary uk-height-1-1">
+              <div class="uk-card-media-top">
+                <% if content.thumbnail.attached? %>
+                  <%= image_tag content.thumbnail %>
+                <% end %>
+              </div>
+              <div class="uk-card-body uk-text-center">
+                  <div class="uk-card-badge uk-label tag"><%= content.tag.name %></div>
+                  <p class="uk-text-bold uk-card-title title"><%= content.title %></p>
+                  <p class="description"><%= truncate(content.description, length: 90) %></p>
+              </div>
+              <div class="uk-card-footer uk-text-center">
+                <%= link_to 'Começar', content_path(content), class: 'uk-button uk-button-text uk-text-large' %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </section>
+</div>
+
+<%= content_for :js do %>
+  <script>
+    var options = { valueNames: [ 'title', 'tag' ] };
+    new List('contents', options);
+  </script>
+<% end %>

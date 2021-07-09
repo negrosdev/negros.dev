@@ -4,7 +4,7 @@ class Author < ApplicationRecord
   validates :name,          presence: true
   validates :email,         uniqueness: true
 
-  def mailto
+  def mail_url
     "mailto:#{email}"
   end
 

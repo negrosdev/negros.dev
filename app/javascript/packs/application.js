@@ -8,6 +8,10 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
+const UIkit = require('uikit')
+const Icons = require('uikit/dist/js/uikit-icons')
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+UIkit.use(Icons);

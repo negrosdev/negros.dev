@@ -30,18 +30,15 @@
   <body class="site">
     <%= render 'partials/menu' %>
   
-    <main class="site-container mt-6">
-      <% if flash[:notice] %>
-        <div class="container">
-          <div class="notification is-warning">
-            <p class="has-text-centered"><%= flash[:notice] %></p>
-          </div>
-        </div>
-      <% end %>
-
-      <%= yield %>
+    <main class="site-container">
+       <%= yield %>
     </main>
 
     <%= render 'partials/footer' %>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.6.0/dist/highlightjs-line-numbers.min.js"></script>
+
+    <%= yield :js %>
   </body>
 </html>
