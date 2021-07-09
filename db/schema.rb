@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_04_231343) do
+ActiveRecord::Schema.define(version: 2021_07_09_173025) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -75,6 +75,17 @@ ActiveRecord::Schema.define(version: 2021_07_04_231343) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.string "content"
+    t.string "slug"
+    t.integer "author_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["author_id"], name: "index_posts_on_author_id"
+    t.index ["title"], name: "index_posts_on_title", unique: true
+  end
+
   create_table "tags", force: :cascade do |t|
     t.string "name"
     t.integer "color"
@@ -113,5 +124,6 @@ ActiveRecord::Schema.define(version: 2021_07_04_231343) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "contents", "authors"
   add_foreign_key "contents", "tags"
+  add_foreign_key "posts", "authors"
   add_foreign_key "tracks", "contents"
 end

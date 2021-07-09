@@ -1,0 +1,59 @@
+<%= content_for :title do %> - <%= @post.title %> (Blog) <% end %>
+<%= content_for :head do %>
+    <meta property="og:url"           content="<%= request.url %>">
+    <meta property="og:title"         content="<%= @post.title %>">
+    <meta property="og:site_name"     content="Negros.dev">
+    <% if @post.image.attached? %>
+      <meta property="og:image"         content="<%= url_for @post.image %>">
+    <% end %>
+<% end %>
+
+<section class="uk-section">
+  <header class="uk-container uk-container-large">
+    <h2 class="uk-margin-remove title"><%= @post.title %></h2>
+    <span class="uk-text-white">Criado em: <%= l @post.created_at, format: :short %></span>
+  </header>
+
+  <div class="uk-container uk-container-large">
+   <% if @post.image.attached? %>
+      <%= image_tag @post.image %>
+    <% end %>
+  </div>
+
+  <div class="uk-container uk-container-large uk-margin-large-top">
+    <div uk-grid class="uk-child-width-1-1@m">
+      
+      <div class="content-body"> 
+        <%= markdown(@post.content).html_safe %>
+      </div>
+
+      <div id="content-creator">
+        <div class="uk-margin-bottom">
+          <% if @post.author.photo.attached? %>
+            <%= image_tag @post.author.photo, class: "uk-image uk-border-circle avatar" %>
+          <% end %>
+          <span class="uk-text-white uk-text-size-for-avatar"> <%= @post.author.name %> </span>
+        </div>
+
+        <span class="uk-text-white">Lorem ipsum dolor, sit amet consectetur adipisicin shak scol beign vouker.</span>
+
+        <div class="social-network">
+          <a href="<%= @post.author.linkedin_url %>" class="uk-icon-link" id="linkedin" uk-icon="linkedin"></a>
+          <a href="<%= @post.author.mail_url %>" class="uk-icon-link" id="mail" uk-icon="mail"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%= content_for :js do %>
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      document.querySelectorAll('pre code').forEach((block) => {
+        hljs.highlightBlock(block);
+        hljs.lineNumbersBlock(block);
+      });
+    });
+  </script> 
+<% end %>
+

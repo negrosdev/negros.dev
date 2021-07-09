@@ -35,6 +35,11 @@ jobs:
     - name: Install Webpacker
       run: bundle exec rake webpacker:install
 
+    - name: Install Google Chrome
+      run: |
+        chmod +x ./scripts/install_chrome.sh
+        ./scripts/install_chrome.sh
+
     - name: Run tests
       run: bundle exec rspec
       env:
