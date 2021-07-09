@@ -1,0 +1,25 @@
+
+<section class="uk-section">
+  <div class="uk-container">
+    <div uk-grid class="uk-child-width-1-1@m">
+      <% @posts.each do | post |%>
+        <div>
+          <ul class="uk-list uk-list-large">
+            <li class="uk-flex uk-flex-between">
+              <span class="title">
+                <% if post.author.photo.attached? %>
+                  <%= image_tag post.author.photo, class: 'uk-border-circle', width: '30px' %>
+                <% end %>
+                <%= link_to post.title, post_path(post) %>
+              </span>
+              <span>
+                <%= l(post.created_at, format: :short)%>
+              </span>
+            </li>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+

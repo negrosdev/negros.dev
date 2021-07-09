@@ -34,4 +34,8 @@ RailsAdmin.config do |config|
   config.model 'Track' do
     exclude_fields :slug
   end
+  
+  config.model 'Post' do
+    exclude_fields :slug
+  end
 end
