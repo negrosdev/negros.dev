@@ -37,7 +37,7 @@
           <span class="uk-text-white uk-text-size-for-avatar"> <%= @content.author.name %> </span>
         </div>
 
-        <span class="uk-text-white">Lorem ipsum dolor, sit amet consectetur adipisicin shak scol beign vouker.</span>
+        <span class="uk-text-white"><%= @content.author.description %></span>
 
         <div class="social-network">
             <a href="<%= @content.author.linkedin_url %>" class="uk-icon-link" id="linkedin" uk-icon="linkedin"></a>
@@ -55,33 +55,27 @@
 <section class="uk-section">
   <header class="uk-text-center">
     <h2 class="uk-text-bolder">📹 Lista de aulas </h2>
-    <p>Listamos as aulas correspodente a este conteúdo para você assistir.</p>
   </header>
-
   <div class="uk-container">
-    <div uk-grid class="uk-child-width-1-1@m">
-      <div class="uk-card uk-card-body uk-card-primary">
-        <ul class="uk-list uk-list-large uk-list-divider uk-margin-top uk-text-lead">
-					<% @content.tracks.each do |track| %>
-						<li class="uk-flex uk-flex-between">
-              <div>
+    <div uk-grid>
+      <div class="uk-uk-width-1-1@m">
+        <div class="uk-card uk-card-body uk-card-primary">
+          <ul class="uk-list uk-list-large uk-list-divider uk-margin-top uk-text-lead">
+            <% @content.tracks.each do |track| %>
+              <li>
                 <span uk-icon="icon: <%= track.set_track_type %>; ratio: 1"></span>
-                
                 <% if track.sources.attached? %>
                   <%= link_to track.name, track.sources, class: 'uk-link-reset' %>
                 <% else %>
                   <%= link_to track.name, tracks_content_path(@content, track), class: 'uk-link-reset' %>
                 <% end%>
-
-              </div>
-              <span> <%= track.duration %> min </span>
-						</li>
-          <% end %>
-        </ul>
+              </li>
+            <% end %>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
-
 </section>
 
 
@@ -92,7 +86,6 @@
 <section class="uk-section" id="description">
   <header class="uk-text-center">
     <h2 class="uk-text-bolder">🔥 Descrição</h2>
-    <p>Você pode entender melhor o que se passa neste conteúdo antes de assistir.</p>
   </header>
 
   <div class="uk-container uk-container-large">
