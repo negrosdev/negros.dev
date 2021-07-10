@@ -1,7 +1,7 @@
 <%= content_for :title do %> Aprenda a desenvolver software 100 grátis <% end %>
 <div id="contents">
 
-  <div class="uk-container uk-container-large">
+  <div class="uk-container">
     <div class="uk-margin">
       <form class="uk-search uk-search-large uk-width-1-1@m uk-search-default">
         <span uk-search-icon></span>
@@ -14,8 +14,6 @@
   <section class="uk-section">
     <div class="uk-container uk-container-expand">
       <header class="uk-text-center">
-        <h2 class="uk-text-bolder">Conteúdos Recentes</h2>
-        <p>Os conteúdos listados abaixo, foram lançados recentemente e a ordem para e exibição dos conteúdos é decrescente.</p>
       </header>
       <div class="uk-child-width-1-4@m list" uk-grid >
         <% @contents.each do |content| %>
@@ -29,10 +27,10 @@
               <div class="uk-card-body uk-text-center">
                 <div class="uk-card-badge uk-label tag"><%= content.tag.name %></div>
                 <p class="uk-text-bold uk-card-title title"><%= content.title %></p>
-                <p class="description"><%= truncate(content.description, length: 90) %></p>
+                <p class="description uk-text-muted"><%= truncate(content.description, length: 90) %></p>
               </div>
               <div class="uk-card-footer uk-text-center">
-                <%= link_to 'Começar', content_path(content), class: 'uk-button uk-button-text uk-text-large' %>
+                <%= link_to 'Começar', content_path(content), class: 'uk-button uk-button-default uk-text-large' %>
               </div>
             </div>
           </div>
