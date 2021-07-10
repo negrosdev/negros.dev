@@ -27,7 +27,9 @@
               <div class="uk-card-body uk-text-center">
                 <div class="uk-card-badge uk-label tag"><%= content.tag.name %></div>
                 <p class="uk-text-bold uk-card-title title"><%= content.title %></p>
-                <p class="description uk-text-muted"><%= truncate(content.description, length: 90) %></p>
+                <div class="description uk-text-muted">
+                  <%= truncate(markdown(content.description), length: 90, escape: false) %>
+                </div>
               </div>
               <div class="uk-card-footer uk-text-center">
                 <%= link_to 'Começar', content_path(content), class: 'uk-button uk-button-default uk-text-large' %>
