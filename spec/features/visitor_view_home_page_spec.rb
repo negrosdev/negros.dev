@@ -30,4 +30,13 @@ describe 'visitors view home' do
 
     expect(page).to have_content(content.title)
   end
+
+  it 'and not see content marked as draft', js: true do
+    author = create(:author, :with_photo)
+    content = create(:content, title: 'A Linguagem Go', author: author, status: :draft)
+
+    visit root_path
+
+    expect(page).not_to have_content(content.title)
+  end
 end

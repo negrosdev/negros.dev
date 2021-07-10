@@ -1,6 +1,8 @@
 class Content < ApplicationRecord
   has_one_attached :thumbnail
 
+  enum status: { published: 1, draft: 2 }
+
   validates :title,
             :description,
             presence: true
