@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 2021_07_10_025539) do
     t.integer "author_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "status", default: 2
     t.index ["author_id"], name: "index_contents_on_author_id"
     t.index ["slug"], name: "index_contents_on_slug", unique: true
     t.index ["tag_id"], name: "index_contents_on_tag_id"

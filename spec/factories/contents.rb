@@ -3,6 +3,7 @@ FactoryBot.define do
     title                 { Faker::Name.name }
     description           { Faker::Lorem.paragraph }
     author
+    status { :published }
     tag
   end
 end
