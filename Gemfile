@@ -12,6 +12,7 @@ gem 'pg', '~> 1.2'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 6.1.3'
 gem 'rails_admin', '~> 2.0'
+gem 'rails_admin-i18n'
 gem 'redcarpet'
 gem 'sass-rails', '>= 6'
 gem 'turbolinks', '~> 5'
@@ -23,6 +24,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker', '~> 2.17'
   gem 'rspec-rails', '~> 5.0'
+  gem 'rubocop-rspec', require: false
   gem 'sqlite3', '~> 1.4'
 end
 

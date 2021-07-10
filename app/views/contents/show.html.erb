@@ -108,11 +108,13 @@
   <hr />
 </div>
 
-<script>
-  document.addEventListener('DOMContentLoaded', (event) => {
-    document.querySelectorAll('pre code').forEach((block) => {
-      hljs.highlightBlock(block);
-      hljs.lineNumbersBlock(block);
+<%= content_for :js do %>
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      document.querySelectorAll('pre code').forEach((block) => {
+        hljs.highlightBlock(block);
+        hljs.lineNumbersBlock(block);
+      });
     });
-  });
-</script>
+  </script> 
+<% end %>

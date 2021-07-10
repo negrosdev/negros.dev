@@ -7,12 +7,12 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
+  resources :posts, only: %i[index show]
   resources :contents, only: %i[show], path: :conteudos do
     member do
       get '/trilha/:track_id', to: 'contents#track', as: 'tracks'
     end
   end
-  resources :tags, only: %i[index show], param: :name
   
   # errors routes
   match "/404", to: "errors#not_found", via: :all
