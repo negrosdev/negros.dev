@@ -15,6 +15,7 @@ content = FactoryBot.create(:content,
                             title: "Desenvolvendo APIs com Django Restfull",
                             tag: tag,
                             description: "Neste conteúdo iremos abordar a criação de apis restfull usando o framework Django.",
-                            author: author)
+                            author: author,
+                            status: 1 )
 tracks = FactoryBot.create_list(:track, 5, content: content)
 content.thumbnail.attach(io: File.open('spec/support/assets/django.png'), filename: 'django.png', content_type: 'image/png')
