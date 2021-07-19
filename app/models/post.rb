@@ -8,4 +8,5 @@ class Post < ApplicationRecord
   friendly_id :title, use: :slugged
 
   belongs_to :author
+  belongs_to :tag
 end

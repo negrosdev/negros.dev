@@ -8,6 +8,6 @@ describe 'visitors view blog' do
 
     expect(status_code).to eq(200)
     expect(page).to have_content(post.title)
-    expect(page).to have_content(I18n.l(post.created_at, format: :short))
+    expect(page).to have_content(I18n.l(post.created_at, format: '%d %b de %Y'))
   end
 end

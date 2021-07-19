@@ -11,7 +11,7 @@
 <section class="uk-section">
   <header class="uk-container uk-container-large">
     <h2 class="uk-margin-remove title"><%= @post.title %></h2>
-    <span class="uk-text-white">Criado em: <%= l @post.created_at, format: :short %></span>
+    <span class="uk-text-white">Criado em: <%= l @post.created_at, format: '%d %b de %Y'  %></span>
   </header>
 
   <div class="uk-container uk-container-large">
@@ -35,11 +35,35 @@
           <span class="uk-text-white uk-text-size-for-avatar"> <%= @post.author.name %> </span>
         </div>
 
-        <span class="uk-text-white">Lorem ipsum dolor, sit amet consectetur adipisicin shak scol beign vouker.</span>
+        <span class="uk-text-white">
+          <%= @post.author.description %>
+        </span>
 
         <div class="social-network">
-          <a href="<%= @post.author.linkedin_url %>" class="uk-icon-link" id="linkedin" uk-icon="linkedin"></a>
-          <a href="<%= @post.author.mail_url %>" class="uk-icon-link" id="mail" uk-icon="mail"></a>
+          <% if @post.author.linkedin %>
+            <a href="<%= @post.author.linkedin_url %>" class="uk-icon-link" id="linkedin" uk-icon="linkedin"></a>
+          <% end %>
+
+          <% if @post.author.instagram %>
+            <a href="<%= @post.author.instagram_url %>" class="uk-icon-link" id="instagram" uk-icon="instagram"></a>
+          <% end %>
+          
+          <% if @post.author.facebook %>
+            <a href="<%= @post.author.facebook_url %>" class="uk-icon-link" id="facebook" uk-icon="facebook"></a>
+          <% end %>
+          
+          <% if @post.author.github %>
+            <a href="<%= @post.author.github_url %>" class="uk-icon-link" id="github" uk-icon="github"></a>
+          <% end %>
+          
+          <% if @post.author.twitter %>
+            <a href="<%= @post.author.twitter_url %>" class="uk-icon-link" id="twitter" uk-icon="twitter"></a>
+          <% end %>
+          
+          <% if @post.author.linkedin %>
+            <a href="<%= @post.author.linkedin_url %>" class="uk-icon-link" id="linkedin" uk-icon="linkedin"></a>
+          <% end %>
+    
         </div>
       </div>
     </div>

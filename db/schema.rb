@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_10_025539) do
+ActiveRecord::Schema.define(version: 2021_07_19_031145) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -47,6 +47,10 @@ ActiveRecord::Schema.define(version: 2021_07_10_025539) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "description"
+    t.string "twitter"
+    t.string "github"
+    t.string "facebook"
+    t.string "instagram"
     t.index ["email"], name: "index_authors_on_email", unique: true
     t.index ["linkedin"], name: "index_authors_on_linkedin", unique: true
   end
@@ -79,12 +83,14 @@ ActiveRecord::Schema.define(version: 2021_07_10_025539) do
 
   create_table "posts", force: :cascade do |t|
     t.string "title"
-    t.string "content"
+    t.text "content"
     t.string "slug"
     t.integer "author_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "tag_id"
     t.index ["author_id"], name: "index_posts_on_author_id"
+    t.index ["tag_id"], name: "index_posts_on_tag_id"
     t.index ["title"], name: "index_posts_on_title", unique: true
   end
 
@@ -127,5 +133,6 @@ ActiveRecord::Schema.define(version: 2021_07_10_025539) do
   add_foreign_key "contents", "authors"
   add_foreign_key "contents", "tags"
   add_foreign_key "posts", "authors"
+  add_foreign_key "posts", "tags"
   add_foreign_key "tracks", "contents"
 end

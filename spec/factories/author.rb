@@ -4,7 +4,11 @@ FactoryBot.define do
   factory :author do
     name { Faker::Name.name }
     email { Faker::Internet.email }
-    linkedin { Faker::Twitter.screen_name }
+    linkedin { Faker::Internet.username }
+    github { Faker::Internet.username }
+    twitter { Faker::Twitter.screen_name }
+    instagram { Faker::Internet.username }
+    facebook { Faker::Internet.username }
 
     trait :with_photo do
       file = Rails.root.join('spec/support/assets/marcus.jpg')
