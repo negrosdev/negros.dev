@@ -9,18 +9,18 @@
 <% end %>
 
 <section class="uk-section">
-  <header class="uk-container uk-container-large">
+  <header class="uk-container">
     <h2 class="uk-margin-remove title"><%= @post.title %></h2>
     <span class="uk-text-white">Criado em: <%= l @post.created_at, format: '%d %b de %Y'  %></span>
   </header>
 
-  <div class="uk-container uk-container-large">
+  <div class="uk-container">
    <% if @post.image.attached? %>
       <%= image_tag @post.image %>
     <% end %>
   </div>
 
-  <div class="uk-container uk-container-large uk-margin-large-top">
+  <div class="uk-container uk-margin-large-top">
     <div uk-grid class="uk-child-width-1-1@m">
       
       <div class="content-body"> 

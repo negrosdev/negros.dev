@@ -21,7 +21,7 @@
                 <%= l post.created_at, format: '%d %b de %Y'  %>
               </p>
               <p>
-                <%= truncate(post.content, length: 220 )%>
+                <%= markdown(truncate(post.content, length: 115)).html_safe %>
               </p>
             </div>
             <div class="uk-card-footer">

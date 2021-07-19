@@ -11,15 +11,15 @@ class Author < ApplicationRecord
   def linkedin_url
     "https://www.linkedin.com/in/#{linkedin}"
   end
-  
+
   def instagram_url
     "https://www.instagram.com/#{instagram}"
   end
-  
+
   def facebook_url
     "https://www.facebook.com/#{facebook}"
   end
-  
+
   def twitter_url
     "https://www.twitter.com/#{twitter}"
   end

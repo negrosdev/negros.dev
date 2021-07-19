@@ -23,7 +23,7 @@ describe 'visitors view blog' do
     expect(page).to have_link(id: 'github', href: author.github_url)
     expect(page).to have_link(id: 'twitter', href: author.twitter_url)
   end
-  
+
   it 'and not view author email' do
     author = create(:author, :with_photo)
     post = create(:post, author: author)
