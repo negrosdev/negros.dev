@@ -1,0 +1,39 @@
+[tool.poetry]
+name = "backend"
+version = "1.0.0"
+description = ""
+authors = ["Marcus Pereira <marcus@negros.dev>"]
+
+[tool.poetry.dependencies]
+python = ">=3.7,<4.0.0"
+Flask = "^2.0.2"
+Flask-Admin = "^1.5.8"
+dynaconf = "^3.1.7"
+Flask-SQLAlchemy = "^2.5.1"
+Pillow = "^8.3.2"
+python-slugify = "^5.0.2"
+Flask-WTF = "^0.15.1"
+Flask-Login = "^0.5.0"
+email-validator = "^1.1.3"
+mvc-flask = "^2.3.0"
+libgravatar = "^1.0.0"
+bleach = "^4.1.0"
+markdown2 = "^2.4.1"
+Pygments = "^2.10.0"
+Flask-Migrate = "^3.1.0"
+
+[tool.poetry.dev-dependencies]
+black = "^21.9b0"
+factory-boy = "^3.2.0"
+Faker = "^9.2.0"
+splinter = {version = "^0.15.0", extras = ["flask"]}
+autoflake = "^1.4"
+ward = "^0.65.0-beta.0"
+python-dotenv = "^0.19.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ward]
+progress-style = ["bar"]

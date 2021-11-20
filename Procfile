@@ -1,2 +1,2 @@
-web: bundle exec puma -C config/puma.rb
-release: bin/rails db:migrate
+web: gunicorn app:app
+release: flask db upgrade

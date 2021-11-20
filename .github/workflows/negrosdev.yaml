@@ -1,0 +1,39 @@
+name: ui test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.9]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v1
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install Poetry
+      uses: Gr1N/setup-poetry@v4
+
+    - name: Disables creation of virtualenvs
+      run: poetry config virtualenvs.create false
+
+    - name: Install dependencies
+      run: poetry install
+
+    - name: run lint
+      run: |
+        make check
+    - name: run tests
+      run: |
+        make migrate
+        make test

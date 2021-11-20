@@ -1,0 +1,21 @@
+[default]
+EXTENSIONS = [
+  "app.extensions.extensions:init_app",
+  "app.extensions.admin:init_app",
+  "app.filters:init_app",
+  "mvc_flask:FlaskMVC"
+]
+SQLALCHEMY_TRACK_MODIFICATIONS = false
+
+[production]
+SECRET_KEY = "@jinja {{env.SECRET_KEY}}"
+SQLALCHEMY_DATABASE_URI = "@jinja {{env.DATABASE_URL}}"
+
+[development]
+SECRET_KEY = 'secret'
+SQLALCHEMY_DATABASE_URI = "sqlite:///development.sqlite3"
+
+[testing]
+SECRET_KEY = 'secret'
+SQLALCHEMY_DATABASE_URI = "sqlite:///:memory:"
+WTF_CSRF_ENABLED = false

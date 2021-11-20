@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="terminal-nav">
+    <div class="terminal-logo">
+      <div class="logo terminal-prompt">
+        <a href="{{ url_for('home.index') }}" class="no-style">negros.dev</a>
+      </div>
+    </div>
+    <nav class="terminal-menu">
+      <ul>
+        {% if current_user.is_authenticated %}
+          <li>
+            <a class="menu-item" href="#">{{ current_user.email }}</a>
+          </li>
+          <li>
+            <a class="menu-item" href="{{ url_for('auth.logout') }}">sair</a>
+          </li>
+        {% else %}
+          <li><a class="menu-item" href="{{ url_for('auth.login') }}">entrar</a></li>
+        {% endif %}
+        <li><a class="menu-item" href="#">comunidade</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>

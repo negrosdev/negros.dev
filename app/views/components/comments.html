@@ -1,0 +1,30 @@
+<section class="section terminal-margin-large-top" x-data="{ name: '',   text: ''}">
+  <div class="container">
+    <div class="row">
+      <h1>(2) Comentários</h1>
+      <div x-show="name && text" x-transition.duration.500ms>
+        <blockquote>
+          <p x-text="text"></p>
+          <footer>
+            <cite><a href="" x-text="name"></a></cite>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+
+    <div class="row terminal-margin-large-top">
+      <form action="{{ page.create_comment }}">
+        <fieldset>
+          <legend>Faça um comentário</legend>
+          <div class="form-group">
+            {{ form.text.label }}
+            {{ form.text(rows='20', **{"x-model":"text"} ) }}
+          </div>
+          <div class="form-group text-right">
+            {{ form.submit(class_="btn btn-default") }}
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</section>

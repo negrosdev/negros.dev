@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/img/logo.png" />
+
+  <title>negros.dev - {% block title %} aprenda a programar com pessoas negras {% endblock title%}</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/terminal.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}" />
+
+
+  {% block css %} {% endblock %}
+
+</head>
+
+<body class="site terminal">
+  {% include 'components/menu.html' %}
+
+  <main class="site-container">
+    {% block content %}
+    {% endblock content %}
+  </main>
+
+  {% include "components/footer.html" %}
+
+  <script nomodule src="{{ url_for('static', filename='javascript/alpine.js') }}"></script>
+  
+  {% block scripts %} {% endblock %}
+</body>
+
+</html>

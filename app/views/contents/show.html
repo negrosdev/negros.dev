@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+
+<section class="container terminal-margin-large-top content">
+  <h1>{{ content.name }}</h1>
+
+  <div>
+    {{ content.embeded | safe }}
+  </div>
+
+  <div class="terminal-margin-top" id="creator">
+    <h1>😉 Descrição do conteúdo</h1>
+    <p> {{ content.description }} </p>
+  </div>
+
+
+
+  <div class="terminal-margin-top">
+    {% if content.requirements %}
+    <h1>🛑 Pré-requisito</h1>
+    <div class="playlist">
+      <ul id="playslist">
+        {% for requirement in content.requirements %}
+          <li>
+            <a href="{{ url_for('contents.show', content_slug=requirement.slug) }}">{{ requirement.name }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+  </div>
+  
+  <div class="terminal-margin-top">
+    {% if content.sources %}
+      <h1>🔗 Material de apoio</h1>
+      <div class="playlist">
+        <ul id="playslist">
+          {% for source in content.sources %}
+            <li>
+              <a href="{{ source }}">{{ source.name }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  </div>
+
+
+
+  <div class="terminal-margin-top" id="creator">
+    <h1>🔮 Conteúdo</h1>
+
+    {{ content.text | to_html }}
+  </div>
+
+  <div class="terminal-margin-top" id="creator">
+    <h1>💻Criado por</h1>
+    <div>
+      <img src="{{ content.author.image }}" alt="imagem de {{ content.author.name }}" />
+      <div>
+        <span> {{ content.author.name }} </span>
+        <span> {{ content.author.description }} </span>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %} 
+  <script>
+    document.querySelectorAll("code").forEach(el => el.classList.add("hljs"))
+  </script>
+{% endblock %}
