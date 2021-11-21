@@ -1,8 +1,8 @@
 from flask import url_for
 from ward import test
 
-from tests.factories.user import UserFactory
-from tests.fixtures import browser
+from __test__.factories.user import UserFactory
+from __test__.fixtures import browser
 from app.models.user import ERole
 
 

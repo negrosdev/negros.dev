@@ -1,6 +1,6 @@
 from flask import url_for
-from tests.factories.content import ContentFactory
-from tests.fixtures import test_client
+from __test__.factories.content import ContentFactory
+from __test__.fixtures import test_client
 from ward import test
 
 
