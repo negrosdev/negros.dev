@@ -39,7 +39,7 @@ class ContentAdmin(ModelView):
 
 def init_app(app):
     url = os.environ["FLASK_ADMIN_URL"]
-    admin = Admin(app=app, name="negros.dev", url=url ,index_view=AdminView(url=url))
+    admin = Admin(app=app, name="negros.dev", url=url, index_view=AdminView(url=url))
 
     admin.add_view(UserAdmin(User, db.session))
     admin.add_view(ContentAdmin(Content, db.session))
