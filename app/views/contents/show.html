@@ -40,7 +40,7 @@
         <ul id="playslist">
           {% for source in content.sources %}
             <li>
-              <a href="{{ source }}">{{ source.name }}</a>
+              <a href="{{ source.link }}">{{ source.name }}</a>
             </li>
           {% endfor %}
         </ul>
@@ -50,11 +50,13 @@
 
 
 
-  <div class="terminal-margin-top" id="creator">
-    <h1>🔮 Conteúdo</h1>
+  {% if content.text %}
+    <div class="terminal-margin-top" id="creator">
+      <h1>🔮 Conteúdo</h1>
 
-    {{ content.text | to_html }}
-  </div>
+      {{ content.text | to_html }}
+    </div>
+  {% endif %}
 
   <div class="terminal-margin-top" id="creator">
     <h1>💻Criado por</h1>
