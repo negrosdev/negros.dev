@@ -16,7 +16,12 @@
     <p> {{ content.description }} </p>
   </div>
 
-
+  <div class="terminal-margin-top" id="creator">
+    <h1>🌠 Info</h1>
+    <p> 
+      O conteúdo apresentado foi atualizado em <strong>{{ content.updated_on | datetimeformat('medium') }}</strong> e poderá ser modificado a qualquer momento sem aviso prévio.
+    </p>
+  </div>
 
   <div class="terminal-margin-top">
     {% if content.requirements %}

@@ -42,6 +42,7 @@ class Content(db.Model):
     sources = db.relationship("Source", backref="content", uselist=True)
 
     created_on = db.Column(db.DateTime, server_default=db.func.now())
+    updated_on = db.Column(db.DateTime, default=db.func.now(), onupdate=db.func.now())
 
     def __repr__(self):
         return self.name

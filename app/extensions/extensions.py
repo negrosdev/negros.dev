@@ -1,6 +1,7 @@
 from flask_login import LoginManager
 from flask_sitemap import Sitemap
 from flask_sqlalchemy import SQLAlchemy
+from flask_babel import Babel
 
 db = SQLAlchemy()
 login_manager = LoginManager()
@@ -18,6 +19,7 @@ def development(app):
 def production(app):
     db.init_app(app)
     login_manager.init_app(app)
+    Babel(app)
 
 
 def init_app(app):
