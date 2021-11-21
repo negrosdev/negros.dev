@@ -1,3 +1,4 @@
+import os
 from flask_admin import Admin, AdminIndexView
 from flask_admin.contrib.sqla import ModelView
 from flask_login import current_user
@@ -37,7 +38,8 @@ class ContentAdmin(ModelView):
 
 
 def init_app(app):
-    admin = Admin(app=app, name="negros.dev", index_view=AdminView())
+    url = os.environ["FLASK_ADMIN_URL"]
+    admin = Admin(app=app, name="negros.dev", url=url ,index_view=AdminView(url=url))
 
     admin.add_view(UserAdmin(User, db.session))
     admin.add_view(ContentAdmin(Content, db.session))
