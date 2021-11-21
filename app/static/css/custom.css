@@ -488,3 +488,12 @@ iframe {
 .content h1 {
   font-size: 18px;
 }
+
+.terminal-prompt::before {
+  content: " ";
+}
+
+.img-logo {
+  width: 40px !important;
+  margin-right: 10px;
+}
