@@ -333,6 +333,17 @@ Flask = ">=0.9"
 Flask-SQLAlchemy = ">=1.0"
 
 [[package]]
+name = "flask-seeder"
+version = "1.2.0"
+description = "Flask extension to seed database through scripts"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+Flask = ">=1.0.2"
+
+[[package]]
 name = "flask-sqlalchemy"
 version = "2.5.1"
 description = "Adds SQLAlchemy support to your Flask application."
@@ -976,7 +987,7 @@ testing = ["pytest (>=4.6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytes
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.7,<4.0.0"
-content-hash = "44ae8a14a9f2715326e1777885d80fa45b228ae5f7ac8b8643cc5e00f6f4487f"
+content-hash = "6a18d9d9d4525b125f8ccf7ceab4c374a7e1dee281d5ba710675f250b6eef6db"
 
 [metadata.files]
 alembic = [
@@ -1139,6 +1150,10 @@ flask-login = [
 flask-migrate = [
     {file = "Flask-Migrate-3.1.0.tar.gz", hash = "sha256:57d6060839e3a7f150eaab6fe4e726d9e3e7cffe2150fb223d73f92421c6d1d9"},
     {file = "Flask_Migrate-3.1.0-py3-none-any.whl", hash = "sha256:a6498706241aba6be7a251078de9cf166d74307bca41a4ca3e403c9d39e2f897"},
+]
+flask-seeder = [
+    {file = "Flask-Seeder-1.2.0.tar.gz", hash = "sha256:7fcfd2ad9aa0b7aad32b0d4684d2ee6cfcbc06a5ba1f8e3fe6ea07bf0f5b757c"},
+    {file = "Flask_Seeder-1.2.0-py3-none-any.whl", hash = "sha256:8ffa20de8fdfe8af1852f994d5b8e41792faf8f90e0065e1c6b6f71e324cb7ea"},
 ]
 flask-sqlalchemy = [
     {file = "Flask-SQLAlchemy-2.5.1.tar.gz", hash = "sha256:2bda44b43e7cacb15d4e05ff3cc1f8bc97936cc464623424102bfc2c35e95912"},
