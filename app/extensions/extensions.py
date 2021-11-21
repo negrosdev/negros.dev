@@ -2,6 +2,8 @@ from flask_login import LoginManager
 from flask_sitemap import Sitemap
 from flask_sqlalchemy import SQLAlchemy
 from flask_babel import Babel
+from flask_migrate import Migrate
+
 
 db = SQLAlchemy()
 login_manager = LoginManager()
@@ -9,21 +11,21 @@ login_manager.login_view = "auth.login"
 
 
 def development(app):
-    from flask_migrate import Migrate
     from flask_seeder import FlaskSeeder
 
-    Migrate(app, db)
     FlaskSeeder(app, db)
 
 
 def production(app):
-    db.init_app(app)
+
     login_manager.init_app(app)
+    Migrate(app, db)
     Babel(app)
 
 
 def init_app(app):
     env = app.config.ENV
+    db.init_app(app)
 
     if env == "development" or env == "testing":
         development(app)
