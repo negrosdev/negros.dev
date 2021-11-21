@@ -1,8 +1,10 @@
-from app.models.source import Source
 from flask import url_for
+from ward import test
+from flask_babel import format_datetime
+
+from app.models.source import Source
 from __test__.factories.content import ContentFactory
 from __test__.fixtures import browser
-from ward import test
 
 
 @test("and click to open the content")
@@ -50,3 +52,14 @@ def _(browser=browser):
 
     assert browser.is_text_present(content.author.name)
     assert browser.is_text_present(content.author.description)
+
+
+@test("view metadata")
+def _(browser=browser):
+    content = ContentFactory.create(name="Introdução ao Flask")
+
+    browser.visit(url_for("contents.show", content_slug=content.slug))
+    timestamp = format_datetime(content.updated_on, "medium")
+    assert browser.is_text_present(
+        f"O conteúdo apresentado foi atualizado em {timestamp} e poderá ser modificado a qualquer momento sem aviso prévio."
+    )

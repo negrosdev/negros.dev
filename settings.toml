@@ -6,6 +6,7 @@ EXTENSIONS = [
   "mvc_flask:FlaskMVC"
 ]
 SQLALCHEMY_TRACK_MODIFICATIONS = false
+BABEL_DEFAULT_LOCALE = "pt_BR"
 
 
 [production]
