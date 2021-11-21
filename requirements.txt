@@ -4,6 +4,8 @@ alembic==1.7.5; python_version >= "3.6" \
 bleach==4.1.0; python_version >= "3.6" \
     --hash=sha256:4d2651ab93271d1129ac9cbc679f524565cc8a1b791909c4a51eac4446a15994 \
     --hash=sha256:0900d8b37eba61a802ee40ac0061f8c2b5dee29c1927dd1d233e075ebf5a71da
+blinker==1.4 \
+    --hash=sha256:471aee25f3992bd325afa3772f1063dbdbbca947a041b8b89466dc00d606f8b6
 click==8.0.3; python_version >= "3.6" \
     --hash=sha256:353f466495adaeb40b6b5f592f9f91cb22372351c84caeb068132442a4518ef3 \
     --hash=sha256:410e932b050f5eed773c4cda94de75971c89cdb3155a72a0831139a79e5ecb5b
@@ -27,6 +29,9 @@ flask-login==0.5.0 \
 flask-migrate==3.1.0; python_version >= "3.6" \
     --hash=sha256:57d6060839e3a7f150eaab6fe4e726d9e3e7cffe2150fb223d73f92421c6d1d9 \
     --hash=sha256:a6498706241aba6be7a251078de9cf166d74307bca41a4ca3e403c9d39e2f897
+flask-sitemap==0.3.0 \
+    --hash=sha256:a062204e4dfeb1809350dcfc4183348eb6595ac82bba639e49644d0bfc964ecd \
+    --hash=sha256:3e3c54acc2639d1e415586e7bc315b32873c14f9975d60d95308d3af8dca5c0d
 flask-sqlalchemy==2.5.1; (python_version >= "2.7" and python_full_version < "3.0.0") or (python_full_version >= "3.4.0") \
     --hash=sha256:2bda44b43e7cacb15d4e05ff3cc1f8bc97936cc464623424102bfc2c35e95912 \
     --hash=sha256:f12c3d4cc5cc7fdcc148b9527ea05671718c3ea45d50c7e732cceb33f574b390
