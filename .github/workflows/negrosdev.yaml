@@ -37,3 +37,5 @@ jobs:
       run: |
         make migrate
         make test
+      env:
+        FLASK_ADMIN_URL: /admin
