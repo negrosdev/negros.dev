@@ -5,14 +5,14 @@
 {% block content %}
 
 <section class="container terminal-margin-large-top content">
-  <h1>{{ content.name }}</h1>
+  <h1>{{ content.name.title() }}</h1>
 
   <div>
     {{ content.embeded | safe }}
   </div>
 
   <div class="terminal-margin-top" id="creator">
-    <h1>😉 Descrição do conteúdo</h1>
+    <h1>😉 Descrição</h1>
     <p> {{ content.description }} </p>
   </div>
 

@@ -7,7 +7,7 @@
     <div class="form-group">
       <div class="search-box">
         <input id="search" name="content_name" type="search" required minlength="3"
-          placeholder="o que você gostaria de aprender?" />
+          placeholder="Buscar conteúdo" />
           <input type="submit" class="btn btn-default" value="BUSCAR">
         </div>
       </div>
@@ -20,7 +20,7 @@
   <ol class="terminal-toc">
     {% for content in contents %}
     <li>
-      <a href="{{ url_for('contents.show', content_slug=content.slug) }}">{{ content.name }}</a>
+      <a href="{{ url_for('contents.show', content_slug=content.slug) }}">{{ content.name.title() }}</a>
     </li>
     {% endfor %}
   </ol>
