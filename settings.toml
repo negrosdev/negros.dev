@@ -7,6 +7,7 @@ EXTENSIONS = [
 ]
 SQLALCHEMY_TRACK_MODIFICATIONS = false
 
+
 [production]
 SECRET_KEY = "@jinja {{env.SECRET_KEY}}"
 SQLALCHEMY_DATABASE_URI = "@jinja {{env.DATABASE_URL}}"

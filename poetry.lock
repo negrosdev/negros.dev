@@ -90,6 +90,14 @@ six = ">=1.9.0"
 webencodings = "*"
 
 [[package]]
+name = "blinker"
+version = "1.4"
+description = "Fast, simple object-to-object and broadcast signaling"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "certifi"
 version = "2021.10.8"
 description = "Python package for providing Mozilla's CA Bundle."
@@ -342,6 +350,22 @@ python-versions = "*"
 
 [package.dependencies]
 Flask = ">=1.0.2"
+
+[[package]]
+name = "flask-sitemap"
+version = "0.3.0"
+description = "Flask extension that helps with sitemap generation."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+blinker = "*"
+Flask = "*"
+
+[package.extras]
+cli = ["flask-script"]
+docs = ["sphinx", "flask-script"]
 
 [[package]]
 name = "flask-sqlalchemy"
@@ -987,7 +1011,7 @@ testing = ["pytest (>=4.6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytes
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.7,<4.0.0"
-content-hash = "6a18d9d9d4525b125f8ccf7ceab4c374a7e1dee281d5ba710675f250b6eef6db"
+content-hash = "b18867256eafc9e24d0519949704bcabad1aab5d1a32e6df7baa7119157f8864"
 
 [metadata.files]
 alembic = [
@@ -1012,6 +1036,9 @@ black = [
 bleach = [
     {file = "bleach-4.1.0-py2.py3-none-any.whl", hash = "sha256:4d2651ab93271d1129ac9cbc679f524565cc8a1b791909c4a51eac4446a15994"},
     {file = "bleach-4.1.0.tar.gz", hash = "sha256:0900d8b37eba61a802ee40ac0061f8c2b5dee29c1927dd1d233e075ebf5a71da"},
+]
+blinker = [
+    {file = "blinker-1.4.tar.gz", hash = "sha256:471aee25f3992bd325afa3772f1063dbdbbca947a041b8b89466dc00d606f8b6"},
 ]
 certifi = [
     {file = "certifi-2021.10.8-py2.py3-none-any.whl", hash = "sha256:d62a0163eb4c2344ac042ab2bdf75399a71a2d8c7d47eac2e2ee91b9d6339569"},
@@ -1154,6 +1181,10 @@ flask-migrate = [
 flask-seeder = [
     {file = "Flask-Seeder-1.2.0.tar.gz", hash = "sha256:7fcfd2ad9aa0b7aad32b0d4684d2ee6cfcbc06a5ba1f8e3fe6ea07bf0f5b757c"},
     {file = "Flask_Seeder-1.2.0-py3-none-any.whl", hash = "sha256:8ffa20de8fdfe8af1852f994d5b8e41792faf8f90e0065e1c6b6f71e324cb7ea"},
+]
+flask-sitemap = [
+    {file = "Flask-Sitemap-0.3.0.tar.gz", hash = "sha256:a062204e4dfeb1809350dcfc4183348eb6595ac82bba639e49644d0bfc964ecd"},
+    {file = "Flask_Sitemap-0.3.0-py2.py3-none-any.whl", hash = "sha256:3e3c54acc2639d1e415586e7bc315b32873c14f9975d60d95308d3af8dca5c0d"},
 ]
 flask-sqlalchemy = [
     {file = "Flask-SQLAlchemy-2.5.1.tar.gz", hash = "sha256:2bda44b43e7cacb15d4e05ff3cc1f8bc97936cc464623424102bfc2c35e95912"},
