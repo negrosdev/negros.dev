@@ -20,7 +20,7 @@
   <ol class="terminal-toc">
     {% for content in contents %}
     <li>
-      <a href="{{ url_for('contents.show', content_slug=content.slug) }}">{{ content.name.title() }}</a>
+      <a href="{{ url_for('contents.show', content_slug=content.slug) }}">{{ content.name }}</a>
     </li>
     {% endfor %}
   </ol>

@@ -48,10 +48,12 @@ class Content(db.Model):
 
 
 @event.listens_for(Content, "before_insert")
-def slug(mapper, connect, target):
+def before_insert(mapper, connect, target):
     target.slug = slugify(target.name)
+    target.name = target.name.title()
 
 
 @event.listens_for(Content, "before_update")
-def slug(mapper, connect, target):
+def before_update(mapper, connect, target):
     target.slug = slugify(target.name)
+    target.name = target.name.title()
