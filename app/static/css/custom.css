@@ -62,6 +62,14 @@ pre {
   padding: 0.5em 1em;
 }
 
+pre code {
+  display   : block;
+  overflow-x: auto;
+  padding   : 0.5 em;
+  background: var(--block-background-color);
+  color     : var(--font-color);
+}
+
 pre:before {
   content          : " ";
   display          : block;
@@ -494,6 +502,6 @@ iframe {
 }
 
 .img-logo {
-  width: 40px !important;
+  width       : 40px !important;
   margin-right: 10px;
 }
