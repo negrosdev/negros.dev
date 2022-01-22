@@ -3,7 +3,6 @@ from enum import Flag, auto
 from app.extensions.extensions import db
 from slugify import slugify
 from sqlalchemy import event
-from .source import Source
 
 
 class EStatus(Flag):
