@@ -10,11 +10,13 @@ test:
 
 .PHONY: check
 check:
+	@autoflake app -r -c --remove-all-unused-imports --remove-unused-variables
 	@black . --check --exclude="migrations"
 
 
 .PHONY: format
 format:
+	@autoflake app -r -i --remove-all-unused-imports --remove-unused-variables
 	@black . --exclude="migrations"
 
 .PHONY: migrate
