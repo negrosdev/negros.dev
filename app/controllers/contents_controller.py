@@ -1,9 +1,6 @@
-import bleach
-from flask import abort, flash, redirect, url_for
-from flask_login import login_required, current_user
+from flask import abort
 
 from app.models.content import Content
-from app.extensions.extensions import db
 
 
 class ContentsController:
