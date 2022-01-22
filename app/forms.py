@@ -8,8 +8,3 @@ class LoginForm(FlaskForm):
     email = StringField("E-mail", validators=[DataRequired(), Email()])
     password = PasswordField("Senha", validators=[DataRequired()])
     submit = SubmitField("Entrar")
-
-
-class CommentForm(FlaskForm):
-    text = TextAreaField("Comentário", validators=[DataRequired(), Length(10)])
-    submit = SubmitField("Enviar")

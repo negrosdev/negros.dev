@@ -30,7 +30,6 @@ class User(db.Model, UserMixin):
     role = db.Column(db.Enum(ERole), default=ERole.USER)
 
     contents = db.relationship("Content", backref="author", uselist=True)
-    comments = db.relationship("Comment", backref="author", uselist=True)
 
     created_on = db.Column(db.DateTime, server_default=db.func.now())
 

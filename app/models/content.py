@@ -38,7 +38,6 @@ class Content(db.Model):
         secondaryjoin=Requirements.c.content_id == id,
         backref="content",
     )
-    comments = db.relationship("Comment", backref="content", uselist=True)
     sources = db.relationship("Source", backref="content", uselist=True)
 
     created_on = db.Column(db.DateTime, server_default=db.func.now())

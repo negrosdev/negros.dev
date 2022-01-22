@@ -7,7 +7,6 @@ from flask import abort
 from .extensions import db
 from app.models.content import Content
 from app.models.user import User
-from app.models.comment import Comment
 from app.models.source import Source
 
 
@@ -43,5 +42,4 @@ def init_app(app):
 
     admin.add_view(UserAdmin(User, db.session))
     admin.add_view(ContentAdmin(Content, db.session))
-    admin.add_views(ModelView(Comment, db.session))
     admin.add_views(ModelView(Source, db.session))
