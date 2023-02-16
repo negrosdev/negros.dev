@@ -341,9 +341,9 @@ typing-extensions==4.0.0; python_version < "3.8" and python_version >= "3.6" \
 webencodings==0.5.1; python_version >= "3.6" \
     --hash=sha256:a0af1213f3c2226497a97e2b3aa01a7e4bee4f403f95be16fc9acd2947514a78 \
     --hash=sha256:b36a1c245f2d304965eb4e0a82848379241dc04b865afcc4aab16748587e1923
-werkzeug==2.0.2; python_version >= "3.6" \
-    --hash=sha256:63d3dc1cf60e7b7e35e97fa9861f7397283b75d765afcaefd993d6046899de8f \
-    --hash=sha256:aa2bb6fc8dee8d6c504c0ac1e7f5f7dc5810a9903e793b6f715a9f015bdadb9a
+werkzeug==2.2.3; python_version >= "3.6" \
+    --hash=sha256:2e1ccc9417d4da358b9de6f174e3ac094391ea1d4fbef2d667865d819dfd0afe \
+    --hash=sha256:56433961bc1f12533306c624f3be5e744389ac61d722175d543e1751285da612
 wtforms==3.0.0; python_version >= "3.6" \
     --hash=sha256:232dbb0094847dca2f45c72136b5ca1d5dca2a3e24ccd2229823b8b74b3c6698 \
     --hash=sha256:4abfbaa1d529a1d0ac927d44af8dbb9833afd910e56448a103f1893b0b176886
