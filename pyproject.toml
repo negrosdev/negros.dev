@@ -6,7 +6,7 @@ authors = ["Marcus Pereira <marcus@negros.dev>"]
 
 [tool.poetry.dependencies]
 python = ">=3.7,<4.0.0"
-Flask = "^2.0.2"
+Flask = "^2.2.5"
 Flask-Admin = "^1.5.8"
 dynaconf = "^3.1.7"
 Flask-SQLAlchemy = "^2.5.1"
