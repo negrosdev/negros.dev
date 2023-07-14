@@ -1,0 +1,40 @@
+name: "Run rspec to execute tests"
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:14-alpine
+        ports:
+          - "5432:5432"
+        env:
+          POSTGRES_DB: negrosdev_test
+          POSTGRES_USER: ${{secrets.DB_USERNAME}}
+          POSTGRES_PASSWORD: ${{secrets.DB_PASSWORD}}
+    env:
+      RAILS_ENV: test
+      DATABASE_URL_TEST: "postgres://rails:password@localhost:5432/rails_test"
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Install Google Chrome browser
+        run: |
+          chmod +x ./scripts/install_chrome.sh
+          ./scripts/install_chrome.sh
+      - name: Install Ruby and gems
+        uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
+        with:
+          bundler-cache: true
+      - name: Set up application
+        run: bin/setup
+      - name: Run tests
+        run: rspec
+    environment:
+      DB_USERNAME: ${{secrets.DB_USERNAME}}
+      DB_PASSWORD: ${{secrets.DB_PASSWORD}}
