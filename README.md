@@ -1,24 +1,16 @@
-# README
+# Executando o projeto
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Você pode executar o projeto utilizando o Docker. Primeiro acesse o diretório do projeto utilizando o terminal do sistema e depois execute o comando:
 
-Things you may want to cover:
+```shell
+docker compose run --service-ports --rm web bash
+```
+Após acessar o container, rode o comando `bin/setup` para instalar as gems, criar banco de dados e rodar as migrations. E então, você poderá rodar o comando `rails server -b 0.0.0.0` para conseguir acessar o sistema através da URL.
 
-* Ruby version
+http://localhost:3000
 
-* System dependencies
+Lembre-se que se você quiser iniciar o sistema já com alguns dados criados, será necessário rodar as seeds antes de iniciar o servidor.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```shell
+rails db:seed
+```
