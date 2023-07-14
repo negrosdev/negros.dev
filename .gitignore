@@ -32,3 +32,4 @@
 
 # Ignore others files
 .DS_Store
+.env
