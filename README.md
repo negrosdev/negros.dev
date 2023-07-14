@@ -1,4 +1,10 @@
-# Executando o projeto
+## Configuração do projeto
+
+O primeiro passo para configurar as **variáveis de ambiente** é alterar o arquivo `example.env` para `.env`. Cada variável de ambiente representa um
+serviço da aplicação que está comentada em português.
+
+
+## Executando o projeto
 
 Você pode executar o projeto utilizando o Docker. Primeiro acesse o diretório do projeto utilizando o terminal do sistema e depois execute o comando:
 
