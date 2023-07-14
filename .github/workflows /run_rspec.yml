@@ -35,6 +35,3 @@ jobs:
         run: bin/setup
       - name: Run tests
         run: rspec
-        env:
-          DB_USERNAME: ${{secrets.DB_USERNAME}}
-          DB_PASSWORD: ${{secrets.DB_PASSWORD}}
