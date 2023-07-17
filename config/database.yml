@@ -1,16 +1,20 @@
 default: &default
   adapter:  postgresql
   encoding: unicode
-  pool:     <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  pool:      <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host:      <%= ENV["POSTGRES_HOST"] %>
+  username:  <%= ENV["POSTGRES_USERNAME"] %>
+  password:  <%= ENV["POSTGRES_PASSWORD"] %>
+  port:      <%= ENV.fetch("POSTGRES_PORT") { 5432 } %>
 
 development:
   <<: *default
-  url:      <%= ENV["DATABASE_URL"] %>
+  database: negrosdev_dev
 
 test:
   <<: *default
-  url:      <%= ENV["DATABASE_URL"] %>
+  database: negrosdev_test
 
 production:
-  <<: *default
-  url:      <%= ENV["DATABASE_URL"] %>
+  url: <%= ENV["DATABASE_URL"] %>
+
