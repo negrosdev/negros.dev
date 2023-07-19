@@ -1,0 +1,81 @@
+html,
+body {
+  display       : flex;
+  min-height    : 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+nav ul li strong {
+  margin-left: 5px;
+}
+
+ion-icon {
+  font-size: 30px;
+}
+
+[data-category]:before {
+  background: #ff00a6;
+  content   : attr(data-category);
+}
+
+[data-category]:before {
+  display      : block;
+  position     : absolute;
+  top          : 0;
+  right        : 0;
+  padding      : 0.375rem 0.75rem;
+  border-radius: 0;
+  color        : var(--primary-inverse);
+  font-size    : 14px;
+  line-height  : 1;
+}
+
+.contents article {
+  position: relative;
+  height  : 23vh;
+}
+
+a {
+  color          : #000 !important;
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(216, 232, 248);
+}
+
+.avatar {
+  width        : 78px;
+  height       : auto;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.contents article {
+  display        : grid;
+  justify-content: center;
+  align-items    : center;
+  min-height     : 18vh;
+}
+
+th,
+td {
+  text-align: center;
+}
+
+footer {
+  background-color: #18242c;
+}
+footer p {
+  color: #fff !important;
+}
