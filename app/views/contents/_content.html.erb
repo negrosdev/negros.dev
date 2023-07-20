@@ -1,0 +1,13 @@
+<% contents.each_slice(3) do |contents| %>
+  <div class="grid contents">
+    <% contents.each do |content| %>
+      <div id="published_contents">
+        <a>
+          <article>
+            <h5> <%= content.name %>  </h5>
+          </article>
+        </a>
+      </div>
+    <% end %>
+  </div>
+<% end %>

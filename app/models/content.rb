@@ -4,5 +4,5 @@ class Content < ApplicationRecord
 
   validates :name, :body, :description, :slug, presence: true
 
-  enum status: {draft: 0, publish: 1, review: 2}
+  enum status: {draft: 0, published: 1, review: 2}
 end
