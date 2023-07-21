@@ -45,7 +45,7 @@ feature 'Visits Home page' do
 
       expect(Content.last).to eq(content)
       expect(page).not_to have_content(content.name)
-      expect(page).to have_content 'Nenhum conteúdo para exibir'
+      expect(page).to have_content 'Não existe conteúdo para exibir'
     end
 
     scenario 'should haven\'t content on draft status' do
@@ -55,7 +55,7 @@ feature 'Visits Home page' do
 
       expect(Content.last).to eq(content)
       expect(page).not_to have_content(content.name)
-      expect(page).to have_content 'Nenhum conteúdo para exibir'
+      expect(page).to have_content 'Não existe conteúdo para exibir'
     end
 
     scenario 'should have DESC contents ordered' do
