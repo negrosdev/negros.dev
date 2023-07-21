@@ -2,13 +2,11 @@
   <% contents.each_slice(3) do |contents| %>
     <div class="grid">
       <% contents.each do |content| %>
-        <div id="published_<%= dom_id content%>">
-          <a>
-            <article>
-              <h5> <%= content.name %>  </h5>
-            </article>
-          </a>
-        </div>
+        <a class="published_content">
+          <article>
+            <h5> <%= content.name %>  </h5>
+          </article>
+        </a>
       <% end %>
     </div>
   <% end %>
