@@ -28,16 +28,6 @@ feature 'Visits Home page' do
       expect(page).to have_content 'Creating columns in SQL database'
     end
 
-    scenario 'should have 6 published contents' do
-      contents = create_list(:content, 8)
-
-      visit root_path
-
-      contents.each do |content|
-        expect(page).to have_css(".published_content", count: 6)
-      end
-    end
-
     scenario 'should haven\'t content on review status' do
       content = create(:content, status: :review)
 
@@ -58,7 +48,7 @@ feature 'Visits Home page' do
 
     scenario 'should have DESC contents ordered' do
       travel_to 1.day.ago do
-        create(:content, status: :published, name: 'Ruby On Rails - Configure Active Record')
+        create(:content, status: :published, name: 'Configure Active Record')
       end
       travel_to 3.day.ago do
         create(:content, status: :published, name: 'OOP With Ruby')
@@ -73,10 +63,20 @@ feature 'Visits Home page' do
         expect(page).to have_content('About Remix framework')
       end
       within 'section.contents > div:nth-child(1) > a:nth-child(2)' do
-        expect(page).to have_content('Ruby On Rails - Configure Active Record')
+        expect(page).to have_content('Configure Active Record')
       end
       within 'section.contents > div:nth-child(1) > a:nth-child(3)' do
         expect(page).to have_content('OOP With Ruby')
+      end
+    end
+
+    scenario 'should have 6 published contents' do
+      contents = create_list(:content, 8)
+
+      visit root_path
+
+      contents.each do |content|
+        expect(page).to have_css(".published_content", count: 6)
       end
     end
   end

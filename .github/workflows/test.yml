@@ -27,7 +27,7 @@ jobs:
         uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
         with:
           bundler-cache: true
-      - name: Set up application
-        run: bin/setup
+      - name: Prepare database
+        run: bin/rails db:prepare
       - name: Run tests
         run: bundle exec rspec
