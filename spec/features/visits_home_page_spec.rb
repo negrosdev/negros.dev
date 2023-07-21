@@ -2,43 +2,84 @@ require 'rails_helper'
 
 feature 'Visits Home page' do
   context 'when visit page' do
-    before do
-      create(:content, name: 'Creating columns in SQL database', status: :published)
-
-      visit root_path
-    end
     scenario 'successfully' do
+      visit root_path
+
       expect(page).to have_http_status(:success)
     end
 
     scenario 'should have title' do
+      visit root_path
+
       expect(page).to have_content('Negros.dev')
     end
 
     scenario 'should have footer' do
+      visit root_path
+
       expect(page).to have_content '&COPY; Negros.dev, 2023 · Todos os direitos reservados.'
     end
 
     scenario 'should have published contents' do
+      create(:content, name: 'Creating columns in SQL database', status: :published)
+
+      visit root_path
+
       expect(page).to have_content 'Creating columns in SQL database'
     end
 
     scenario 'should have 6 published contents' do
-      create_list(:content, 8)
+      contents = create_list(:content, 8)
 
       visit root_path
 
-      expect(page).to     have_css("#published_contents", count: 6)
-      expect(page).not_to have_css("#published_contents", count: 8)
+      contents.each do |content|
+        expect(page).to have_css(".contents article", count: 6)
+      end
     end
 
-    scenario 'should have ASC contents ordered' do
-      create_list(:content, 8)
+    scenario 'should haven\'t content on review status' do
+      content = create(:content, status: :review)
 
       visit root_path
 
-      expect(page).to     have_css("#published_contents", count: 6)
-      expect(page).not_to have_css("#published_contents", count: 8)
+      expect(Content.last).to eq(content)
+      expect(page).not_to have_content(content.name)
+      expect(page).to have_content 'Nenhum conteúdo para exibir'
+    end
+
+    scenario 'should haven\'t content on draft status' do
+      content = create(:content, status: :draft)
+
+      visit root_path
+
+      expect(Content.last).to eq(content)
+      expect(page).not_to have_content(content.name)
+      expect(page).to have_content 'Nenhum conteúdo para exibir'
+    end
+
+    scenario 'should have DESC contents ordered' do
+      travel_to 1.day.ago do
+        create(:content, name: 'Ruby On Rails - Configure Active Record')
+      end
+      travel_to 3.day.ago do
+        create(:content, name: 'OOP With Ruby')
+      end
+      travel_to Time.zone.now do
+        create(:content, name: 'About Remix framework')
+      end
+
+      visit root_path
+
+      within '.contents .grid div:nth-child(1)' do
+        expect(page).to have_content 'About Remix framework'
+      end
+      within '.contents .grid div:nth-child(2)' do
+        expect(page).to have_content('Ruby On Rails - Configure Active Record')
+      end
+      within '.contents .grid div:nth-child(3)' do
+        expect(page).to have_content('OOP With Ruby')
+      end
     end
   end
 end
