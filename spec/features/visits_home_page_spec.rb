@@ -58,13 +58,13 @@ feature 'Visits Home page' do
 
     scenario 'should have DESC contents ordered' do
       travel_to 1.day.ago do
-        create(:content, name: 'Ruby On Rails - Configure Active Record')
+        create(:content, status: :published, name: 'Ruby On Rails - Configure Active Record')
       end
       travel_to 3.day.ago do
-        create(:content, name: 'OOP With Ruby')
+        create(:content, status: :published, name: 'OOP With Ruby')
       end
       travel_to Time.zone.now do
-        create(:content, name: 'About Remix framework')
+        create(:content, status: :published, name: 'About Remix framework')
       end
 
       visit root_path
