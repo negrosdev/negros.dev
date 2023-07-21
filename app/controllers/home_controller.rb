@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @contents = Content.published.limit(6).order('created_at DESC')
+    @contents = Content.published.order('created_at DESC').limit(6)
   end
 end
