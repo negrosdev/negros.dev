@@ -10,7 +10,7 @@ RSpec.describe Content, type: :model do
     context 'should have specific status' do
       it { should define_enum_for(:status) }
       it do
-        should define_enum_for(:status).with_values %i[draft publish review]
+        should define_enum_for(:status).with_values %i[draft published review]
       end
     end
 

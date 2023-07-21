@@ -1,0 +1,9 @@
+<section>
+  <% if @contents.any? %>
+    <h1>Conteúdos</h1>
+    <p>Escolha um conteúdo e clique em seu nome para obter continuar lendo.</p>
+    <%= render 'contents/content', { contents: @contents } %>
+  <% else %>
+    <h1 class="text-center">Não existe conteúdo para exibir</h1>
+  <% end %>
+</section>
