@@ -33,8 +33,8 @@ feature 'Visits Home page' do
 
       visit root_path
 
-      contents.each do |content|
-        expect(page).to have_css(".published_content", count: 6)
+      contents.each do |_content|
+        expect(page).to have_css('.published_content', count: 6)
       end
     end
 
@@ -60,10 +60,10 @@ feature 'Visits Home page' do
       travel_to 1.day.ago do
         create(:content, name: 'Ruby On Rails - Configure Active Record')
       end
-      travel_to 3.day.ago do
+      travel_to 3.days.ago do
         create(:content, name: 'OOP With Ruby')
       end
-      travel_to Time.zone.now do
+      freeze_time do
         create(:content, name: 'About Remix framework')
       end
 
