@@ -2,7 +2,7 @@
   <% contents.each_slice(3) do |contents| %>
     <div class="grid">
       <% contents.each do |content| %>
-        <a class="published_content">
+        <a class="published_content" href="<%= content_path(content) %>">
           <article>
             <h5> <%= content.name %>  </h5>
           </article>
