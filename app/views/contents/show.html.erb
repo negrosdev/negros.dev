@@ -1,22 +1,19 @@
 <section>
   <div class="grid contents">
     <div>
-      <a href="post.html">
-        <article>
-          <h3 class="text-center"><%= @content.name %></h3>
-        </article>
-      </a>
+      <article>
+        <h3 class="text-center"><%= @content.name %></h3>
+      </article>
     </div>
   </div>
 
-  <div class="grid contents">
-    <div>
-      <iframe width="100%" height="675" src="https://www.youtube.com/embed/L9rtI1YPRwY?controls=0"
-        title="YouTube video player" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen></iframe>
+  <% if  @content.embeded_video.html_safe.present? %>
+    <div class="grid contents">
+      <div>
+        <%= @content.embeded_video.html_safe %>
+      </div>
     </div>
-  </div>
+  <% end %>
 </section>
 
 <section>
