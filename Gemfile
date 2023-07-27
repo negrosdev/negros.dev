@@ -40,6 +40,8 @@ gem 'friendly_id', '~> 5.5'
 
 gem 'administrate'
 
+gem 'devise', '~> 4.9'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
