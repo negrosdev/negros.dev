@@ -14,7 +14,7 @@ feature 'Visits Content page' do
       expect(page).to have_content(content.name)
     end
 
-    scenario 'directly' do
+    scenario 'should view post' do
       content = create(:content, status: :published, category:)
 
       visit content_path(content)
@@ -23,7 +23,7 @@ feature 'Visits Content page' do
       expect(page).to have_content(content.body)
     end
 
-    scenario 'should show the post it was published' do
+    scenario 'should view the post if it has been published' do
       content = create(:content, status: :draft, category:)
 
       visit content_path(content)
