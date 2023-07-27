@@ -2,6 +2,8 @@ require 'rails_helper'
 
 feature 'Visits Home page' do
   context 'when visit page' do
+    let(:category) { create(:category, name: 'Ruby') }
+
     scenario 'successfully' do
       visit root_path
 
@@ -21,15 +23,16 @@ feature 'Visits Home page' do
     end
 
     scenario 'should have published contents' do
-      create(:content, name: 'Creating columns in SQL database', status: :published)
+      create(:content, name: 'Creating columns in SQL database', status: :published, category:)
 
       visit root_path
 
       expect(page).to have_content 'Creating columns in SQL database'
+      expect(page).to have_css("article[data-category*='Ruby']")
     end
 
     scenario 'should have 6 published contents' do
-      contents = create_list(:content, 8)
+      contents = create_list(:content, 8, category:)
 
       visit root_path
 
@@ -39,7 +42,7 @@ feature 'Visits Home page' do
     end
 
     scenario 'should haven\'t content on review status' do
-      content = create(:content, status: :review)
+      content = create(:content, status: :review, category:)
 
       visit root_path
 
@@ -48,7 +51,7 @@ feature 'Visits Home page' do
     end
 
     scenario 'should haven\'t content on draft status' do
-      content = create(:content, status: :draft)
+      content = create(:content, status: :draft, category:)
 
       visit root_path
 
@@ -58,13 +61,13 @@ feature 'Visits Home page' do
 
     scenario 'should have DESC contents ordered' do
       travel_to 1.day.ago do
-        create(:content, name: 'Ruby On Rails - Configure Active Record')
+        create(:content, name: 'Ruby On Rails - Configure Active Record', category:)
       end
       travel_to 3.days.ago do
-        create(:content, name: 'OOP With Ruby')
+        create(:content, name: 'OOP With Ruby', category:)
       end
       freeze_time do
-        create(:content, name: 'About Remix framework')
+        create(:content, name: 'About Remix framework', category:)
       end
 
       visit root_path

@@ -2,8 +2,10 @@ require 'rails_helper'
 
 feature 'Visits Content page' do
   context 'when visit page' do
+    let(:category) { create(:category, name: 'Ruby') }
+
     scenario 'through of home page' do
-      content = create(:content, status: :published)
+      content = create(:content, status: :published, category:)
 
       visit root_path
       click_on content.name
@@ -13,7 +15,7 @@ feature 'Visits Content page' do
     end
 
     scenario 'directly' do
-      content = create(:content, status: :published)
+      content = create(:content, status: :published, category:)
 
       visit content_path(content)
 
@@ -22,7 +24,7 @@ feature 'Visits Content page' do
     end
 
     scenario 'should show the post it was published' do
-      content = create(:content, status: :draft)
+      content = create(:content, status: :draft, category:)
 
       visit content_path(content)
 
