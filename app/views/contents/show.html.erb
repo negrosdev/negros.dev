@@ -7,11 +7,13 @@
     </div>
   </div>
 
-  <div class="grid contents">
-    <div>
-      <%= @content.embeded_video.html_safe %>
+  <% if  @content.embeded_video.html_safe.present? %>
+    <div class="grid contents">
+      <div>
+        <%= @content.embeded_video.html_safe %>
+      </div>
     </div>
-  </div>
+  <% end %>
 </section>
 
 <section>
