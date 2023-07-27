@@ -13,6 +13,7 @@ class ContentDashboard < Administrate::BaseDashboard
     description: Field::String,
     name: Field::String,
     slug: Field::String,
+    embeded_video: Field::Text,
     status: Field::Select.with_options(searchable: false, collection: lambda { |field|
                                                                         field.resource.class.send(field.attribute.to_s.pluralize).keys
                                                                       }),
@@ -54,6 +55,7 @@ class ContentDashboard < Administrate::BaseDashboard
     description
     name
     slug
+    embeded_video
     status
   ].freeze
 

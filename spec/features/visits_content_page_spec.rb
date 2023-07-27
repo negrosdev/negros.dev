@@ -29,6 +29,7 @@ feature 'Visits Content page' do
       expect(page).to have_content('Conteúdo não encontrado!')
       expect(page).not_to have_content(content.name)
       expect(page).not_to have_content(content.body)
+      expect(page).not_to have_content(content.embeded_video)
     end
   end
 end
