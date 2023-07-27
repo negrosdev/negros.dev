@@ -5,4 +5,6 @@ class Content < ApplicationRecord
   validates :name, :body, :description, :slug, presence: true
 
   enum status: { draft: 0, published: 1, review: 2 }
+
+  belongs_to :category
 end

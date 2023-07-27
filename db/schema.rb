@@ -10,9 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_27_195926) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_27_214354) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.string "color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "contents", force: :cascade do |t|
     t.string "name"
@@ -23,6 +30,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_27_195926) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "embeded_video"
+    t.bigint "category_id", null: false
+    t.index ["category_id"], name: "index_contents_on_category_id"
     t.index ["name"], name: "index_contents_on_name"
     t.index ["slug"], name: "index_contents_on_slug", unique: true
   end
@@ -56,4 +65,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_27_195926) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "contents", "categories"
 end
