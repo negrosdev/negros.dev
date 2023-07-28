@@ -76,6 +76,9 @@ GEM
       kaminari (>= 1.0)
       sassc-rails (~> 2.1)
       selectize-rails (~> 0.6)
+    administrate-field-active_storage (0.4.2)
+      administrate (>= 0.2.2)
+      rails (>= 7.0)
     ast (2.4.2)
     bcrypt (3.1.19)
     bindex (0.8.1)
@@ -126,6 +129,9 @@ GEM
       activesupport (>= 5.0)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
+    image_processing (1.12.2)
+      mini_magick (>= 4.9.5, < 5)
+      ruby-vips (>= 2.0.17, < 3)
     importmap-rails (1.2.1)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
@@ -164,6 +170,7 @@ GEM
     marcel (1.0.2)
     matrix (0.4.2)
     method_source (1.0.0)
+    mini_magick (4.12.0)
     mini_mime (1.1.2)
     mini_portile2 (2.8.2)
     minitest (5.18.1)
@@ -274,6 +281,8 @@ GEM
       rack (>= 1.1)
       rubocop (>= 1.33.0, < 2.0)
     ruby-progressbar (1.13.0)
+    ruby-vips (2.1.4)
+      ffi (~> 1.12)
     sassc (2.4.0)
       ffi (~> 1.9)
     sassc-rails (2.1.2)
@@ -326,6 +335,7 @@ PLATFORMS
 
 DEPENDENCIES
   administrate
+  administrate-field-active_storage (~> 0.4.2)
   bootsnap
   bundler-audit (~> 0.9.1)
   capybara
@@ -335,6 +345,7 @@ DEPENDENCIES
   factory_bot_rails
   faker
   friendly_id (~> 5.5)
+  image_processing (~> 1.2)
   importmap-rails
   jbuilder
   pg (~> 1.1)
