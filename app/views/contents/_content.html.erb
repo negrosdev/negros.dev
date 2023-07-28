@@ -3,7 +3,7 @@
     <div class="grid">
       <% contents.each do |content| %>
         <a class="published_content" href="<%= content_path(content) %>">
-          <article  data-category="Ruby">
+          <article  data-category="<%= content.category.name %>">
             <h5> <%= content.name %>  </h5>
           </article>
         </a>
