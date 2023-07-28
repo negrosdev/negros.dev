@@ -4,6 +4,7 @@ FactoryBot.define do
     body          { Faker::Lorem.paragraph(sentence_count: 5) }
     description   { Faker::Lorem.paragraph(sentence_count: 15) }
     status { :published }
+    category
     embeded_video do
       <<-VIDEO
         <iframe width="100%" height="675" src="https://www.youtube.com/embed/L9rtI1YPRwY?controls=0"
