@@ -1,6 +1,6 @@
 require 'administrate/base_dashboard'
 
-class ContentDashboard < Administrate::BaseDashboard
+class CategoryDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -9,15 +9,9 @@ class ContentDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    category: Field::BelongsTo,
-    body: Field::String,
-    description: Field::String,
+    color: Field::String,
+    contents: Field::HasMany,
     name: Field::String,
-    slug: Field::String,
-    embeded_video: Field::Text,
-    status: Field::Select.with_options(searchable: false, collection: lambda { |field|
-                                                                        field.resource.class.send(field.attribute.to_s.pluralize).keys
-                                                                      }),
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
@@ -29,21 +23,18 @@ class ContentDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     id
-    body
-    description
+    color
+    contents
     name
-    status
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
     id
-    body
-    description
+    color
+    contents
     name
-    slug
-    status
     created_at
     updated_at
   ].freeze
@@ -52,13 +43,9 @@ class ContentDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    body
-    description
+    color
+    contents
     name
-    slug
-    embeded_video
-    category
-    status
   ].freeze
 
   # COLLECTION_FILTERS
@@ -73,7 +60,7 @@ class ContentDashboard < Administrate::BaseDashboard
   #   }.freeze
   COLLECTION_FILTERS = {}.freeze
 
-  def display_resource(content)
-    content.name
+  def display_resource(category)
+    category.name
   end
 end
