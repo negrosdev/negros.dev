@@ -6,6 +6,10 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link rel="apple-touch-icon" sizes="180x180" href="<%= image_path 'apple-touch-icon.png' %> ">
+    <link rel="icon" type="image/png" sizes="32x32" href="<%= image_path 'favicon-32x32.png' %> ">
+    <link rel="icon" type="image/png" sizes="16x16" href="<%= image_path 'favicon-16x16.png' %> ">
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <script defer type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script defer nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -14,7 +18,17 @@
   <body>
     <%= render 'shared/navbar' %>
 
-    <main class="container"> <%= yield %> </main>
+    <main class="container">
+      <% if flash[:alert] %>
+        <div class="alert"><%= flash[:alert] %></div>
+      <% end %>
+
+      <% if flash[:notice] %>
+        <div class="notice"><%= flash[:notice] %></div>
+      <% end %>
+
+      <%= yield %>
+    </main>
 
     <%= render 'shared/footer' %>
   </body>
