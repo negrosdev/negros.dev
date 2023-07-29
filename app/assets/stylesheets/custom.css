@@ -18,6 +18,10 @@ main {
   color: #fff;
 }
 
+.spacing {
+  margin: 3vh 0px !important;
+}
+
 nav ul li strong {
   margin-left: 5px;
 }
