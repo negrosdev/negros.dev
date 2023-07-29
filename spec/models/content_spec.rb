@@ -9,6 +9,7 @@ RSpec.describe Content, type: :model do
 
     context 'associations' do
       it { should belong_to(:category) }
+      it { should have_many(:resources) }
     end
 
     context 'should have specific status' do
@@ -16,6 +17,20 @@ RSpec.describe Content, type: :model do
       it do
         should define_enum_for(:status).with_values %i[draft published review]
       end
+    end
+
+    it 'should have categories' do
+      category = create(:category)
+      content = create(:content, category:)
+
+      expect(content.category).to eq(category)
+    end
+
+    it 'should have resources' do
+      content = create(:content)
+      resource = create(:resource, content:)
+
+      expect(content.resources).to include(resource)
     end
 
     it 'should create slug' do
