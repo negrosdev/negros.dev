@@ -10,12 +10,12 @@ main {
   flex: 1;
 }
 
-.grid {
+.grid.contents {
   grid-template-columns: repeat(3, 1fr) !important;
 }
 
-.navbar {
-  background: #fff;
+.navbar strong {
+  color: #fff;
 }
 
 nav ul li strong {
@@ -24,6 +24,7 @@ nav ul li strong {
 
 ion-icon {
   font-size: 30px;
+  color: #fff;
 }
 
 [data-category]:before {
@@ -44,12 +45,13 @@ ion-icon {
 }
 
 a {
-  color          : #000 !important;
-  text-decoration: none;
+  color          : aliceblue;
 }
 
 a:hover {
   color: rgb(216, 232, 248);
+  text-decoration: none;
+
 }
 
 .avatar {
@@ -78,10 +80,7 @@ td {
   text-align: center;
 }
 
-/* footer {
-  background-color: #fff;
-}
 
-footer p {
-  color: #000 !important;
-} */
+footer {
+  background-color: #18242c;
+}

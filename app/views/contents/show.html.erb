@@ -1,5 +1,5 @@
 <section>
-  <div class="grid contents">
+  <div class="grid">
     <div>
       <article>
         <h3 class="text-center"><%= @content.name %></h3>
@@ -8,7 +8,7 @@
   </div>
 
   <% if  @content.embeded_video.html_safe.present? %>
-    <div class="grid contents">
+    <div class="grid">
       <div>
         <%= @content.embeded_video.html_safe %>
       </div>
@@ -17,7 +17,7 @@
 </section>
 
 <section>
-  <div class="grid contents">
+  <div class="grid">
     <div>
       <p>
         <%= @content.body %>
