@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  namespace :admin do
+  namespace :admin, path: ENV.fetch('ADMIN_ROUTE_PATH', '/admin') do
       resources :contents
       resources :categories
       resources :resources

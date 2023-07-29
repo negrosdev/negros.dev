@@ -1,0 +1,41 @@
+<section>
+  <h2>Minha conta</h2>
+  <p>
+    Para ter acesso ao sistema, por favor, insira seu e-mail e senha nos campos abaixo.
+  </p>
+  <article>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="grid">
+        <div>
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div>
+          <%= f.label :password %><br />
+          <%= f.password_field :password, autocomplete: "current-password" %>
+        </div>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="grid spacing">
+          <div>
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </div>
+        </div>
+      <% end %>
+
+      <div class="grid">
+        <div>
+          <%= f.submit "Entrar" %>
+        </div>
+      </div>
+    <% end %>
+  </article>
+
+  <%= render "devise/shared/links" %>
+</section>
+
