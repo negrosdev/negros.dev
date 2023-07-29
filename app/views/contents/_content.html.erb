@@ -1,13 +1,11 @@
-<section class="contents">
-  <% contents.each_slice(3) do |contents| %>
-    <div class="grid">
-      <% contents.each do |content| %>
-        <a class="published_content" href="<%= content_path(content) %>">
-          <article  data-category="<%= content.category.name %>">
-            <h5> <%= content.name %>  </h5>
-          </article>
-        </a>
-      <% end %>
+<div class='grid contents'>
+  <% contents.each do |content| %>
+    <div>
+      <a class='published_content' href='<%= content_path(content) %>'>
+        <article  data-category='<%= content.category.name %>'>
+          <h5><%= content.name %></h5>
+        </article>
+      </a>
     </div>
   <% end %>
-</section>
+</div>

@@ -1,12 +1,21 @@
 html,
 body {
-  display       : flex;
-  min-height    : 100vh;
-  flex-direction: column;
+  display         : flex;
+  min-height      : 100vh;
+  flex-direction  : column;
+  background-color: #11191f !important;
 }
 
 main {
   flex: 1;
+}
+
+.grid {
+  grid-template-columns: repeat(3, 1fr) !important;
+}
+
+.navbar {
+  background: #fff;
 }
 
 nav ul li strong {
@@ -34,11 +43,6 @@ ion-icon {
   line-height  : 1;
 }
 
-.contents article {
-  position: relative;
-  height  : 23vh;
-}
-
 a {
   color          : #000 !important;
   text-decoration: none;
@@ -49,8 +53,8 @@ a:hover {
 }
 
 .avatar {
-  width        : 78px;
-  height       : auto;
+  width : 78px;
+  height: auto;
 }
 
 .text-right {
@@ -65,7 +69,8 @@ a:hover {
   display        : grid;
   justify-content: center;
   align-items    : center;
-  min-height     : 18vh;
+  height         : 279px !important;
+  position       : relative !important;
 }
 
 th,
@@ -73,9 +78,10 @@ td {
   text-align: center;
 }
 
-footer {
-  background-color: #18242c;
+/* footer {
+  background-color: #fff;
 }
+
 footer p {
-  color: #fff !important;
-}
+  color: #000 !important;
+} */
