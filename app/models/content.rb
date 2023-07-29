@@ -7,4 +7,5 @@ class Content < ApplicationRecord
   enum status: { draft: 0, published: 1, review: 2 }
 
   belongs_to :category
+  has_many   :resources, dependent: :destroy
 end
