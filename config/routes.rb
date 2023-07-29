@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   namespace :admin do
       resources :contents
       resources :categories
+      resources :resources
 
       root to: "contents#index"
     end
