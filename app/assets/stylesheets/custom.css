@@ -1,12 +1,21 @@
 html,
 body {
-  display       : flex;
-  min-height    : 100vh;
-  flex-direction: column;
+  display         : flex;
+  min-height      : 100vh;
+  flex-direction  : column;
+  background-color: #11191f !important;
 }
 
 main {
   flex: 1;
+}
+
+.grid.contents {
+  grid-template-columns: repeat(3, 1fr) !important;
+}
+
+.navbar strong {
+  color: #fff;
 }
 
 nav ul li strong {
@@ -15,6 +24,7 @@ nav ul li strong {
 
 ion-icon {
   font-size: 30px;
+  color: #fff;
 }
 
 [data-category]:before {
@@ -34,23 +44,19 @@ ion-icon {
   line-height  : 1;
 }
 
-.contents article {
-  position: relative;
-  height  : 23vh;
-}
-
 a {
-  color          : #000 !important;
-  text-decoration: none;
+  color          : aliceblue;
 }
 
 a:hover {
   color: rgb(216, 232, 248);
+  text-decoration: none;
+
 }
 
 .avatar {
-  width        : 78px;
-  height       : auto;
+  width : 78px;
+  height: auto;
 }
 
 .text-right {
@@ -65,7 +71,8 @@ a:hover {
   display        : grid;
   justify-content: center;
   align-items    : center;
-  min-height     : 18vh;
+  height         : 279px !important;
+  position       : relative !important;
 }
 
 th,
@@ -73,9 +80,7 @@ td {
   text-align: center;
 }
 
+
 footer {
   background-color: #18242c;
-}
-footer p {
-  color: #fff !important;
 }

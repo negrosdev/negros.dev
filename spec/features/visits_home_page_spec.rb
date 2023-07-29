@@ -72,13 +72,13 @@ feature 'Visits Home page' do
 
       visit root_path
 
-      within 'section.contents > div:nth-child(1) > a:nth-child(1)' do
+      within 'section > div > div:nth-child(1) > a > article' do
         expect(page).to have_content('About Remix framework')
       end
-      within 'section.contents > div:nth-child(1) > a:nth-child(2)' do
+      within 'section > div > div:nth-child(2) > a > article' do
         expect(page).to have_content('Ruby On Rails - Configure Active Record')
       end
-      within 'section.contents > div:nth-child(1) > a:nth-child(3)' do
+      within 'section > div > div:nth-child(3) > a > article' do
         expect(page).to have_content('OOP With Ruby')
       end
     end
